@@ -1,0 +1,8 @@
+C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\MODEL\bin\Release\MODEL.dll.config
+C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\MODEL\bin\Release\MODEL.dll
+C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\MODEL\bin\Release\MODEL.pdb
+C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\MODEL\bin\Release\EntityFramework.dll
+C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\MODEL\bin\Release\EntityFramework.xml
+C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\MODEL\obj\Release\MODEL.csprojResolveAssemblyReference.cache
+C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\MODEL\obj\Release\MODEL.dll
+C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\MODEL\obj\Release\MODEL.pdb

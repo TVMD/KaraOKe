@@ -1,0 +1,5 @@
+C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\IVIEW\bin\Release\IVIEW.dll
+C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\IVIEW\bin\Release\IVIEW.pdb
+C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\IVIEW\obj\Release\IVIEW.csprojResolveAssemblyReference.cache
+C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\IVIEW\obj\Release\IVIEW.dll
+C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\IVIEW\obj\Release\IVIEW.pdb
