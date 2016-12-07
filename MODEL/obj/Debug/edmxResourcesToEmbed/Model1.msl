@@ -1,20 +1,147 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="demoModelStoreContainer" CdmEntityContainer="demoEntities1">
-    <EntitySetMapping Name="Khoas">
-      <EntityTypeMapping TypeName="demoModel.Khoa">
-        <MappingFragment StoreEntitySet="Khoa">
+  <EntityContainerMapping StorageEntityContainer="QLPhongKaraokeModelStoreContainer" CdmEntityContainer="QLPhongKaraokeEntities">
+    <EntitySetMapping Name="BCDOANHTHUs">
+      <EntityTypeMapping TypeName="QLPhongKaraokeModel.BCDOANHTHU">
+        <MappingFragment StoreEntitySet="BCDOANHTHU">
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="TenKhoa" ColumnName="TenKhoa" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="DoanhThu" ColumnName="DoanhThu" />
+          <ScalarProperty Name="ChiPhi" ColumnName="ChiPhi" />
+          <ScalarProperty Name="Thang" ColumnName="Thang" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="SinhViens">
-      <EntityTypeMapping TypeName="demoModel.SinhVien">
-        <MappingFragment StoreEntitySet="SinhVien">
+    <EntitySetMapping Name="BCTONKHOes">
+      <EntityTypeMapping TypeName="QLPhongKaraokeModel.BCTONKHO">
+        <MappingFragment StoreEntitySet="BCTONKHO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Thang" ColumnName="Thang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CT_BCTONKHO">
+      <EntityTypeMapping TypeName="QLPhongKaraokeModel.CT_BCTONKHO">
+        <MappingFragment StoreEntitySet="CT_BCTONKHO">
+          <ScalarProperty Name="ID_BCTonKho" ColumnName="ID_BCTonKho" />
+          <ScalarProperty Name="ID_Hang" ColumnName="ID_Hang" />
+          <ScalarProperty Name="TonDau" ColumnName="TonDau" />
+          <ScalarProperty Name="SuDung" ColumnName="SuDung" />
+          <ScalarProperty Name="TonCuoi" ColumnName="TonCuoi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CT_HDNHAP">
+      <EntityTypeMapping TypeName="QLPhongKaraokeModel.CT_HDNHAP">
+        <MappingFragment StoreEntitySet="CT_HDNHAP">
+          <ScalarProperty Name="IDHang" ColumnName="IDHang" />
+          <ScalarProperty Name="IDHoaDon" ColumnName="IDHoaDon" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="DonGiaNhap" ColumnName="DonGiaNhap" />
+          <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CT_HOADONDV">
+      <EntityTypeMapping TypeName="QLPhongKaraokeModel.CT_HOADONDV">
+        <MappingFragment StoreEntitySet="CT_HOADONDV">
+          <ScalarProperty Name="ID_HoaDonDV" ColumnName="ID_HoaDonDV" />
+          <ScalarProperty Name="ID_Hang" ColumnName="ID_Hang" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DATPHONGs">
+      <EntityTypeMapping TypeName="QLPhongKaraokeModel.DATPHONG">
+        <MappingFragment StoreEntitySet="DATPHONG">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NgayGioDat" ColumnName="NgayGioDat" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HANGs">
+      <EntityTypeMapping TypeName="QLPhongKaraokeModel.HANG">
+        <MappingFragment StoreEntitySet="HANG">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Ten" ColumnName="Ten" />
-          <ScalarProperty Name="IDKhoa" ColumnName="IDKhoa" />
+          <ScalarProperty Name="DonGiaNhap" ColumnName="DonGiaNhap" />
+          <ScalarProperty Name="DonGiaBan" ColumnName="DonGiaBan" />
+          <ScalarProperty Name="SLTon" ColumnName="SLTon" />
+          <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+          <ScalarProperty Name="Requested" ColumnName="Requested" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOADONDVs">
+      <EntityTypeMapping TypeName="QLPhongKaraokeModel.HOADONDV">
+        <MappingFragment StoreEntitySet="HOADONDV">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_Phong" ColumnName="ID_Phong" />
+          <ScalarProperty Name="NgayGioLap" ColumnName="NgayGioLap" />
+          <ScalarProperty Name="TenKH" ColumnName="TenKH" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOADONNHAPs">
+      <EntityTypeMapping TypeName="QLPhongKaraokeModel.HOADONNHAP">
+        <MappingFragment StoreEntitySet="HOADONNHAP">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAIPHONGs">
+      <EntityTypeMapping TypeName="QLPhongKaraokeModel.LOAIPHONG">
+        <MappingFragment StoreEntitySet="LOAIPHONG">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="GiaNgay" ColumnName="GiaNgay" />
+          <ScalarProperty Name="GiaDem" ColumnName="GiaDem" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHIEUCHIs">
+      <EntityTypeMapping TypeName="QLPhongKaraokeModel.PHIEUCHI">
+        <MappingFragment StoreEntitySet="PHIEUCHI">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHONGs">
+      <EntityTypeMapping TypeName="QLPhongKaraokeModel.PHONG">
+        <MappingFragment StoreEntitySet="PHONG">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="TGStart" ColumnName="TGStart" />
+          <ScalarProperty Name="IdLoaiPhong" ColumnName="IdLoaiPhong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STATUS">
+      <EntityTypeMapping TypeName="QLPhongKaraokeModel.STATUS">
+        <MappingFragment StoreEntitySet="STATUS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THAMSOes">
+      <EntityTypeMapping TypeName="QLPhongKaraokeModel.THAMSO">
+        <MappingFragment StoreEntitySet="THAMSO">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

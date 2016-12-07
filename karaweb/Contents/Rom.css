@@ -1,0 +1,25 @@
+﻿.RomContain {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-right: 2%;
+    margin-left: 5%;
+    background: red;
+    
+}
+.RomRow {
+    background: blue;
+}
+.Rom {
+    float: left;
+    background: yellow;
+    width: 25%;
+}
+.Rom.RomBusy {
+    background: whitesmoke;
+}
+.Rom.RomBooked {
+    
+}
+.Rom.RomAvailble {
+    
+}

@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="UC_SinhVien.ascx.cs" Inherits="UC_UC_SinhVien" %>
+﻿<%--<%@ Control Language="C#" AutoEventWireup="true" CodeFile="UC_SinhVien.ascx.cs" Inherits="UC_UC_SinhVien" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 
 <div>
@@ -37,7 +37,7 @@
                     <ColumnValidationSettings EnableRequiredFieldValidation="true" EnableModelErrorMessageValidation="true">
                         <RequiredFieldValidator ForeColor="Red" ErrorMessage="*"></RequiredFieldValidator>
                     </ColumnValidationSettings>
-                </telerik:GridBoundColumn>
+                </telerik:GridBoundColumn>--%>
 
                 <%--<telerik:GridDateTimeColumn DataField="NgaySinh" DataType="System.DateTime"
                                             DataFormatString="{0:dd/MM/yyyy}" EditDataFormatString="dd/MM/yyyy"
@@ -48,7 +48,7 @@
                     </ColumnValidationSettings>
                 </telerik:GridDateTimeColumn>--%>
 
-                <telerik:GridTemplateColumn UniqueName="Khoa" HeaderText="Khoa"
+               <%-- <telerik:GridTemplateColumn UniqueName="Khoa" HeaderText="Khoa"
                     HeaderStyle-Width="600px">
                     <ItemTemplate>
                         <%#DataBinder.Eval(Container.DataItem, "TenKhoa") %>
@@ -75,4 +75,4 @@
             </EditFormSettings>
         </MasterTableView>
     </telerik:RadGrid>
-</div>
+</div>--%>
