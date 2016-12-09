@@ -58,6 +58,15 @@
     //        cboKhoa.DataSource = DsKhoa;
     //        cboKhoa.DataBind();
     //    }
+            //if (e.Item is GridEditFormItem && e.Item.IsInEditMode)
+            //{
+            //    var item = (GridEditFormItem)e.Item;
+            //    var combo = (RadComboBox)item.FindControl("k");
+            //    if (!(e.Item is IGridInsertItem))
+            //    {
+            //        combo.SelectedValue = ((DTOSinhVien)item.DataItem).MaKhoa;
+            //    }
+            //}
     //}
 
     //protected void RadGrid1_OnInsertCommand(object sender, GridCommandEventArgs e)

@@ -819,7 +819,7 @@
 .fa-comment-o:before {
   content: "\f0e5";
 }
-.fa-comments-o:before {
+.fa-comments-o:before {;
   content: "\f0e6";
 }
 .fa-flash:before,

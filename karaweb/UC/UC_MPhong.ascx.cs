@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Data;
+using System.Web.UI;
 using System.Web.UI.HtmlControls;
-using System.Windows.Forms;
 using IVIEW;
 using PRESENTER;
 using Telerik.Web.UI;
-using UserControl = System.Web.UI.UserControl;
 
 public partial class UC_UC_MPhong : UserControl, IMPhong
 {
@@ -14,43 +13,47 @@ public partial class UC_UC_MPhong : UserControl, IMPhong
     {
         var presenter = new PMPhong(this);
         var dsPhong = presenter.List(null);
-        var superDiv = FindControl("superDiv");
+        string[] romicon = {"fa fa-play", "fa fa-bookmark", "fa fa-pause"};
+        string[] romstate = {"Phòng trống", "Đã đặt trước", "Đang có khách"};
+
         var col = 0;
         string idstring = null;
         foreach (DataRow item in dsPhong.Rows)
         {
             if (col%4 == 0) //1 dong 4 cot
             {
-                var rowdiv =
-                    new HtmlGenericControl("DIV");
-                rowdiv.ID = "divrow_" + col/4;
-                rowdiv.Attributes.Add("class", "RomRow");
-                superDiv.Controls.Add(rowdiv);
+                CreateDiv(("divrow_" + col/4), "superDiv", "row top_tiles", "");
             }
+
             var currentrow = FindControl("divrow_" + col/4);
             idstring = item["ID"].ToString();
+
             //item tung cot
-            var createDiv =
-                new HtmlGenericControl("DIV");
-            createDiv.ID = "divrom_" + idstring;
-            createDiv.Attributes.Add("class", "Rom");
-            createDiv.InnerHtml = idstring;
-            string status = item["StatusId"].ToString();
-            if (status == "-1") // chua dat
-            {
-                createDiv.Attributes.Add("class", "Rom RomAvailble");
-            }
-            else if (status == "0") // da dat truoc
-            {
-                createDiv.Attributes.Add("class", "Rom RomBooked");
-            }
-            else if (status == "1") //dang xai
-            {
-                createDiv.Attributes.Add("class", "Rom RomBusy");
-            }
-            currentrow.Controls.Add(createDiv);
+            CreateDiv("rom_boss" + idstring, ("divrow_" + col/4),
+                "animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12", "");
+            CreateDiv("rom" + idstring, "rom_boss" + idstring, "tile-stats", "");
+            CreateDiv("rom_icon" + idstring, "rom" + idstring, "icon", "");
+            CreateDiv("rom_count" + idstring, "rom" + idstring, "count", item["Ten"].ToString());
+
+            var status = Convert.ToInt32(item["StatusID"].ToString());
+            FindControl("rom" + idstring).Controls.Add(new LiteralControl("<h3>" + romstate[status] + "</h3>"));
+            FindControl("rom_icon" + idstring)
+                .Controls.Add(new LiteralControl("<i class='" + romicon[status] + "'></i>"));
             col++;
         }
+        ((Default2) Page).SetTitle("Quản lý phòng");
+        
+    }
+
+    private void CreateDiv(string id, string idparent, string cssclass, string innerhtlml)
+    {
+        var parent = FindControl(idparent);
+        var newDiv =
+            new HtmlGenericControl("DIV") {ID = id};
+        newDiv.Attributes.Add("class", cssclass);
+        newDiv.InnerHtml = innerhtlml;
+
+        parent.Controls.Add(newDiv);
     }
 
     #region Variable
@@ -74,4 +77,9 @@ public partial class UC_UC_MPhong : UserControl, IMPhong
     public float GiaDem { get; set; }
 
     #endregion
+
+    protected void btn_OnClick(object sender, EventArgs e)
+    {
+        ((Default2)Page).ShowDialog("testpage.aspx", "hihi", 200, 200);
+    }
 }

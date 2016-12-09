@@ -22,6 +22,10 @@
 
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet" />
+
+    <!-- dialog -->
+    <link href="Scripts/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" />
+
 </head>
 
 <body class="nav-md">
@@ -286,7 +290,7 @@
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="x_panel">
                                     <div class="x_title">
-                                        <h2 id="UC_Tile">User Control title</h2>
+                                        <h2 runat="server" id="UC_Title">User Control title</h2>
                                         <ul class="nav navbar-right panel_toolbox">
                                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                             </li>
@@ -323,6 +327,7 @@
                 <!-- /footer content -->
             </div>
         </div>
+        <div id="dialog" style="display: none;"></div>
 
         <!-- jQuery -->
         <script src="vendors/jquery/dist/jquery.js"></script>
@@ -335,6 +340,11 @@
 
         <!-- Custom Theme Scripts -->
         <script src="build/js/custom.min.js"></script>
+
+        <!-- Scripts cua tao-->
+        <script src="Scripts/supersaiyan.js"></script>    
+        <script src="Scripts/jquery-ui-1.12.1/jquery-ui.js"></script>
+
     </form>
 </body>
 </html>
