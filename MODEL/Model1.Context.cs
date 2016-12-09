@@ -13,10 +13,10 @@ namespace MODEL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class demoEntities1 : DbContext
+    public partial class QLPhongKaraokeEntities : DbContext
     {
-        public demoEntities1()
-            : base("name=demoEntities1")
+        public QLPhongKaraokeEntities()
+            : base("name=QLPhongKaraokeEntities")
         {
         }
     
@@ -25,7 +25,19 @@ namespace MODEL
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Khoa> Khoas { get; set; }
-        public DbSet<SinhVien> SinhViens { get; set; }
+        public DbSet<BCDOANHTHU> BCDOANHTHUs { get; set; }
+        public DbSet<BCTONKHO> BCTONKHOes { get; set; }
+        public DbSet<CT_BCTONKHO> CT_BCTONKHO { get; set; }
+        public DbSet<CT_HDNHAP> CT_HDNHAP { get; set; }
+        public DbSet<CT_HOADONDV> CT_HOADONDV { get; set; }
+        public DbSet<DATPHONG> DATPHONGs { get; set; }
+        public DbSet<HANG> HANGs { get; set; }
+        public DbSet<HOADONDV> HOADONDVs { get; set; }
+        public DbSet<HOADONNHAP> HOADONNHAPs { get; set; }
+        public DbSet<LOAIPHONG> LOAIPHONGs { get; set; }
+        public DbSet<PHIEUCHI> PHIEUCHIs { get; set; }
+        public DbSet<PHONG> PHONGs { get; set; }
+        public DbSet<STATUS> STATUS { get; set; }
+        public DbSet<THAMSO> THAMSOes { get; set; }
     }
 }

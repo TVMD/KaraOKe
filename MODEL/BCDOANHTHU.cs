@@ -12,10 +12,12 @@ namespace MODEL
     using System;
     using System.Collections.Generic;
     
-    public partial class SinhVien
+    public partial class BCDOANHTHU
     {
-        public long ID { get; set; }
-        public string Ten { get; set; }
-        public Nullable<long> IDKhoa { get; set; }
+        public int ID { get; set; }
+        public System.DateTime NgayLap { get; set; }
+        public decimal DoanhThu { get; set; }
+        public decimal ChiPhi { get; set; }
+        public System.DateTime Thang { get; set; }
     }
 }

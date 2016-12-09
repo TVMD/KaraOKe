@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace MODEL
 {
-    public class MSinhVien
+    public class MPhong
     {
-        public List<SinhVien> List(string search)
+        public List<PHONG> List(string search)
         {
-            using (var db = new demoEntities1())
+            using (var db = new QLPhongKaraokeEntities())
             {
-                IEnumerable<SinhVien> query = from s in db.SinhViens select s;
+                IEnumerable<PHONG> query = from s in db.PHONGs select s;
 
                 //Filter // neu de search=null thi kho search,
                 if (!string.IsNullOrEmpty(search))
@@ -19,23 +20,26 @@ namespace MODEL
                                               x.ID.ToString().IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0) ||
                                              (x.Ten != null &&
                                               x.Ten.IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0) ||
-                                             (x.IDKhoa != null &&
-                                              x.IDKhoa.Value.ToString()
+                                             (x.StatusID != null &&
+                                              x.StatusID.Value.ToString()
+                                                  .IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                                             (x.TGStart != null &&
+                                              x.TGStart.Value.ToString()
                                                   .IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0)
                         );
                 }
 
                 return query.ToList();
             }
-        }
 
-        public bool Insert(SinhVien sv)
+        }
+        public bool Insert(PHONG phong)
         {
             try
             {
-                using (var db = new demoEntities1())
+                using (var db = new QLPhongKaraokeEntities())
                 {
-                    db.SinhViens.Add(sv);
+                    db.PHONGs.Add(phong);
                     db.SaveChanges();
                 }
                 return true;
@@ -50,15 +54,15 @@ namespace MODEL
         {
             try
             {
-                using (var db = new demoEntities1())
+                using (var db = new QLPhongKaraokeEntities())
                 {
-                    var x = from s in db.SinhViens
-                        where s.ID == ID
-                        select s;
+                    var x = from s in db.PHONGs
+                            where s.ID == ID
+                            select s;
                     var sv = x.FirstOrDefault();
                     if (sv != null)
                     {
-                        db.SinhViens.Remove(sv);
+                        db.PHONGs.Remove(sv);
                         db.SaveChanges();
                     }
                 }
@@ -70,20 +74,22 @@ namespace MODEL
             }
         }
 
-        public bool Update(SinhVien sinhvien)
+        public bool Update(PHONG phong)
         {
             try
             {
-                using (var db = new demoEntities1())
+                using (var db = new QLPhongKaraokeEntities())
                 {
-                    var x = from s in db.SinhViens
-                        where s.ID == sinhvien.ID
-                        select s;
+                    var x = from s in db.PHONGs
+                            where s.ID == phong.ID
+                            select s;
                     var sv = x.FirstOrDefault();
                     if (sv != null)
                     {
-                        sv.Ten = sinhvien.Ten;
-                        sv.IDKhoa = sinhvien.IDKhoa;
+                        sv.Ten = phong.Ten;
+                        sv.StatusID = phong.StatusID;
+                        sv.IdLoaiPhong = phong.IdLoaiPhong;
+                        sv.TGStart = phong.TGStart;
                         db.SaveChanges();
                     }
                 }

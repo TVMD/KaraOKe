@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\MODEL\Model1.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\tient_000\Desktop\ooad\KaraOKe\MODEL\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

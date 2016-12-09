@@ -4,70 +4,457 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="demoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityType Name="Khoa">
+      <Schema Namespace="QLPhongKaraokeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="BCDOANHTHU">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="bigint" Nullable="false" />
-          <Property Name="TenKhoa" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NgayLap" Type="datetime" Nullable="false" />
+          <Property Name="DoanhThu" Type="money" Nullable="false" />
+          <Property Name="ChiPhi" Type="money" Nullable="false" />
+          <Property Name="Thang" Type="datetime" Nullable="false" />
         </EntityType>
-        <EntityType Name="SinhVien">
+        <EntityType Name="BCTONKHO">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Thang" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CT_BCTONKHO">
+          <Key>
+            <PropertyRef Name="ID_BCTonKho" />
+            <PropertyRef Name="ID_Hang" />
+          </Key>
+          <Property Name="ID_BCTonKho" Type="int" Nullable="false" />
+          <Property Name="ID_Hang" Type="int" Nullable="false" />
+          <Property Name="TonDau" Type="int" Nullable="false" />
+          <Property Name="SuDung" Type="int" Nullable="false" />
+          <Property Name="TonCuoi" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CT_HDNHAP">
+          <Key>
+            <PropertyRef Name="IDHang" />
+            <PropertyRef Name="IDHoaDon" />
+          </Key>
+          <Property Name="IDHang" Type="int" Nullable="false" />
+          <Property Name="IDHoaDon" Type="int" Nullable="false" />
+          <Property Name="SoLuong" Type="int" Nullable="false" />
+          <Property Name="DonGiaNhap" Type="money" Nullable="false" />
+          <Property Name="ThanhTien" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CT_HOADONDV">
+          <Key>
+            <PropertyRef Name="ID_HoaDonDV" />
+            <PropertyRef Name="ID_Hang" />
+          </Key>
+          <Property Name="ID_HoaDonDV" Type="int" Nullable="false" />
+          <Property Name="ID_Hang" Type="int" Nullable="false" />
+          <Property Name="SoLuong" Type="int" Nullable="false" />
+          <Property Name="DonGia" Type="money" Nullable="false" />
+          <Property Name="ThanhTien" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DATPHONG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NgayGioDat" Type="datetime" Nullable="false" />
+          <Property Name="SDT" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="HANG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ten" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="DonGiaNhap" Type="money" Nullable="false" />
+          <Property Name="DonGiaBan" Type="money" Nullable="false" />
+          <Property Name="SLTon" Type="int" Nullable="false" />
+          <Property Name="DonVi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Requested" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HOADONDV">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Phong" Type="int" Nullable="false" />
+          <Property Name="NgayGioLap" Type="datetime" Nullable="false" />
+          <Property Name="TenKH" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="TongTien" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HOADONNHAP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NgayNhap" Type="datetime" Nullable="false" />
+          <Property Name="TongTien" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LOAIPHONG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Ten" Type="nvarchar" MaxLength="50" />
-          <Property Name="IDKhoa" Type="bigint" />
+          <Property Name="GiaNgay" Type="money" />
+          <Property Name="GiaDem" Type="money" />
+          <Property Name="SoLuong" Type="int" />
         </EntityType>
-        <EntityContainer Name="demoModelStoreContainer">
-          <EntitySet Name="Khoa" EntityType="Self.Khoa" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SinhVien" EntityType="Self.SinhVien" Schema="dbo" store:Type="Tables" />
+        <EntityType Name="PHIEUCHI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NgayLap" Type="datetime" Nullable="false" />
+          <Property Name="NoiDung" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="TongTien" Type="money" Nullable="false" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="PHONG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ten" Type="nchar" MaxLength="10" />
+          <Property Name="StatusID" Type="int" />
+          <Property Name="TGStart" Type="time" Precision="7" />
+          <Property Name="IdLoaiPhong" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="THAMSO">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityContainer Name="QLPhongKaraokeModelStoreContainer">
+          <EntitySet Name="BCDOANHTHU" EntityType="Self.BCDOANHTHU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BCTONKHO" EntityType="Self.BCTONKHO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CT_BCTONKHO" EntityType="Self.CT_BCTONKHO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CT_HDNHAP" EntityType="Self.CT_HDNHAP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CT_HOADONDV" EntityType="Self.CT_HOADONDV" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DATPHONG" EntityType="Self.DATPHONG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HANG" EntityType="Self.HANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOADONDV" EntityType="Self.HOADONDV" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOADONNHAP" EntityType="Self.HOADONNHAP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOAIPHONG" EntityType="Self.LOAIPHONG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHIEUCHI" EntityType="Self.PHIEUCHI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHONG" EntityType="Self.PHONG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STATUS" EntityType="Self.STATUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="THAMSO" EntityType="Self.THAMSO" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="demoModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityType Name="Khoa">
+      <Schema Namespace="QLPhongKaraokeModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="BCDOANHTHU">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int64" Nullable="false" />
-          <Property Name="TenKhoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NgayLap" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DoanhThu" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ChiPhi" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Thang" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
-        <EntityType Name="SinhVien">
+        <EntityType Name="BCTONKHO">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Thang" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="CT_BCTONKHO">
+          <Key>
+            <PropertyRef Name="ID_BCTonKho" />
+            <PropertyRef Name="ID_Hang" />
+          </Key>
+          <Property Name="ID_BCTonKho" Type="Int32" Nullable="false" />
+          <Property Name="ID_Hang" Type="Int32" Nullable="false" />
+          <Property Name="TonDau" Type="Int32" Nullable="false" />
+          <Property Name="SuDung" Type="Int32" Nullable="false" />
+          <Property Name="TonCuoi" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CT_HDNHAP">
+          <Key>
+            <PropertyRef Name="IDHang" />
+            <PropertyRef Name="IDHoaDon" />
+          </Key>
+          <Property Name="IDHang" Type="Int32" Nullable="false" />
+          <Property Name="IDHoaDon" Type="Int32" Nullable="false" />
+          <Property Name="SoLuong" Type="Int32" Nullable="false" />
+          <Property Name="DonGiaNhap" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ThanhTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CT_HOADONDV">
+          <Key>
+            <PropertyRef Name="ID_HoaDonDV" />
+            <PropertyRef Name="ID_Hang" />
+          </Key>
+          <Property Name="ID_HoaDonDV" Type="Int32" Nullable="false" />
+          <Property Name="ID_Hang" Type="Int32" Nullable="false" />
+          <Property Name="SoLuong" Type="Int32" Nullable="false" />
+          <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ThanhTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DATPHONG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NgayGioDat" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SDT" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HANG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DonGiaNhap" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="DonGiaBan" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="SLTon" Type="Int32" Nullable="false" />
+          <Property Name="DonVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Requested" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HOADONDV">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Phong" Type="Int32" Nullable="false" />
+          <Property Name="NgayGioLap" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HOADONNHAP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NgayNhap" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LOAIPHONG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IDKhoa" Type="Int64" />
+          <Property Name="GiaNgay" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="GiaDem" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SoLuong" Type="Int32" />
         </EntityType>
-        <EntityContainer Name="demoEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Khoas" EntityType="Self.Khoa" />
-          <EntitySet Name="SinhViens" EntityType="Self.SinhVien" />
+        <EntityType Name="PHIEUCHI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NgayLap" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NoiDung" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="GhiChu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PHONG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="TGStart" Type="Time" Precision="7" />
+          <Property Name="IdLoaiPhong" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="THAMSO">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="QLPhongKaraokeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BCDOANHTHUs" EntityType="Self.BCDOANHTHU" />
+          <EntitySet Name="BCTONKHOes" EntityType="Self.BCTONKHO" />
+          <EntitySet Name="CT_BCTONKHO" EntityType="Self.CT_BCTONKHO" />
+          <EntitySet Name="CT_HDNHAP" EntityType="Self.CT_HDNHAP" />
+          <EntitySet Name="CT_HOADONDV" EntityType="Self.CT_HOADONDV" />
+          <EntitySet Name="DATPHONGs" EntityType="Self.DATPHONG" />
+          <EntitySet Name="HANGs" EntityType="Self.HANG" />
+          <EntitySet Name="HOADONDVs" EntityType="Self.HOADONDV" />
+          <EntitySet Name="HOADONNHAPs" EntityType="Self.HOADONNHAP" />
+          <EntitySet Name="LOAIPHONGs" EntityType="Self.LOAIPHONG" />
+          <EntitySet Name="PHIEUCHIs" EntityType="Self.PHIEUCHI" />
+          <EntitySet Name="PHONGs" EntityType="Self.PHONG" />
+          <EntitySet Name="STATUS" EntityType="Self.STATUS" />
+          <EntitySet Name="THAMSOes" EntityType="Self.THAMSO" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="demoModelStoreContainer" CdmEntityContainer="demoEntities1">
-          <EntitySetMapping Name="Khoas">
-            <EntityTypeMapping TypeName="demoModel.Khoa">
-              <MappingFragment StoreEntitySet="Khoa">
+        <EntityContainerMapping StorageEntityContainer="QLPhongKaraokeModelStoreContainer" CdmEntityContainer="QLPhongKaraokeEntities">
+          <EntitySetMapping Name="BCDOANHTHUs">
+            <EntityTypeMapping TypeName="QLPhongKaraokeModel.BCDOANHTHU">
+              <MappingFragment StoreEntitySet="BCDOANHTHU">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="TenKhoa" ColumnName="TenKhoa" />
+                <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+                <ScalarProperty Name="DoanhThu" ColumnName="DoanhThu" />
+                <ScalarProperty Name="ChiPhi" ColumnName="ChiPhi" />
+                <ScalarProperty Name="Thang" ColumnName="Thang" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SinhViens">
-            <EntityTypeMapping TypeName="demoModel.SinhVien">
-              <MappingFragment StoreEntitySet="SinhVien">
+          <EntitySetMapping Name="BCTONKHOes">
+            <EntityTypeMapping TypeName="QLPhongKaraokeModel.BCTONKHO">
+              <MappingFragment StoreEntitySet="BCTONKHO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Thang" ColumnName="Thang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CT_BCTONKHO">
+            <EntityTypeMapping TypeName="QLPhongKaraokeModel.CT_BCTONKHO">
+              <MappingFragment StoreEntitySet="CT_BCTONKHO">
+                <ScalarProperty Name="ID_BCTonKho" ColumnName="ID_BCTonKho" />
+                <ScalarProperty Name="ID_Hang" ColumnName="ID_Hang" />
+                <ScalarProperty Name="TonDau" ColumnName="TonDau" />
+                <ScalarProperty Name="SuDung" ColumnName="SuDung" />
+                <ScalarProperty Name="TonCuoi" ColumnName="TonCuoi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CT_HDNHAP">
+            <EntityTypeMapping TypeName="QLPhongKaraokeModel.CT_HDNHAP">
+              <MappingFragment StoreEntitySet="CT_HDNHAP">
+                <ScalarProperty Name="IDHang" ColumnName="IDHang" />
+                <ScalarProperty Name="IDHoaDon" ColumnName="IDHoaDon" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="DonGiaNhap" ColumnName="DonGiaNhap" />
+                <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CT_HOADONDV">
+            <EntityTypeMapping TypeName="QLPhongKaraokeModel.CT_HOADONDV">
+              <MappingFragment StoreEntitySet="CT_HOADONDV">
+                <ScalarProperty Name="ID_HoaDonDV" ColumnName="ID_HoaDonDV" />
+                <ScalarProperty Name="ID_Hang" ColumnName="ID_Hang" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DATPHONGs">
+            <EntityTypeMapping TypeName="QLPhongKaraokeModel.DATPHONG">
+              <MappingFragment StoreEntitySet="DATPHONG">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NgayGioDat" ColumnName="NgayGioDat" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HANGs">
+            <EntityTypeMapping TypeName="QLPhongKaraokeModel.HANG">
+              <MappingFragment StoreEntitySet="HANG">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Ten" ColumnName="Ten" />
-                <ScalarProperty Name="IDKhoa" ColumnName="IDKhoa" />
+                <ScalarProperty Name="DonGiaNhap" ColumnName="DonGiaNhap" />
+                <ScalarProperty Name="DonGiaBan" ColumnName="DonGiaBan" />
+                <ScalarProperty Name="SLTon" ColumnName="SLTon" />
+                <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+                <ScalarProperty Name="Requested" ColumnName="Requested" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOADONDVs">
+            <EntityTypeMapping TypeName="QLPhongKaraokeModel.HOADONDV">
+              <MappingFragment StoreEntitySet="HOADONDV">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_Phong" ColumnName="ID_Phong" />
+                <ScalarProperty Name="NgayGioLap" ColumnName="NgayGioLap" />
+                <ScalarProperty Name="TenKH" ColumnName="TenKH" />
+                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOADONNHAPs">
+            <EntityTypeMapping TypeName="QLPhongKaraokeModel.HOADONNHAP">
+              <MappingFragment StoreEntitySet="HOADONNHAP">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOAIPHONGs">
+            <EntityTypeMapping TypeName="QLPhongKaraokeModel.LOAIPHONG">
+              <MappingFragment StoreEntitySet="LOAIPHONG">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="GiaNgay" ColumnName="GiaNgay" />
+                <ScalarProperty Name="GiaDem" ColumnName="GiaDem" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHIEUCHIs">
+            <EntityTypeMapping TypeName="QLPhongKaraokeModel.PHIEUCHI">
+              <MappingFragment StoreEntitySet="PHIEUCHI">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHONGs">
+            <EntityTypeMapping TypeName="QLPhongKaraokeModel.PHONG">
+              <MappingFragment StoreEntitySet="PHONG">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="TGStart" ColumnName="TGStart" />
+                <ScalarProperty Name="IdLoaiPhong" ColumnName="IdLoaiPhong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STATUS">
+            <EntityTypeMapping TypeName="QLPhongKaraokeModel.STATUS">
+              <MappingFragment StoreEntitySet="STATUS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="THAMSOes">
+            <EntityTypeMapping TypeName="QLPhongKaraokeModel.THAMSO">
+              <MappingFragment StoreEntitySet="THAMSO">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
