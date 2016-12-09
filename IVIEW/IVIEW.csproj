@@ -39,8 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ICTNhap.cs" />
+    <Compile Include="IHDNhap.cs" />
+    <Compile Include="IPhong.cs" />
     <Compile Include="IShare.cs" />
-    <Compile Include="ISinhVien.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

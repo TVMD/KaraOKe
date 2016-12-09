@@ -3,3 +3,8 @@ C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\IVIEW\bin\Debug\IVIEW.
 C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\IVIEW\obj\Debug\IVIEW.csprojResolveAssemblyReference.cache
 C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\IVIEW\obj\Debug\IVIEW.dll
 C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\IVIEW\obj\Debug\IVIEW.pdb
+C:\Users\tient_000\Desktop\ooad\KaraOKe\IVIEW\bin\Debug\IVIEW.dll
+C:\Users\tient_000\Desktop\ooad\KaraOKe\IVIEW\bin\Debug\IVIEW.pdb
+C:\Users\tient_000\Desktop\ooad\KaraOKe\IVIEW\obj\Debug\IVIEW.csprojResolveAssemblyReference.cache
+C:\Users\tient_000\Desktop\ooad\KaraOKe\IVIEW\obj\Debug\IVIEW.dll
+C:\Users\tient_000\Desktop\ooad\KaraOKe\IVIEW\obj\Debug\IVIEW.pdb

@@ -9,3 +9,14 @@ C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\PRESENTER\bin\Debug\En
 C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\PRESENTER\obj\Debug\PRESENTER.csprojResolveAssemblyReference.cache
 C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\PRESENTER\obj\Debug\PRESENTER.dll
 C:\Users\Ta\Documents\Visual Studio 2013\Projects\Karaoke\PRESENTER\obj\Debug\PRESENTER.pdb
+C:\Users\tient_000\Desktop\ooad\KaraOKe\PRESENTER\bin\Debug\PRESENTER.dll
+C:\Users\tient_000\Desktop\ooad\KaraOKe\PRESENTER\bin\Debug\PRESENTER.pdb
+C:\Users\tient_000\Desktop\ooad\KaraOKe\PRESENTER\bin\Debug\IVIEW.dll
+C:\Users\tient_000\Desktop\ooad\KaraOKe\PRESENTER\bin\Debug\MODEL.dll
+C:\Users\tient_000\Desktop\ooad\KaraOKe\PRESENTER\bin\Debug\EntityFramework.dll
+C:\Users\tient_000\Desktop\ooad\KaraOKe\PRESENTER\bin\Debug\IVIEW.pdb
+C:\Users\tient_000\Desktop\ooad\KaraOKe\PRESENTER\bin\Debug\MODEL.pdb
+C:\Users\tient_000\Desktop\ooad\KaraOKe\PRESENTER\bin\Debug\EntityFramework.xml
+C:\Users\tient_000\Desktop\ooad\KaraOKe\PRESENTER\obj\Debug\PRESENTER.csprojResolveAssemblyReference.cache
+C:\Users\tient_000\Desktop\ooad\KaraOKe\PRESENTER\obj\Debug\PRESENTER.dll
+C:\Users\tient_000\Desktop\ooad\KaraOKe\PRESENTER\obj\Debug\PRESENTER.pdb
