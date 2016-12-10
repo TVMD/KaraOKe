@@ -31,5 +31,50 @@ namespace MODEL
             }
 
         }
+
+        public bool Insert(HANG phong)
+        {
+            try
+            {
+                using (var db = new QLPhongKaraokeEntities())
+                {
+                    db.HANGs.Add(phong);
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public bool Update(HANG phong)
+        {
+            try
+            {
+                using (var db = new QLPhongKaraokeEntities())
+                {
+                    var x = from s in db.HANGs
+                            where (s.ID == phong.ID)
+                            select s;
+                    var sv = x.FirstOrDefault();
+                    if (sv != null)
+                    {
+                        sv.SLTon=phong.SLTon;
+                        sv.Ten=phong.Ten;
+                        sv.Requested = phong.Requested;
+                        sv.DonVi = phong.DonVi;
+                        sv.DonGiaBan = sv.DonGiaBan;
+                        sv.DonGiaNhap = sv.DonGiaNhap;
+                        db.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

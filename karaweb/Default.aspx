@@ -8,6 +8,7 @@
 <head runat="server">
     <title>Quản lý quán karaoke</title>
     <link href="Contents/UC_regular.css" rel="stylesheet" />
+    <link href="Contents/Rom.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
@@ -29,7 +30,8 @@
 
                 <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server" Transparency="30" MinDisplayTime="0">
                 </telerik:RadAjaxLoadingPanel>
-                
+                <div class="Status">chứa status-message đồ</div>
+
             </div>
         </div>
         <script src="Scripts/jquery-3.1.1.min.js"></script>

@@ -92,6 +92,10 @@ namespace PRESENTER
                 ThanhTien = view.SoLuong * view.DonGiaNhap
             };
             var hd = model.Get1Item(idHoaDon);
+            var hang = modelHang.Get1Hang(view.IDHang);
+            hang.DonGiaNhap = view.DonGiaNhap;
+            hang.DonGiaBan = 2 * view.DonGiaNhap;
+            modelHang.Update(hang);
             hd.TongTien += sv.ThanhTien;
             model.Update(hd);
             return modelCT.Insert(sv);

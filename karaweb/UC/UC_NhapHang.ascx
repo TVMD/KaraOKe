@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="UC_NhapHang.ascx.cs" Inherits="UC_UC_NhapHang" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
-<%@ Reference Page="../Default.aspx" %>
+<%@ Reference Page="../Default2.aspx" %>
 
 
 <div>
@@ -136,9 +136,10 @@
                         <%#DataBinder.Eval(Container.DataItem, "TenHang") %>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <telerik:RadComboBox runat="server" ID="cbHang" Width="300px"
+                        <telerik:RadComboBox runat="server" ID="cbHang" Width="100px"
                             EmptyMessage="--- Lựa chọn loại hàng---" >
                         </telerik:RadComboBox>
+                        <asp:Button Text="Thêm mới hàng" OnClick="Unnamed_Click" ID="btnThemHang" runat="server" />
                         <asp:RequiredFieldValidator ID="cbHangk" runat="server" ControlToValidate="cbHang"
                             ErrorMessage="(*)" ForeColor="Red" Width="4px">
                         </asp:RequiredFieldValidator>

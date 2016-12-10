@@ -39,10 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IMLoaiPhong.cs" />
+    <Compile Include="IMPhong.cs" />
     <Compile Include="ICTNhap.cs" />
     <Compile Include="IHDNhap.cs" />
-    <Compile Include="IPhong.cs" />
     <Compile Include="IShare.cs" />
+    <Compile Include="ITHang.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,6 +7,7 @@ using PRESENTER;
 using Telerik.Web.UI;
 using System.Web.UI.WebControls;
 using MODEL;
+using System.Web.UI.HtmlControls;
 
 public partial class UC_UC_NhapHang : System.Web.UI.UserControl,IHDNhap
 {
@@ -64,7 +65,7 @@ public partial class UC_UC_NhapHang : System.Web.UI.UserControl,IHDNhap
     protected void RadGrid1_OnItemCreated(object sender, GridItemEventArgs e)
     {
         var item = e.Item as GridEditableItem;
-        if (item!=null && e.Item.IsInEditMode && e.Item.ItemIndex != -1)
+        if (item!=null && (e.Item.IsInEditMode) && e.Item.ItemIndex != -1)
         {
             (item.EditManager.GetColumnEditor("ID").ContainerControl.Controls[0] as TextBox).Enabled = false;
         }
@@ -361,5 +362,9 @@ public partial class UC_UC_NhapHang : System.Web.UI.UserControl,IHDNhap
     protected void RadGrid2_SelectedIndexChanged(object sender, EventArgs e)
     {
         int a = 0;
+    }
+    protected void Unnamed_Click(object sender, EventArgs e)
+    {
+        ((Default2)Page).ShowDialog("InputHang.aspx", "Thêm Hàng", 200, 200);
     }
 }

@@ -116,7 +116,7 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Ten" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="StatusID" Type="Int32" />
-    <Property Name="TGStart" Type="Time" Precision="7" />
+    <Property Name="TGStart" Type="DateTime" Precision="3" />
     <Property Name="IdLoaiPhong" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="STATUS">

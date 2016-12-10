@@ -17,7 +17,7 @@ namespace MODEL
         public int ID { get; set; }
         public string Ten { get; set; }
         public Nullable<int> StatusID { get; set; }
-        public Nullable<System.TimeSpan> TGStart { get; set; }
+        public Nullable<System.DateTime> TGStart { get; set; }
         public int IdLoaiPhong { get; set; }
     }
 }
