@@ -13,11 +13,10 @@ public partial class Default2 : Page
     public void SetTitle(string newtitle)
     {
         UC_Title.InnerHtml = newtitle ?? "null";
-       
     }
 
     public void ShowDialog(string name,string title,int width,int height)
     {
-        ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "", "ShowDialog('"+name+"','"+title+"',"+width+","+height+");", true);
+        ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "", "OpenPopupCenter('"+name+"','"+title+"',"+width+","+height+");", true);
     }
 }

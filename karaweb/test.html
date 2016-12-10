@@ -21,11 +21,10 @@
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+    <link href="Scripts/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" />
 </head>
 
 <body class="nav-md">
-
     <div class="container body">
         <div class="main_container">
             <!-- page content -->
@@ -48,7 +47,6 @@
 
                 </div>
                 <div id="dialog" style="display: none;"></div>
-                <input type="button"/>
             </div>
             <!-- /page content -->
 
@@ -63,16 +61,15 @@
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
 
-<script src="Scripts/jquery-ui.min.js"></script>
+    <script src="Scripts/jquery-ui-1.12.1/jquery-ui.min.js"></script>
     <script src="Scripts/supersaiyan.js"></script>
 
 <script>
     $(document).ready(function() {
         $("#test").attr("class", "fa" + " fa-sort-amount-desc");
-
-        ShowDialog("testpage.aspx", "tminhe",200,200);
+        ShowDialog("testpage2.aspx", "tminhe", 200, 300);
     });
-    $("#input").keypress(function (e) {
+    $("#input").keypress(function(e) {
         var code = e.keyCode || e.which;
         if (code == 13) { //Enter keycode
             $("#test").attr("class", "fa fa-" + $("#input").val());
@@ -80,7 +77,7 @@
         }
     });
 
+ 
 </script>
-
 </body>
 </html>
