@@ -80,6 +80,6 @@ public partial class UC_UC_MPhong : UserControl, IMPhong
 
     protected void btn_OnClick(object sender, EventArgs e)
     {
-        ((Default2)Page).ShowDialog("testpage.aspx", "hihi", 200, 200);
+        ((Default2)Page).ShowDialog("testpage2.aspx", "hihi", 200, 200);
     }
 }
