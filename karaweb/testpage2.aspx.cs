@@ -15,8 +15,7 @@ public partial class testpage2 : System.Web.UI.Page
     }
     protected void btn_OnClick(object sender, EventArgs e)
     {
-        //div.Visible = false;
-        //ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "", "CloseDialog();", true);
-        this.ClientScript.RegisterClientScriptBlock(this.GetType(), "Close", "window.close()", true);
+        //this.ClientScript.RegisterClientScriptBlock(this.GetType(), "Close", "window.close()", true);
+        string a = text.Value;
     }
 }

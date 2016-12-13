@@ -10,18 +10,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>KARAOKE MANAGEMENT</title>
 
     <!-- Bootstrap -->
-    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="vendors/nprogress/nprogress.css" rel="stylesheet" />
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="build/css/custom.min.css" rel="stylesheet" />
+    <link href="build/css/custom.min.css" rel="stylesheet">
 
     <!-- dialog -->
     <link href="Scripts/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" />
@@ -170,7 +169,7 @@
                             <a data-toggle="tooltip" data-placement="top" title="Lock">
                                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
                             </a>
-                            <a data-toggle="tooltip" data-placement="top" title="Logout">
+                            <a data-toggle="tooltip" data-placement="top" title="Logout" href="testpage2.aspx">
                                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                             </a>
                         </div>
@@ -278,14 +277,7 @@
                 <!-- page content -->
                 <div class="right_col" role="main">
                     <div class="">
-                        <%--<div class="page-title">
-              <div class="title_left">
-                <h3>Plain Page O trên</h3>
-              </div>
-            </div>--%>
-
                         <div class="clearfix"></div>
-
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="x_panel">
@@ -300,8 +292,9 @@
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="x_content">
-                                        <%--<asp:Panel ID="Panel1" runat="server" BorderWidth="2px"></asp:Panel>--%>
                                         <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
+                                            <input type="text" name="sapname" id="sapname" style="display: none" />
+                                            <input type="submit" value="Submit" id="sapbutton" style="display: none" />
                                             <div style="margin-top: 4%">
                                                 <asp:Panel ID="Panel1" runat="server"></asp:Panel>
                                             </div>
@@ -320,7 +313,7 @@
                 <!-- footer content -->
                 <footer>
                     <div class="pull-right">
-                        3TM
+                        #TM
                     </div>
                     <div class="clearfix"></div>
                 </footer>
@@ -342,8 +335,10 @@
         <script src="build/js/custom.min.js"></script>
 
         <!-- Scripts cua tao-->
-        <script src="Scripts/supersaiyan.js"></script>    
         <script src="Scripts/jquery-ui-1.12.1/jquery-ui.js"></script>
+        <script src="Scripts/moment.js"></script>
+        <script src="vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+        <script src="Scripts/supersaiyan.js?v=1"></script>
 
     </form>
 </body>

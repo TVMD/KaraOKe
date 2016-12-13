@@ -91,5 +91,10 @@ namespace PRESENTER
             }
             return dt;
         }
+
+        public PHONG GetPhong(int ID)
+        {
+            return model.GetPhong(ID);
+        }
     }
 }

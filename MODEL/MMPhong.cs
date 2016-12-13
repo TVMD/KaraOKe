@@ -99,5 +99,23 @@ namespace MODEL
                 return false;
             }
         }
+
+        public PHONG GetPhong(int Id)
+        {
+            try
+            {
+                using (var db = new QLPhongKaraokeEntities())
+                {
+                    var x = from s in db.PHONGs
+                            where s.ID == Id
+                            select s;
+                    return  x.FirstOrDefault();
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }
