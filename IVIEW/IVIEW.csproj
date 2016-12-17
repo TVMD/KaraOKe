@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IMHang.cs" />
+    <Compile Include="IMHoaDonDV.cs" />
     <Compile Include="IMLoaiPhong.cs" />
     <Compile Include="IMPhong.cs" />
     <Compile Include="IShare.cs" />

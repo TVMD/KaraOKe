@@ -18,6 +18,7 @@ public partial class Default2 : Page
         }
         if(IsPostBack)
             SupportLoad();
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "loadpage", "pageload();", true);
     }
 
 
@@ -70,14 +71,14 @@ public partial class Default2 : Page
     {
         if (LatestLoadedMainContent != null)
         {
-            var previousControl = Panel1.FindControl(LatestLoadedMainContent.Split('\\')[0]);
+            var previousControl = Panel1.FindControl(LatestLoadedMainContent.Split('\\')[1]);
             if (!Equals(previousControl, null))
             {
                 Panel1.Controls.Remove(previousControl);
             }
         }
 
-        var userControlID = controlName.Split('\\')[0];
+        var userControlID = controlName.Split('\\')[1];
         var targetControl = Panel1.FindControl(userControlID);
 
         if (Equals(targetControl, null))

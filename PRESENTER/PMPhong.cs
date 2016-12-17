@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using IVIEW;
 using MODEL;
@@ -92,9 +93,19 @@ namespace PRESENTER
             return dt;
         }
 
-        public PHONG GetPhong(int ID)
+        public PHONG GetOne(int ID)
         {
-            return model.GetPhong(ID);
+            return model.GetOne(ID);
+        }
+
+        public bool Begin(string tenkh)
+        {
+            return model.Begin(view.ID,view.TGStart, tenkh);
+        }
+
+        public bool End()
+        {
+            return model.End(view.ID);
         }
     }
 }

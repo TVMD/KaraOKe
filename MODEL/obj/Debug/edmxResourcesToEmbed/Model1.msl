@@ -79,6 +79,7 @@
     <EntitySetMapping Name="HOADONDVs">
       <EntityTypeMapping TypeName="QLPhongKaraokeModel.HOADONDV">
         <MappingFragment StoreEntitySet="HOADONDV">
+          <ScalarProperty Name="SoGio" ColumnName="SoGio" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ID_Phong" ColumnName="ID_Phong" />
           <ScalarProperty Name="NgayGioLap" ColumnName="NgayGioLap" />

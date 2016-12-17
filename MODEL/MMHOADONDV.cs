@@ -66,6 +66,8 @@ namespace MODEL
                     {
                         db.HOADONDVs.Remove(sv);
                         db.SaveChanges();
+
+                        (new MMCT_HoaDonDV()).DeleteAllHoaDon(ID); // xoa hoa don thi xoa luon ct
                     }
                 }
                 return true;
@@ -100,6 +102,135 @@ namespace MODEL
             catch (Exception)
             {
                 return false;
+            }
+        }
+
+        public bool UpdateTongTien(int id,decimal tongtien)
+        {
+            try
+            {
+                using (var db = new QLPhongKaraokeEntities())
+                {
+                    var x = from s in db.HOADONDVs
+                            where s.ID == id
+                            select s;
+                    var sv = x.FirstOrDefault();
+                    if (sv != null)
+                    {
+                        sv.TongTien = tongtien;
+                        db.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public HOADONDV GetOne(int id)
+        {
+            try
+            {
+                using (var db = new QLPhongKaraokeEntities())
+                {
+                    var x = from s in db.HOADONDVs
+                            where s.ID == id
+                            select s;
+                   return x.FirstOrDefault();
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public HOADONDV GetLastByRom(int idrom) //lay cai cuoi cung cua phong mak chua dc tinh tien.
+        {
+            try
+            {
+                using (var db = new QLPhongKaraokeEntities())
+                {
+                    var x = from s in db.HOADONDVs
+                            where s.ID_Phong == idrom && s.SoGio == 0
+                            orderby s.ID descending 
+                            select s;
+                    return x.FirstOrDefault();
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public HOADONDV GetLastByRomChaged(int idrom) //lay cai cuoi cung cua phong mak chua dc tinh tien.
+        {
+            try
+            {
+                using (var db = new QLPhongKaraokeEntities())
+                {
+                    var x = from s in db.HOADONDVs
+                            where s.ID_Phong == idrom 
+                            orderby s.ID descending
+                            select s;
+                    return x.FirstOrDefault();
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        //public bool InsertByRom(int idrom,string tenkh)
+        //{
+        //    try
+        //    {
+        //        using (var db = new QLPhongKaraokeEntities())
+        //        {
+        //            var phong = (from s in db.PHONGs
+        //                        where s.ID == idrom
+        //                        select s).FirstOrDefault();
+        //            var item = new HOADONDV()
+        //            {
+        //                ID_Phong = phong.ID,
+        //                NgayGioLap = phong.TGStart.GetValueOrDefault(),
+        //                TenKH = tenkh??"",
+        //                TongTien = 0
+        //            };
+        //            db.HOADONDVs.Add(item);
+        //            db.SaveChanges();
+        //        }
+        //        return true;
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return false;
+        //    }
+        //}
+        public decimal GetTongTienHang(int idhoadon)
+        {
+            try
+            {
+                using (var db = new QLPhongKaraokeEntities())
+                {
+                    var x = (from s in db.CT_HOADONDV
+                            where s.ID_HoaDonDV == idhoadon
+                            select s);
+                    decimal tien = 0;
+                    foreach (var item in x)
+                    {
+                        tien += item.ThanhTien;
+                    }
+                    return tien;
+                }
+            }
+            catch (Exception)
+            {
+                return 0;
             }
         }
     }

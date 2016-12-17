@@ -79,6 +79,7 @@
     <Compile Include="MKhoa.cs" />
     <Compile Include="MMCT_HoaDonDV.cs" />
     <Compile Include="MMDatPhong.cs" />
+    <Compile Include="MMHang.cs" />
     <Compile Include="MMHOADONDV.cs" />
     <Compile Include="MMLoaiPhong.cs" />
     <Compile Include="MMPhong.cs" />

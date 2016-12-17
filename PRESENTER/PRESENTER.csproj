@@ -39,6 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PMCT_HDDV.cs" />
+    <Compile Include="PMHang.cs" />
+    <Compile Include="PMHoaDonDV.cs" />
     <Compile Include="PMPhong.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PSinhVien.cs" />

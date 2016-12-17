@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QLPhongKaraokeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="QLPhongKaraokeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityType Name="BCDOANHTHU">
           <Key>
             <PropertyRef Name="ID" />
@@ -83,7 +83,8 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Phong" Type="int" Nullable="false" />
           <Property Name="NgayGioLap" Type="datetime" Nullable="false" />
-          <Property Name="TenKH" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="SoGio" Type="float" />
+          <Property Name="TenKH" Type="nchar" MaxLength="50" />
           <Property Name="TongTien" Type="money" Nullable="false" />
         </EntityType>
         <EntityType Name="HOADONNHAP">
@@ -154,8 +155,7 @@
           <EntitySet Name="STATUS" EntityType="Self.STATUS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THAMSO" EntityType="Self.THAMSO" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLPhongKaraokeModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -237,8 +237,9 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Phong" Type="Int32" Nullable="false" />
           <Property Name="NgayGioLap" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="SoGio" Type="Double" />
         </EntityType>
         <EntityType Name="HOADONNHAP">
           <Key>
@@ -392,6 +393,7 @@
           <EntitySetMapping Name="HOADONDVs">
             <EntityTypeMapping TypeName="QLPhongKaraokeModel.HOADONDV">
               <MappingFragment StoreEntitySet="HOADONDV">
+                <ScalarProperty Name="SoGio" ColumnName="SoGio" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_Phong" ColumnName="ID_Phong" />
                 <ScalarProperty Name="NgayGioLap" ColumnName="NgayGioLap" />

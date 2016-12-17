@@ -19,5 +19,6 @@ namespace MODEL
         public System.DateTime NgayGioLap { get; set; }
         public string TenKH { get; set; }
         public decimal TongTien { get; set; }
+        public Nullable<double> SoGio { get; set; }
     }
 }
