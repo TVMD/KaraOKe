@@ -123,5 +123,33 @@ namespace PRESENTER
             return tb;
         }
 
+        public DataTable List_HD(int idhoadon,string search)
+        {
+            var dt = model.List_HD(idhoadon,search);
+            if (dt == null)
+            {
+                view.Message = "Resource not found!. null";
+                return null;
+            }
+
+            var tb = new DataTable();
+            tb.Columns.Add("ID_HoaDonDV");
+            tb.Columns.Add("ID_Hang");
+            tb.Columns.Add("TenHang");
+            tb.Columns.Add("SoLuong");
+            tb.Columns.Add("DonGia");
+            tb.Columns.Add("ThanhTien");
+            foreach (var item in dt)
+            {
+                var hang = modelhang.GetOne(item.ID_Hang);
+                tb.Rows.Add(item.ID_HoaDonDV,
+                    item.ID_Hang,
+                    hang.Ten,
+                    item.SoLuong,
+                    item.DonGia,
+                    item.ThanhTien);
+            }
+            return tb;
+        }
     }
 }

@@ -37,14 +37,13 @@ function OpenPopupCenter(pageURL, title, w, h) {
 };
 
 function pageload() {
-    //var getvalue = window.location.href;
-    //if (getvalue.indexOf("#") < 0)
-    //    return;
-    //getvalue = getvalue.substr(getvalue.indexOf("#") + 1, getvalue.length);
-    //if (getvalue == "ctphong")
-    //    return;
-    //document.getElementById("sapname").value = getvalue;
-    //document.getElementById("sapbutton").click();
+    $(".uc").on("click", function() {
+            loaduc($(this).attr("id"));
+        })
+        .find($(".dangxuat")).on("click", function() {
+            //chua nghi ra.
+        });
+    $("#fullscreen").on("click", togglefullscreen(document.body));
 }
 
 function loaduc(name) {
@@ -56,6 +55,31 @@ function loaduc(name) {
 function sethref(name) {
     window.location.href = "#/" + name;
     document.getElementById("sapname").value = name;
+}
+
+function togglefullscreen(elem) {
+    // ## The below if statement seems to work better ## if ((document.fullScreenElement && document.fullScreenElement !== null) || (document.msfullscreenElement && document.msfullscreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+    if ((document.fullScreenElement !== undefined && document.fullScreenElement === null) || (document.msFullscreenElement !== undefined && document.msFullscreenElement === null) || (document.mozFullScreen !== undefined && !document.mozFullScreen) || (document.webkitIsFullScreen !== undefined && !document.webkitIsFullScreen)) {
+        if (elem.requestFullScreen) {
+            elem.requestFullScreen();
+        } else if (elem.mozRequestFullScreen) {
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullScreen) {
+            elem.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+        } else if (elem.msRequestFullscreen) {
+            elem.msRequestFullscreen();
+        }
+    } else {
+        if (document.cancelFullScreen) {
+            document.cancelFullScreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitCancelFullScreen) {
+            document.webkitCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+    }
 }
 
 //Phong

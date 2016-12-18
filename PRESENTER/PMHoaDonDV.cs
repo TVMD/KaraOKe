@@ -73,10 +73,8 @@ namespace PRESENTER
             var ct = new HOADONDV()
             {
                 ID = view.ID_HoaDon,
-                ID_Phong = view.ID_Hang,
-                NgayGioLap = view.NgayGioLap,
-                TenKH = view.TenKH,
-                TongTien = view.TongTien
+                ID_Phong = view.ID_Phong,
+                TenKH = view.TenKH
             };
             return model.Update(ct);
         }
@@ -98,6 +96,11 @@ namespace PRESENTER
         public HOADONDV GetOne(int id)
         {
             return model.GetOne(id);
+        }
+
+        public List<PHONG> GetAllPhong()
+        {
+            return model.GetAllPhong();
         }
     }
 }

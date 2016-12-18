@@ -92,8 +92,6 @@ namespace MODEL
                     {
                         sv.TenKH = item.TenKH;
                         sv.ID_Phong = item.ID_Phong;
-                        sv.TongTien = item.TongTien;
-                        sv.NgayGioLap = item.NgayGioLap;
                         db.SaveChanges();
                     }
                 }
@@ -231,6 +229,16 @@ namespace MODEL
             catch (Exception)
             {
                 return 0;
+            }
+        }
+
+        public List<PHONG> GetAllPhong()
+        {
+            using (var db = new QLPhongKaraokeEntities())
+            {
+                IEnumerable<PHONG> query = from s in db.PHONGs select s;
+
+                return query.ToList();
             }
         }
     }

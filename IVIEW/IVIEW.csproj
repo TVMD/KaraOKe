@@ -45,6 +45,7 @@
     <Compile Include="IMPhong.cs" />
     <Compile Include="IShare.cs" />
     <Compile Include="ISinhVien.cs" />
+    <Compile Include="IThamSo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -83,6 +83,7 @@
     <Compile Include="MMHOADONDV.cs" />
     <Compile Include="MMLoaiPhong.cs" />
     <Compile Include="MMPhong.cs" />
+    <Compile Include="MMThamSo.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -14,7 +14,7 @@ public partial class Default2 : Page
         }
         else
         {
-            LoadUserControl("UC\\UC_MDSPhong.ascx");
+            LoadUserControl("UC\\UC_MPhong.ascx");
         }
         if(IsPostBack)
             SupportLoad();
@@ -33,6 +33,22 @@ public partial class Default2 : Page
         else if (control.Contains("ctphong"))
         {
             LoadUserControl("UC\\UC_MCT_Phong.ascx");
+        }
+        else if (control.Contains("dsphong"))
+        {
+            LoadUserControl("UC\\UC_MDSPhong.ascx");
+        }
+        else if (control.Contains("loaiphong"))
+        {
+            LoadUserControl("UC\\UC_MLoaiPhong.ascx");
+        }
+        else if (control.Contains("hoadondv"))
+        {
+            LoadUserControl("UC\\UC_MDsHoaDon.ascx");
+        }
+        else if (control.Contains("thamso"))
+        {
+            LoadUserControl("UC\\UC_MThamSo.ascx");
         }
     } 
     public void SetTitle(string newtitle)
