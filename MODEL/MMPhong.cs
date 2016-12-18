@@ -7,6 +7,28 @@ namespace MODEL
 {
     public class MMPhong
     {
+        private string GetNameLoaiPhong(int idloaiphong)
+        {
+            try
+            {
+                using (var db = new QLPhongKaraokeEntities())
+                {
+                    var x = from s in db.LOAIPHONGs
+                            where s.ID == idloaiphong
+                            select s;
+                    var sv = x.FirstOrDefault();
+                    if (sv != null)
+                    {
+                        return sv.Ten;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            return null;
+        }
         public List<PHONG> List(string search)
         {
             using (var db = new QLPhongKaraokeEntities())
@@ -25,7 +47,11 @@ namespace MODEL
                                                   .IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0) ||
                                              (x.IdLoaiPhong != null &&
                                               x.IdLoaiPhong.ToString()
+                                                  .IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0) ||
+                                             (GetNameLoaiPhong(x.IdLoaiPhong) != null &&
+                                              GetNameLoaiPhong(x.IdLoaiPhong)
                                                   .IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0)
+
                         );
                 }
 
@@ -87,8 +113,6 @@ namespace MODEL
                     if (sv != null)
                     {
                         sv.Ten = item.Ten;
-                        sv.StatusID = item.StatusID;
-                        sv.TGStart = item.TGStart;
                         sv.IdLoaiPhong = item.IdLoaiPhong;
                         db.SaveChanges();
                     }

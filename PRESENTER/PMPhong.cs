@@ -55,10 +55,10 @@ namespace PRESENTER
         {
             var phong = new PHONG()
             {
-                ID = view.ID,
+                ID = 0,
                 Ten = view.Ten,
-                StatusID = -1,
-                TGStart = view.TGStart,
+                StatusID = 1,
+                TGStart = null,
                 IdLoaiPhong = view.IdLoaiPhong
             };
             return model.Insert(phong);
@@ -75,8 +75,6 @@ namespace PRESENTER
             {
                 ID = view.ID,
                 Ten = view.Ten,
-                StatusID = view.StatusId,
-                TGStart = view.TGStart,
                 IdLoaiPhong = view.IdLoaiPhong
             };
             return model.Update(phong);
