@@ -38,6 +38,7 @@ namespace MODEL
         public DbSet<PHIEUCHI> PHIEUCHIs { get; set; }
         public DbSet<PHONG> PHONGs { get; set; }
         public DbSet<STATUS> STATUS { get; set; }
+        public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<THAMSO> THAMSOes { get; set; }
     }
 }

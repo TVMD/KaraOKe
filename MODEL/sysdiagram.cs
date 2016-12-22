@@ -12,14 +12,12 @@ namespace MODEL
     using System;
     using System.Collections.Generic;
     
-    public partial class HOADONDV
+    public partial class sysdiagram
     {
-        public int ID { get; set; }
-        public int ID_Phong { get; set; }
-        public System.DateTime NgayGioLap { get; set; }
-        public Nullable<double> SoGio { get; set; }
-        public string TenKH { get; set; }
-        public decimal TongTien { get; set; }
-        public Nullable<decimal> TienPhong { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

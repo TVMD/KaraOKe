@@ -228,5 +228,23 @@ namespace MODEL
                 return false;
             }
         }
+
+        public int GetSLTon(int idhang)
+        {
+            try
+            {
+                using (var db = new QLPhongKaraokeEntities())
+                {
+                    var x = from s in db.HANGs
+                            where s.ID == idhang
+                            select s;
+                    return x.FirstOrDefault().SLTon;
+                }
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
     }
 }

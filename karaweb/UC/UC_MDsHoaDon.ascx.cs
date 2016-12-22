@@ -122,18 +122,34 @@ public partial class UC_UC_MDsHoaDon : System.Web.UI.UserControl , IMHoaDonDV
         }
     }
 
-    // grid 2
-    protected void RadGrid2_OnNeedDataSource(object sender, GridNeedDataSourceEventArgs e)
+    protected void RadGrid1_OnSelectedIndexChanged(object sender, EventArgs e)
     {
-        var idhoadondv = 33;
+        GridDataItem i = (GridDataItem)RadGrid1.SelectedItems[0];//get selected row
+        ID_HoaDon = Convert.ToInt32(i["idhoadonne"].Text);
 
+        //radgrid2 onned datasource
         var presenter = new PMCT_HDDV(this);
         DataTable dt;
         if (txtsearch.Text == "")
-            dt = presenter.List_HD(idhoadondv);
+            dt = presenter.List_HD(ID_HoaDon);
         else
         {
-            dt = presenter.List_HD(idhoadondv,txtsearch.Text);
+            dt = presenter.List_HD(ID_HoaDon, txtsearch.Text);
+        }
+        RadGrid2.DataSource = dt;
+        RadGrid2.DataBind();
+    }
+
+    // grid 2
+    protected void RadGrid2_OnNeedDataSource(object sender, GridNeedDataSourceEventArgs e)
+    {
+        var presenter = new PMCT_HDDV(this);
+        DataTable dt;
+        if (txtsearch.Text == "")
+            dt = presenter.List_HD(ID_HoaDon);
+        else
+        {
+            dt = presenter.List_HD(ID_HoaDon, txtsearch.Text);
         }
         RadGrid2.DataSource = dt;
 
@@ -243,4 +259,5 @@ public partial class UC_UC_MDsHoaDon : System.Web.UI.UserControl , IMHoaDonDV
 
     #endregion
 
+   
 }

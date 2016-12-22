@@ -73,14 +73,14 @@
         <div class="x_content">
             <br />
             <div class="form-horizontal form-label-left">
-                <telerik:RadGrid ID="RadGrid1" runat="server" ShowStatusBar="True" AutoGenerateColumns="False"
+                <telerik:RadGrid ID="RadGrid1" runat="server" ShowStatusBar="True"   AutoGenerateColumns="False"
                     OnNeedDataSource="RadGrid1_OnNeedDataSource"
                     OnItemCreated="RadGrid1_OnItemCreated"
                     OnItemDataBound="RadGrid1_OnItemDataBound"
                     OnInsertCommand="RadGrid1_OnInsertCommand"
                     OnUpdateCommand="RadGrid1_OnUpdateCommand"
                     OnDeleteCommand="RadGrid1_OnDeleteCommand">
-                    <MasterTableView EditMode="EditForms" ShowFooter="false" CommandItemDisplay="Bottom">
+                    <MasterTableView EditMode="EditForms" ShowFooter="false"  DataKeyNames="ID_Hang" CommandItemDisplay="Bottom">
                         <CommandItemSettings AddNewRecordText="Thêm nước"
                             RefreshText="Làm mới" />
                         <Columns>
@@ -90,19 +90,31 @@
                                     <%# Container.DataSetIndex + 1 %>
                                 </ItemTemplate>
                             </telerik:GridTemplateColumn>
+                            
+                            <telerik:GridBoundColumn UniqueName="ID_Hang" DataField="ID_Hang" Visible="False" >
+                            </telerik:GridBoundColumn>
 
                             <telerik:GridTemplateColumn ColumnEditorID="hihi" UniqueName="TenHang" HeaderText="Tên">
                                 <ItemTemplate>
                                     <%#DataBinder.Eval(Container.DataItem, "TenHang") %>
                                 </ItemTemplate>
                                 <EditItemTemplate>
-                                    <telerik:RadComboBox runat="server" ID="cbboxHang" Width="300px" ClientIDMode="Static"
+                                    <telerik:RadComboBox runat="server" ID="cbboxHang" Width="300px" ClientIDMode="Static" 
                                         EmptyMessage="--- Chọn nước ---">
                                     </telerik:RadComboBox>
                                     <asp:RequiredFieldValidator runat="server" ControlToValidate="cbboxHang" ErrorMessage="(*)" ForeColor="Red" Width="4px">
                                     </asp:RequiredFieldValidator>
                                 </EditItemTemplate>
                             </telerik:GridTemplateColumn>
+                            
+                           <telerik:GridTemplateColumn UniqueName="SoLuongTon" HeaderText="Số lượng tồn">
+                                <EditItemTemplate>
+                                    <telerik:RadNumericTextBox ID="txtsoluongton" runat="server" MinValue="1">
+                                        <NumberFormat GroupSeparator="" DecimalDigits="0" />
+                                    </telerik:RadNumericTextBox>
+                                </EditItemTemplate>
+                            </telerik:GridTemplateColumn>
+
                             <telerik:GridTemplateColumn UniqueName="SoLuong" HeaderText="Số lượng">
                                 <ItemTemplate>
                                     <%#DataBinder.Eval(Container.DataItem, "SoLuong") %>

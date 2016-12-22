@@ -78,9 +78,10 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ID_Phong" Type="Int32" Nullable="false" />
     <Property Name="NgayGioLap" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SoGio" Type="Double" />
     <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
     <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-    <Property Name="SoGio" Type="Double" />
+    <Property Name="TienPhong" Type="Decimal" Precision="19" Scale="4" />
   </EntityType>
   <EntityType Name="HOADONNHAP">
     <Key>
@@ -127,6 +128,16 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
   <EntityType Name="THAMSO">
     <Key>
       <PropertyRef Name="Name" />
@@ -148,6 +159,7 @@
     <EntitySet Name="PHIEUCHIs" EntityType="Self.PHIEUCHI" />
     <EntitySet Name="PHONGs" EntityType="Self.PHONG" />
     <EntitySet Name="STATUS" EntityType="Self.STATUS" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="THAMSOes" EntityType="Self.THAMSO" />
   </EntityContainer>
 </Schema>

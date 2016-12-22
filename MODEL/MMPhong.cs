@@ -194,8 +194,8 @@ namespace MODEL
                     if (sv != null)
                     {
                         if (sv.StatusID != 3) return false;
-                        
 
+                        decimal tienphong = 0;
                          //Ket thuc thi tinh tien hoa don.
                         var hoadon = (from s in db.HOADONDVs where s.ID_Phong == idphong orderby s.ID descending select s ).FirstOrDefault();
                         var loaiphong = (from s in db.LOAIPHONGs where s.ID == sv.IdLoaiPhong select s).FirstOrDefault();
@@ -204,15 +204,22 @@ namespace MODEL
 
                         //tinh tong tien +=  tien phog. tien nuoc uong lien tuc duoc cap nha roi
                         DateTime t2 = DateTime.Parse("2012/12/12 "+sv.TGStart.GetValueOrDefault().ToString("HH:mm:ss"));
-                        if(giongaydem < t2 || t2 < DateTime.Parse("2012/12/12 06:00:00"))
-                            hoadon.TongTien += Convert.ToDecimal(hoadon.SoGio.GetValueOrDefault() * (double)loaiphong.GiaDem.GetValueOrDefault());
+                        if (giongaydem < t2 || t2 < DateTime.Parse("2012/12/12 06:00:00"))
+                        {
+                           
+                            tienphong = Convert.ToDecimal(hoadon.SoGio.GetValueOrDefault() * (double)loaiphong.GiaDem.GetValueOrDefault());
+                            hoadon.TongTien += tienphong;
+
+                        }
                         else
                         {
-                            hoadon.TongTien += Convert.ToDecimal(hoadon.SoGio.GetValueOrDefault() * (double)loaiphong.GiaNgay.GetValueOrDefault());
+                            tienphong = Convert.ToDecimal(hoadon.SoGio.GetValueOrDefault() * (double)loaiphong.GiaNgay.GetValueOrDefault());
+                            hoadon.TongTien += tienphong;
                         }
 
                         //sau do cap nhat tinh trnag phong, lam tron so
                         hoadon.TongTien = Math.Round(hoadon.TongTien, 0);
+                        hoadon.TienPhong = Math.Round(tienphong, 0);
                         sv.StatusID = 1; //free
                         sv.TGStart = null;
                         db.SaveChanges();

@@ -14,7 +14,7 @@ public partial class Default2 : Page
         }
         else
         {
-            LoadUserControl("UC\\UC_MPhong.ascx");
+            LoadUserControl("UC\\UC_MDsHoaDon.ascx");
         }
         if(IsPostBack)
             SupportLoad();
