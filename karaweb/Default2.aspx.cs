@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Data;
 using System.Reflection;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MODEL;
+using PRESENTER;
 
 public partial class Default2 : Page
 {
@@ -19,6 +21,17 @@ public partial class Default2 : Page
         if(IsPostBack)
             SupportLoad();
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "loadpage", "pageload();", true);
+
+        //warning
+        var x = (new PMHang()).List_Warning(null);
+        string s;
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "cleanwarning", "cleanWarning();", true);
+        foreach (DataRow item in x.Rows)
+        {
+            s = "Hết hàng - " + item["Ten"].ToString() ;
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "addWarning", "addWarning('"+s+"');", true);
+        }
+        //end warning
     }
 
 

@@ -21,5 +21,6 @@ namespace MODEL
         public string TenKH { get; set; }
         public decimal TongTien { get; set; }
         public Nullable<decimal> TienPhong { get; set; }
+        public byte Deleted { get; set; }
     }
 }

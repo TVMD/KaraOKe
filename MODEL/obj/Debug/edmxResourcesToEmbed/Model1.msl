@@ -39,6 +39,7 @@
           <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
           <ScalarProperty Name="DonGiaNhap" ColumnName="DonGiaNhap" />
           <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -50,6 +51,7 @@
           <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
           <ScalarProperty Name="DonGia" ColumnName="DonGia" />
           <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -60,6 +62,7 @@
           <ScalarProperty Name="NgayGioDat" ColumnName="NgayGioDat" />
           <ScalarProperty Name="SDT" ColumnName="SDT" />
           <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -73,6 +76,7 @@
           <ScalarProperty Name="SLTon" ColumnName="SLTon" />
           <ScalarProperty Name="DonVi" ColumnName="DonVi" />
           <ScalarProperty Name="Requested" ColumnName="Requested" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -86,6 +90,7 @@
           <ScalarProperty Name="TenKH" ColumnName="TenKH" />
           <ScalarProperty Name="TongTien" ColumnName="TongTien" />
           <ScalarProperty Name="TienPhong" ColumnName="TienPhong" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -95,6 +100,7 @@
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
           <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -106,6 +112,7 @@
           <ScalarProperty Name="GiaNgay" ColumnName="GiaNgay" />
           <ScalarProperty Name="GiaDem" ColumnName="GiaDem" />
           <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -117,6 +124,7 @@
           <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
           <ScalarProperty Name="TongTien" ColumnName="TongTien" />
           <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -128,14 +136,7 @@
           <ScalarProperty Name="StatusID" ColumnName="StatusID" />
           <ScalarProperty Name="TGStart" ColumnName="TGStart" />
           <ScalarProperty Name="IdLoaiPhong" ColumnName="IdLoaiPhong" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="STATUS">
-      <EntityTypeMapping TypeName="QLPhongKaraokeModel.STATUS">
-        <MappingFragment StoreEntitySet="STATUS">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -155,6 +156,7 @@
         <MappingFragment StoreEntitySet="THAMSO">
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -17,6 +17,7 @@ public partial class UC_UC_MDsHoaDon : System.Web.UI.UserControl , IMHoaDonDV
     private string _message = "";
     private GridEditableItem editableItem;
     private Hashtable newValue;
+    private static int GlobleIdHoaDon;
     #endregion
 
     protected void Page_Load(object sender, EventArgs e)
@@ -126,7 +127,7 @@ public partial class UC_UC_MDsHoaDon : System.Web.UI.UserControl , IMHoaDonDV
     {
         GridDataItem i = (GridDataItem)RadGrid1.SelectedItems[0];//get selected row
         ID_HoaDon = Convert.ToInt32(i["idhoadonne"].Text);
-
+        GlobleIdHoaDon = ID_HoaDon;
         //radgrid2 onned datasource
         var presenter = new PMCT_HDDV(this);
         DataTable dt;
@@ -146,10 +147,10 @@ public partial class UC_UC_MDsHoaDon : System.Web.UI.UserControl , IMHoaDonDV
         var presenter = new PMCT_HDDV(this);
         DataTable dt;
         if (txtsearch.Text == "")
-            dt = presenter.List_HD(ID_HoaDon);
+            dt = presenter.List_HD(GlobleIdHoaDon);
         else
         {
-            dt = presenter.List_HD(ID_HoaDon, txtsearch.Text);
+            dt = presenter.List_HD(GlobleIdHoaDon, txtsearch.Text);
         }
         RadGrid2.DataSource = dt;
 
@@ -205,10 +206,13 @@ public partial class UC_UC_MDsHoaDon : System.Web.UI.UserControl , IMHoaDonDV
         var tbsoluong = e.Item.FindControl("txtsoluong") as RadNumericTextBox;
         ID_Hang = Int32.Parse(cbb.SelectedValue);
         SoLuong = int.Parse(tbsoluong.Text);
-
+        ID_HoaDon = GlobleIdHoaDon;
         Message = presenter.Update() ? "Đã cập nhật" : "Cập nhật bị lỗi";
         if (Message == "Đã cập nhật")
         {
+            RadGrid1.DataBind();
+            RadGrid1.Rebind();
+            RadGrid2.Rebind();
         }
     }
 
@@ -219,12 +223,18 @@ public partial class UC_UC_MDsHoaDon : System.Web.UI.UserControl , IMHoaDonDV
         e.Item.OwnerTableView.ExtractValuesFromItem(newValue, editableItem);
 
         var presenter = new PMCT_HDDV(this);
+        GridDataItem item = e.Item as GridDataItem;
+        // get value from DataKey
+        string str1 = item.GetDataKeyValue("ID_Hang").ToString();
+        ID_HoaDon = GlobleIdHoaDon;
+        ID_Hang = int.Parse(str1);
 
-        ID_Hang = int.Parse(DataBinder.Eval(e.Item.DataItem, "ID_Hang").ToString());
         Message = presenter.Delete() ? "Xóa xong" : "Không xóa được nè";
         if (Message == "Xóa xong")
         {
             RadGrid1.DataBind();
+            RadGrid1.Rebind();
+            RadGrid2.Rebind();
         }
     }
 

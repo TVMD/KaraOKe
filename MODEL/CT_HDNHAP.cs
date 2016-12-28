@@ -19,5 +19,6 @@ namespace MODEL
         public int SoLuong { get; set; }
         public decimal DonGiaNhap { get; set; }
         public decimal ThanhTien { get; set; }
+        public byte Deleted { get; set; }
     }
 }

@@ -18,5 +18,6 @@ namespace MODEL
         public System.DateTime NgayGioDat { get; set; }
         public string SDT { get; set; }
         public string Note { get; set; }
+        public byte Deleted { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace MODEL
         {
             using (var db = new QLPhongKaraokeEntities())
             {
-                IEnumerable<THAMSO> query = from s in db.THAMSOes select s;
+                IEnumerable<THAMSO> query = from s in db.THAMSOes where s.Deleted==0 select s;
 
                 //Filter // neu de search=null thi kho search,
                 if (!string.IsNullOrEmpty(search))
@@ -51,7 +51,7 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.THAMSOes
-                            where s.Name == item.Name
+                        where s.Name == item.Name && s.Deleted == 0 
                             select s;
                     var sv = x.FirstOrDefault();
                     if (sv != null)
@@ -75,7 +75,7 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.THAMSOes
-                            where s.Name == name
+                            where s.Name == name && s.Deleted==0
                             select s;
                     return x.FirstOrDefault();
                 }

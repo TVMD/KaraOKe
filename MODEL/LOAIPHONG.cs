@@ -19,5 +19,6 @@ namespace MODEL
         public Nullable<decimal> GiaNgay { get; set; }
         public Nullable<decimal> GiaDem { get; set; }
         public Nullable<int> SoLuong { get; set; }
+        public byte Deleted { get; set; }
     }
 }
