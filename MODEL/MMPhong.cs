@@ -14,7 +14,7 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.LOAIPHONGs
-                            where s.ID == idloaiphong
+                            where s.ID == idloaiphong && s.Deleted==0
                             select s;
                     var sv = x.FirstOrDefault();
                     if (sv != null)
@@ -33,7 +33,7 @@ namespace MODEL
         {
             using (var db = new QLPhongKaraokeEntities())
             {
-                IEnumerable<PHONG> query = from s in db.PHONGs select s;
+                IEnumerable<PHONG> query = from s in db.PHONGs where s.Deleted==0 select s;
 
                 //Filter // neu de search=null thi kho search,
                 if (!string.IsNullOrEmpty(search))
@@ -83,12 +83,12 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.PHONGs
-                        where s.ID == ID
+                            where s.ID == ID && s.Deleted == 0
                         select s;
                     var sv = x.FirstOrDefault();
                     if (sv != null)
                     {
-                        db.PHONGs.Remove(sv);
+                        sv.Deleted = 1;
                         db.SaveChanges();
                     }
                 }
@@ -107,7 +107,7 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.PHONGs
-                        where s.ID == item.ID
+                            where s.ID == item.ID && s.Deleted == 0
                         select s;
                     var sv = x.FirstOrDefault();
                     if (sv != null)
@@ -132,7 +132,7 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.PHONGs
-                            where s.ID == Id
+                            where s.ID == Id && s.Deleted == 0
                             select s;
                     return  x.FirstOrDefault();
                 }
@@ -150,7 +150,7 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.PHONGs
-                            where s.ID == id
+                            where s.ID == id && s.Deleted == 0
                             select s;
                     var sv = x.FirstOrDefault();
                     if (sv != null)
@@ -188,7 +188,7 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.PHONGs
-                            where s.ID == idphong
+                            where s.ID == idphong && s.Deleted == 0
                             select s;
                     var sv = x.FirstOrDefault();
                     if (sv != null)

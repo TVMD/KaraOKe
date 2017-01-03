@@ -46,5 +46,30 @@ namespace PRESENTER
         {
             return model.GetOne(idhang);
         }
+
+        public DataTable List_Warning(string search)
+        {
+            var dt = model.List_Warning(search);
+            if (dt == null)
+            {
+                return null;
+            }
+
+            var tb = new DataTable();
+            tb.Columns.Add("ID");
+            tb.Columns.Add("Ten");
+            tb.Columns.Add("DonGiaNhap");
+            tb.Columns.Add("DonGiaBan");
+            tb.Columns.Add("SLTon");
+            foreach (var item in dt)
+            {
+                tb.Rows.Add(item.ID,
+                    item.Ten,
+                    item.DonGiaNhap,
+                    item.DonGiaBan,
+                    item.SLTon);
+            }
+            return tb;
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace MODEL
         {
             using (var db = new QLPhongKaraokeEntities())
             {
-                IEnumerable<HOADONDV> query = from s in db.HOADONDVs select s;
+                IEnumerable<HOADONDV> query = from s in db.HOADONDVs where s.Deleted == 0 select s;
 
                 //Filter // neu de search=null thi kho search,
                 if (!string.IsNullOrEmpty(search))
@@ -59,12 +59,12 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.HOADONDVs
-                        where s.ID == ID
+                            where s.ID == ID && s.Deleted == 0
                         select s;
                     var sv = x.FirstOrDefault();
                     if (sv != null)
                     {
-                        db.HOADONDVs.Remove(sv);
+                        sv.Deleted = 1;
                         db.SaveChanges();
 
                         (new MMCT_HoaDonDV()).DeleteAllHoaDon(ID); // xoa hoa don thi xoa luon ct
@@ -85,7 +85,7 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.HOADONDVs
-                        where s.ID == item.ID
+                            where s.ID == item.ID && s.Deleted == 0
                         select s;
                     var sv = x.FirstOrDefault();
                     if (sv != null)
@@ -110,7 +110,7 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.HOADONDVs
-                            where s.ID == id
+                            where s.ID == id && s.Deleted == 0
                             select s;
                     var sv = x.FirstOrDefault();
                     if (sv != null)
@@ -134,7 +134,7 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.HOADONDVs
-                            where s.ID == id
+                            where s.ID == id && s.Deleted == 0
                             select s;
                    return x.FirstOrDefault();
                 }
@@ -152,7 +152,7 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.HOADONDVs
-                            where s.ID_Phong == idrom && s.SoGio == 0
+                            where s.ID_Phong == idrom && s.SoGio == 0 && s.Deleted == 0
                             orderby s.ID descending 
                             select s;
                     return x.FirstOrDefault();
@@ -171,7 +171,7 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.HOADONDVs
-                            where s.ID_Phong == idrom 
+                            where s.ID_Phong == idrom && s.Deleted == 0
                             orderby s.ID descending
                             select s;
                     return x.FirstOrDefault();
@@ -216,7 +216,7 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = (from s in db.CT_HOADONDV
-                            where s.ID_HoaDonDV == idhoadon
+                             where s.ID_HoaDonDV == idhoadon && s.Deleted == 0
                             select s);
                     decimal tien = 0;
                     foreach (var item in x)
@@ -236,7 +236,7 @@ namespace MODEL
         {
             using (var db = new QLPhongKaraokeEntities())
             {
-                IEnumerable<PHONG> query = from s in db.PHONGs select s;
+                IEnumerable<PHONG> query = from s in db.PHONGs where s.Deleted == 0 select s;
 
                 return query.ToList();
             }

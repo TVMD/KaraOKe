@@ -11,7 +11,7 @@ namespace MODEL
         {
             using (var db = new QLPhongKaraokeEntities())
             {
-                IEnumerable<CT_HOADONDV> query = from s in db.CT_HOADONDV select s;
+                IEnumerable<CT_HOADONDV> query = from s in db.CT_HOADONDV where  s.Deleted == 0select s;
 
                 //Filter // neu de search=null thi kho search,
                 if (!string.IsNullOrEmpty(search))
@@ -44,7 +44,7 @@ namespace MODEL
                 return null;
             using (var db = new QLPhongKaraokeEntities())
             {
-                IEnumerable<CT_HOADONDV> query = from s in db.CT_HOADONDV where s.ID_HoaDonDV==idhoadon select s;
+                IEnumerable<CT_HOADONDV> query = from s in db.CT_HOADONDV where s.ID_HoaDonDV==idhoadon &&  s.Deleted == 0 select s;
                 return query.ToList();
             }
         }
@@ -55,7 +55,7 @@ namespace MODEL
                 return null;
             using (var db = new QLPhongKaraokeEntities())
             {
-                IEnumerable<CT_HOADONDV> query = from s in db.CT_HOADONDV where s.ID_HoaDonDV == idhoadon select s;
+                IEnumerable<CT_HOADONDV> query = from s in db.CT_HOADONDV where s.ID_HoaDonDV == idhoadon && s.Deleted == 0  select s;
                
                 if (!string.IsNullOrEmpty(search))
                 {
@@ -125,7 +125,7 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.CT_HOADONDV
-                        where s.ID_HoaDonDV == idhaodon && s.ID_Hang == idhang
+                            where s.ID_HoaDonDV == idhaodon && s.ID_Hang == idhang && s.Deleted == 0
                         select s;
                     var sv = x.FirstOrDefault();
                     var hang = (from s in db.HANGs where s.ID == idhang select s).FirstOrDefault();
@@ -133,7 +133,7 @@ namespace MODEL
                     if (sv != null)
                     {
                         thanhtiencu = sv.ThanhTien;
-                        db.CT_HOADONDV.Remove(sv);
+                        sv.Deleted = 1;
                         db.SaveChanges();
 
                         // cap nhat so luong ton
@@ -169,7 +169,7 @@ namespace MODEL
                             var hang = (from s in db.HANGs where s.ID == sv.ID_Hang select s).FirstOrDefault();
                             hang.SLTon += sv.SoLuong;
 
-                            db.CT_HOADONDV.Remove(sv);
+                            sv.Deleted = 1;
                             db.SaveChanges();
                         }
                     }
@@ -197,7 +197,7 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.CT_HOADONDV
-                        where s.ID_HoaDonDV == item.ID_HoaDonDV && s.ID_Hang == item.ID_Hang
+                            where s.ID_HoaDonDV == item.ID_HoaDonDV && s.ID_Hang == item.ID_Hang && s.Deleted == 0
                         select s;
                     var sv = x.FirstOrDefault();
                     var hang = (from s in db.HANGs where s.ID == sv.ID_Hang select s).FirstOrDefault();
@@ -236,7 +236,7 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.HANGs
-                            where s.ID == idhang
+                            where s.ID == idhang && s.Deleted == 0
                             select s;
                     return x.FirstOrDefault().SLTon;
                 }
