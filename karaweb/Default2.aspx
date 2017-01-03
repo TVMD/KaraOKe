@@ -71,6 +71,7 @@
                                     <li><a><i class="fa fa-table"></i>Hóa đơn <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                             <li><a id="hoadondv" class="uc">Hóa đơn dịch vụ</a></li>
+                                            <li><a id="_nhaphang" class="uc">Nhập hàng</a></li>
                                         </ul>
                                     </li>
 

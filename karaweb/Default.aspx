@@ -30,6 +30,8 @@
 
                 <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server" Transparency="30" MinDisplayTime="0">
                 </telerik:RadAjaxLoadingPanel>
+                <div class="Status">chứa status-message đồ</div>
+
             </div>
         </div>
         <script src="Scripts/jquery-3.1.1.min.js"></script>

@@ -76,6 +76,9 @@
     <Compile Include="LOAIPHONG.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="MCTHDNhap.cs" />
+    <Compile Include="MHDNhap.cs" />
+    <Compile Include="MLoaiPhong.cs" />
     <Compile Include="MKhoa.cs" />
     <Compile Include="MMCT_HoaDonDV.cs" />
     <Compile Include="MMDatPhong.cs" />
@@ -99,7 +102,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="MSinhVien.cs" />
+    <Compile Include="M_Hang_Tien.cs" />
     <Compile Include="PHIEUCHI.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

@@ -44,8 +44,9 @@
     <Compile Include="PMHoaDonDV.cs" />
     <Compile Include="PMLoaiPhong.cs" />
     <Compile Include="PMPhong.cs" />
+    <Compile Include="PHDNhap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PSinhVien.cs" />
+    <Compile Include="PTHang.cs" />
     <Compile Include="PThamSo.cs" />
   </ItemGroup>
   <ItemGroup>
