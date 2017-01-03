@@ -157,6 +157,9 @@ function btnbatdauclick() {
 }
 
 function btntinhtienclick() {
+    //inhd
+    window.print();
+    //
     var tg = $("#tgbatdau").val();
     $("#tgbatdau").val(moment(tg, "DD/MM/YYYY HH:mm:ss").format("DD/MM/YYYY HH:mm:ss"));
     $("#btnbatdau").prop("disabled", false);
