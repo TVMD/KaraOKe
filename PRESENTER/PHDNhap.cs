@@ -95,27 +95,32 @@ namespace PRESENTER
             var hang = modelHang.Get1Hang(view.IDHang);
             hang.DonGiaNhap = view.DonGiaNhap;
             hang.DonGiaBan = 2 * view.DonGiaNhap;
+            hang.SLTon += sv.SoLuong;
             modelHang.Update(hang);
             hd.TongTien += sv.ThanhTien;
             model.Update(hd);
             return modelCT.Insert(sv);
         }
-        public bool Delete()
+        public bool Delete(int id)
         {
-            List<CT_HDNHAP> tamp = modelCT.getCTByIDHD(view.ID);
-            foreach (CT_HDNHAP tam in tamp)
-            {
-                modelCT.Delete(tam.IDHoaDon,tam.IDHang);
-            }
-            return model.Delete(view.ID);
+            //List<CT_HDNHAP> tamp = modelCT.getCTByIDHD(view.ID);
+            //foreach (CT_HDNHAP tam in tamp)
+            //{
+            //    modelCT.Delete(tam.IDHoaDon,tam.IDHang);
+            //}
+            var hd = model.Get1Item(id);
+            hd.Deleted = 1;
+
+            return model.Delete(id);
         }
-        public bool DeleteCT(int IDHoaDon)
+        public bool DeleteCT(int IDHoaDon, int IDHang)
         {
             var hd = model.Get1Item(IDHoaDon);
-            var ct = modelCT.Get1Item(IDHoaDon, view.IDHang);
+            var ct = modelCT.Get1Item(IDHoaDon, IDHang);
             hd.TongTien -= ct.ThanhTien;
             model.Update(hd);
-            return modelCT.Delete(IDHoaDon,view.IDHang);
+
+            return modelCT.Delete(IDHoaDon, IDHang);
         }
 
         public bool Update()
@@ -144,6 +149,8 @@ namespace PRESENTER
             var hd = model.Get1Item(IDHoaDon);
             var ct = modelCT.Get1Item(IDHoaDon, view.IDHang);
             hd.TongTien += sv.ThanhTien - ct.ThanhTien;
+            var hang = modelHang.Get1Hang(view.IDHang);
+            hang.SLTon += sv.SoLuong - ct.SoLuong;
             model.Update(hd);
             return modelCT.Update(sv);
         }

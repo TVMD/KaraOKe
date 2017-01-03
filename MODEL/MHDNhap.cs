@@ -11,7 +11,7 @@ namespace MODEL
         {
             using (var db = new QLPhongKaraokeEntities())
             {
-                IEnumerable<HOADONNHAP> query = from s in db.HOADONNHAPs select s;
+                IEnumerable<HOADONNHAP> query = from s in db.HOADONNHAPs where s.Deleted==0 select s;
 
                 //Filter // neu de search=null thi kho search,
                 if (!string.IsNullOrEmpty(search))
@@ -59,7 +59,7 @@ namespace MODEL
                     var sv = x.FirstOrDefault();
                     if (sv != null)
                     {
-                        db.HOADONNHAPs.Remove(sv);
+                        sv.Deleted = 1;
                         db.SaveChanges();
                     }
                 }

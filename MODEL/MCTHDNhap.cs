@@ -13,7 +13,8 @@ namespace MODEL
             {
                 IEnumerable<CT_HDNHAP> query = null;
                 if (id != 0) {
-                    query = from s in db.CT_HDNHAP where s.IDHoaDon==id
+                    query = from s in db.CT_HDNHAP
+                            where (s.IDHoaDon == id && s.Deleted == 0)
                                                    select s;
                 }
                 else
@@ -71,7 +72,7 @@ namespace MODEL
                     var sv = x.FirstOrDefault();
                     if (sv != null)
                     {
-                        db.CT_HDNHAP.Remove(sv);
+                        sv.Deleted = 1;
                         db.SaveChanges();
                     }
                 }
@@ -122,7 +123,7 @@ namespace MODEL
         {
             using (var db = new QLPhongKaraokeEntities())
             {
-                IEnumerable<CT_HDNHAP> query = from s in db.CT_HDNHAP where s.IDHoaDon==IDHD
+                IEnumerable<CT_HDNHAP> query = from s in db.CT_HDNHAP where (s.IDHoaDon==IDHD&&s.Deleted==0)
                                                select s;
 
                 //Filter // neu de search=null thi kho search,

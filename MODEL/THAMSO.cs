@@ -16,5 +16,6 @@ namespace MODEL
     {
         public string Name { get; set; }
         public string Value { get; set; }
+        public byte Deleted { get; set; }
     }
 }

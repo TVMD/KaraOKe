@@ -30,29 +30,31 @@ public partial class UC_UC_MPhong : UserControl, IMPhong
 
             //item tung cot
             CreateDiv("rom_boss" + idstring, ("divrow_" + col/4),
-                "animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12", "");
+                "animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12 hihi", "");
             CreateDiv("rom" + idstring, "rom_boss" + idstring, "tile-stats", "");
             CreateDiv("rom_icon" + idstring, "rom" + idstring, "icon", "");
             CreateDiv("rom_count" + idstring, "rom" + idstring, "count", item["Ten"].ToString());
 
             var status = Convert.ToInt32(item["StatusID"].ToString());
-            FindControl("rom" + idstring).Controls.Add(new LiteralControl("<h3>" + romstate[status] + "</h3>"));
+            FindControl("rom" + idstring).Controls.Add(new LiteralControl("<h3>" + romstate[status-1] + "</h3>"));
             FindControl("rom_icon" + idstring)
-                .Controls.Add(new LiteralControl("<i class='" + romicon[status] + "'></i>"));
+                .Controls.Add(new LiteralControl("<i class='" + romicon[status-1] + "'></i>"));
             col++;
         }
         ((Default2) Page).SetTitle("Quản lý phòng");
-        
+        ScriptManager.RegisterStartupScript(this.Page,this.GetType(),"loadjs","phong_ready();",true);
     }
 
     private void CreateDiv(string id, string idparent, string cssclass, string innerhtlml)
     {
         var parent = FindControl(idparent);
         var newDiv =
-            new HtmlGenericControl("DIV") {ID = id};
+            new HtmlGenericControl("DIV");
+        newDiv.ID = id;
+        newDiv.ClientIDMode = ClientIDMode.Static;
         newDiv.Attributes.Add("class", cssclass);
         newDiv.InnerHtml = innerhtlml;
-
+        
         parent.Controls.Add(newDiv);
     }
 
@@ -80,6 +82,6 @@ public partial class UC_UC_MPhong : UserControl, IMPhong
 
     protected void btn_OnClick(object sender, EventArgs e)
     {
-        ((Default2)Page).ShowDialog("testpage2.aspx", "hihi", 200, 200);
+        ((Default2) Page).Swap(idphong.Value,"UC\\UC_MCT_Phong.ascx");
     }
 }

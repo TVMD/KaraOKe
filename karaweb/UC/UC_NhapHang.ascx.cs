@@ -22,8 +22,8 @@ public partial class UC_UC_NhapHang : System.Web.UI.UserControl,IHDNhap
     #endregion
     protected void Page_Load(object sender, EventArgs e)
     {
-        if(Session["curID"] ==null)
-            Session["curID"] = 2;
+        //if(Session["curID"] ==null)
+        //    Session["curID"] = 2;
     }
     protected void txtsearch_OnTextChanged(object sender, EventArgs e)
     {
@@ -44,6 +44,10 @@ public partial class UC_UC_NhapHang : System.Web.UI.UserControl,IHDNhap
             dt = presenter.List(txtsearch.Text);
         }
         RadGrid1.DataSource = dt;
+        if (dt.Rows.Count != 0)
+            Session["curID"] = dt.Rows[0][0].ToString();
+        else
+            Session["curID"] = "-1";
         //RadGrid1.DataBind();
     }
     protected void RadGrid2_OnNeedDataSource(object sender, GridNeedDataSourceEventArgs e)
@@ -65,6 +69,7 @@ public partial class UC_UC_NhapHang : System.Web.UI.UserControl,IHDNhap
     protected void RadGrid1_OnItemCreated(object sender, GridItemEventArgs e)
     {
         var item = e.Item as GridEditableItem;
+        
         if (item!=null && (e.Item.IsInEditMode) && e.Item.ItemIndex != -1)
         {
             (item.EditManager.GetColumnEditor("ID").ContainerControl.Controls[0] as TextBox).Enabled = false;
@@ -82,17 +87,16 @@ public partial class UC_UC_NhapHang : System.Web.UI.UserControl,IHDNhap
 
     protected void RadGrid1_OnItemDataBound(object sender, GridItemEventArgs e)
     {
-        //var cboKhoa = e.Item.FindControl("k") as RadComboBox;
-        //if (cboKhoa != null)
-        //{
-        //    var presenter = new PHDNhap(this);
-        //    var DsKhoa = presenter.GetAllLoaiPhong();
-
-        //    cboKhoa.DataTextField = "Ten";
-        //    cboKhoa.DataValueField = "ID";
-        //    cboKhoa.DataSource = DsKhoa;
-        //    cboKhoa.DataBind();
-        //}
+        if (e.Item is GridEditFormItem && e.Item.IsInEditMode)
+        {
+            GridEditFormItem dataItem = e.Item as GridEditFormItem;
+            TableCell cell = dataItem["NgayNhap"];
+            RadDatePicker rdp = cell.Controls[0] as RadDatePicker;
+            rdp.SharedCalendar.UseColumnHeadersAsSelectors = false;
+            rdp.SharedCalendar.UseRowHeadersAsSelectors = false;
+            rdp.SharedCalendar.RangeMaxDate = DateTime.Now;
+            rdp.SharedCalendar.RangeMinDate = System.DateTime.Now.AddDays(-30);
+        }
     }
     protected void RadGrid2_OnItemDataBound(object sender, GridItemEventArgs e)
     {
@@ -105,7 +109,7 @@ public partial class UC_UC_NhapHang : System.Web.UI.UserControl,IHDNhap
             cboHang.DataTextField = "Ten";
             cboHang.DataValueField = "ID";
             cboHang.DataSource = DsHang;
-            cboHang.SelectedValue = Session["currentHang"].ToString();
+            //cboHang.SelectedValue = Session["currentHang"].ToString();
             cboHang.DataBind();
            
         }
@@ -127,6 +131,15 @@ public partial class UC_UC_NhapHang : System.Web.UI.UserControl,IHDNhap
             GridDataItem item = e.Item as GridDataItem;
             Session["currentHang"] = item["IDHang"].Text;
 
+        }
+        if (e.Item is GridEditFormItem && e.Item.IsInEditMode)
+        {
+            var item = (GridEditFormItem)e.Item;
+            var combo = (RadComboBox)item.FindControl("cbHang");
+            if (!(e.Item is IGridInsertItem))
+            {
+                combo.SelectedValue = DataBinder.Eval(item.DataItem, "IDHang").ToString();
+            }
         }
        
     }
@@ -212,7 +225,7 @@ public partial class UC_UC_NhapHang : System.Web.UI.UserControl,IHDNhap
         e.Item.OwnerTableView.ExtractValuesFromItem(newValue, editableItem);
         var presenter = new PHDNhap(this);
 
-        Message = presenter.Delete() ? "Xóa xong" : "Không xóa được nè";
+        Message = presenter.Delete(int.Parse(Session["curID"].ToString())) ? "Xóa xong" : "Không xóa được nè";
         if (Message == "Xóa xong")
         {
         }
@@ -223,8 +236,10 @@ public partial class UC_UC_NhapHang : System.Web.UI.UserControl,IHDNhap
         editableItem = e.Item as GridEditableItem;
         e.Item.OwnerTableView.ExtractValuesFromItem(newValueCT, editableItem);
         var presenter = new PHDNhap(this);
+        GridEditableItem editedItem = e.Item as GridEditableItem;
+        int id = int.Parse( editedItem.GetDataKeyValue("IDHang").ToString());
 
-        Message = presenter.DeleteCT(currentId) ? "Xóa xong" : "Không xóa được nè";
+        Message = presenter.DeleteCT(int.Parse(Session["curID"].ToString()), id) ? "Xóa xong" : "Không xóa được nè";
         if (Message == "Xóa xong")
         {
         }
@@ -280,18 +295,20 @@ public partial class UC_UC_NhapHang : System.Web.UI.UserControl,IHDNhap
     }
     public int IDHang
     {
-        get
-        {
-            try
-            {
-                return Convert.ToInt32(newValueCT["IDHang"].ToString());
-            }
-            catch (Exception)
-            {
-                return 0;
-            }
-        }
-        set { }
+        //get
+        //{
+        //    try
+        //    {
+        //        return Convert.ToInt32(newValueCT["IDHang"].ToString());
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return 0;
+        //    }
+        //}
+        //set { }
+        get;
+        set;
     }
     public int IDHoaDon { get; set; }
 

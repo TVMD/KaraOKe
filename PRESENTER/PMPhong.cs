@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using IVIEW;
 using MODEL;
@@ -54,10 +55,10 @@ namespace PRESENTER
         {
             var phong = new PHONG()
             {
-                ID = view.ID,
+                ID = 0,
                 Ten = view.Ten,
-                StatusID = -1,
-                TGStart = view.TGStart,
+                StatusID = 1,
+                TGStart = null,
                 IdLoaiPhong = view.IdLoaiPhong
             };
             return model.Insert(phong);
@@ -74,8 +75,6 @@ namespace PRESENTER
             {
                 ID = view.ID,
                 Ten = view.Ten,
-                StatusID = view.StatusId,
-                TGStart = view.TGStart,
                 IdLoaiPhong = view.IdLoaiPhong
             };
             return model.Update(phong);
@@ -90,6 +89,21 @@ namespace PRESENTER
                 return null;
             }
             return dt;
+        }
+
+        public PHONG GetOne(int ID)
+        {
+            return model.GetOne(ID);
+        }
+
+        public bool Begin(string tenkh)
+        {
+            return model.Begin(view.ID,view.TGStart, tenkh);
+        }
+
+        public bool End()
+        {
+            return model.End(view.ID);
         }
     }
 }

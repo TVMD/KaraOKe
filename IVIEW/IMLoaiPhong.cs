@@ -5,7 +5,11 @@ using System.Text;
 
 namespace IVIEW
 {
-    class IMLoaiPhong
+    public interface IMLoaiPhong : IShare
     {
+         int ID { get; set; }
+         string Ten { get; set; }
+         decimal GiaNgay { get; set; }
+         decimal GiaDem { get; set; }
     }
 }

@@ -43,6 +43,7 @@
           <Property Name="SoLuong" Type="int" Nullable="false" />
           <Property Name="DonGiaNhap" Type="money" Nullable="false" />
           <Property Name="ThanhTien" Type="money" Nullable="false" />
+          <Property Name="Deleted" Type="tinyint" Nullable="false" />
         </EntityType>
         <EntityType Name="CT_HOADONDV">
           <Key>
@@ -54,6 +55,7 @@
           <Property Name="SoLuong" Type="int" Nullable="false" />
           <Property Name="DonGia" Type="money" Nullable="false" />
           <Property Name="ThanhTien" Type="money" Nullable="false" />
+          <Property Name="Deleted" Type="tinyint" Nullable="false" />
         </EntityType>
         <EntityType Name="DATPHONG">
           <Key>
@@ -63,6 +65,7 @@
           <Property Name="NgayGioDat" Type="datetime" Nullable="false" />
           <Property Name="SDT" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="Note" Type="nvarchar" MaxLength="500" />
+          <Property Name="Deleted" Type="tinyint" Nullable="false" />
         </EntityType>
         <EntityType Name="HANG">
           <Key>
@@ -75,6 +78,7 @@
           <Property Name="SLTon" Type="int" Nullable="false" />
           <Property Name="DonVi" Type="nvarchar" MaxLength="50" />
           <Property Name="Requested" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="tinyint" Nullable="false" />
         </EntityType>
         <EntityType Name="HOADONDV">
           <Key>
@@ -83,8 +87,11 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Phong" Type="int" Nullable="false" />
           <Property Name="NgayGioLap" Type="datetime" Nullable="false" />
-          <Property Name="TenKH" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="SoGio" Type="float" />
+          <Property Name="TenKH" Type="nchar" MaxLength="50" />
           <Property Name="TongTien" Type="money" Nullable="false" />
+          <Property Name="TienPhong" Type="money" />
+          <Property Name="Deleted" Type="tinyint" Nullable="false" />
         </EntityType>
         <EntityType Name="HOADONNHAP">
           <Key>
@@ -93,6 +100,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NgayNhap" Type="datetime" Nullable="false" />
           <Property Name="TongTien" Type="money" Nullable="false" />
+          <Property Name="Deleted" Type="tinyint" Nullable="false" />
         </EntityType>
         <EntityType Name="LOAIPHONG">
           <Key>
@@ -103,6 +111,7 @@
           <Property Name="GiaNgay" Type="money" />
           <Property Name="GiaDem" Type="money" />
           <Property Name="SoLuong" Type="int" />
+          <Property Name="Deleted" Type="tinyint" Nullable="false" />
         </EntityType>
         <EntityType Name="PHIEUCHI">
           <Key>
@@ -113,6 +122,7 @@
           <Property Name="NoiDung" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="TongTien" Type="money" Nullable="false" />
           <Property Name="GhiChu" Type="nvarchar" MaxLength="500" />
+          <Property Name="Deleted" Type="tinyint" Nullable="false" />
         </EntityType>
         <EntityType Name="PHONG">
           <Key>
@@ -123,13 +133,7 @@
           <Property Name="StatusID" Type="int" />
           <Property Name="TGStart" Type="datetime" />
           <Property Name="IdLoaiPhong" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="STATUS">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Description" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Deleted" Type="tinyint" Nullable="false" />
         </EntityType>
         <EntityType Name="THAMSO">
           <Key>
@@ -137,6 +141,7 @@
           </Key>
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Value" Type="nvarchar" MaxLength="500" />
+          <Property Name="Deleted" Type="tinyint" Nullable="false" />
         </EntityType>
         <EntityContainer Name="QLPhongKaraokeModelStoreContainer">
           <EntitySet Name="BCDOANHTHU" EntityType="Self.BCDOANHTHU" Schema="dbo" store:Type="Tables" />
@@ -151,7 +156,6 @@
           <EntitySet Name="LOAIPHONG" EntityType="Self.LOAIPHONG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHIEUCHI" EntityType="Self.PHIEUCHI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHONG" EntityType="Self.PHONG" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="STATUS" EntityType="Self.STATUS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THAMSO" EntityType="Self.THAMSO" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
@@ -197,6 +201,7 @@
           <Property Name="SoLuong" Type="Int32" Nullable="false" />
           <Property Name="DonGiaNhap" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="ThanhTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Deleted" Type="Byte" Nullable="false" />
         </EntityType>
         <EntityType Name="CT_HOADONDV">
           <Key>
@@ -208,6 +213,7 @@
           <Property Name="SoLuong" Type="Int32" Nullable="false" />
           <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="ThanhTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Deleted" Type="Byte" Nullable="false" />
         </EntityType>
         <EntityType Name="DATPHONG">
           <Key>
@@ -217,6 +223,7 @@
           <Property Name="NgayGioDat" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="SDT" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Deleted" Type="Byte" Nullable="false" />
         </EntityType>
         <EntityType Name="HANG">
           <Key>
@@ -229,6 +236,7 @@
           <Property Name="SLTon" Type="Int32" Nullable="false" />
           <Property Name="DonVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Requested" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Byte" Nullable="false" />
         </EntityType>
         <EntityType Name="HOADONDV">
           <Key>
@@ -237,8 +245,11 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Phong" Type="Int32" Nullable="false" />
           <Property Name="NgayGioLap" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="SoGio" Type="Double" />
+          <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TienPhong" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Deleted" Type="Byte" Nullable="false" />
         </EntityType>
         <EntityType Name="HOADONNHAP">
           <Key>
@@ -247,6 +258,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NgayNhap" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Deleted" Type="Byte" Nullable="false" />
         </EntityType>
         <EntityType Name="LOAIPHONG">
           <Key>
@@ -257,6 +269,7 @@
           <Property Name="GiaNgay" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="GiaDem" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="SoLuong" Type="Int32" />
+          <Property Name="Deleted" Type="Byte" Nullable="false" />
         </EntityType>
         <EntityType Name="PHIEUCHI">
           <Key>
@@ -267,6 +280,7 @@
           <Property Name="NoiDung" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="GhiChu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Deleted" Type="Byte" Nullable="false" />
         </EntityType>
         <EntityType Name="PHONG">
           <Key>
@@ -277,13 +291,7 @@
           <Property Name="StatusID" Type="Int32" />
           <Property Name="TGStart" Type="DateTime" Precision="3" />
           <Property Name="IdLoaiPhong" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="STATUS">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Deleted" Type="Byte" Nullable="false" />
         </EntityType>
         <EntityType Name="THAMSO">
           <Key>
@@ -291,6 +299,7 @@
           </Key>
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Value" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Deleted" Type="Byte" Nullable="false" />
         </EntityType>
         <EntityContainer Name="QLPhongKaraokeEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BCDOANHTHUs" EntityType="Self.BCDOANHTHU" />
@@ -305,7 +314,6 @@
           <EntitySet Name="LOAIPHONGs" EntityType="Self.LOAIPHONG" />
           <EntitySet Name="PHIEUCHIs" EntityType="Self.PHIEUCHI" />
           <EntitySet Name="PHONGs" EntityType="Self.PHONG" />
-          <EntitySet Name="STATUS" EntityType="Self.STATUS" />
           <EntitySet Name="THAMSOes" EntityType="Self.THAMSO" />
         </EntityContainer>
       </Schema>
@@ -352,6 +360,7 @@
                 <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
                 <ScalarProperty Name="DonGiaNhap" ColumnName="DonGiaNhap" />
                 <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -363,6 +372,7 @@
                 <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
                 <ScalarProperty Name="DonGia" ColumnName="DonGia" />
                 <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -373,6 +383,7 @@
                 <ScalarProperty Name="NgayGioDat" ColumnName="NgayGioDat" />
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
                 <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -386,6 +397,7 @@
                 <ScalarProperty Name="SLTon" ColumnName="SLTon" />
                 <ScalarProperty Name="DonVi" ColumnName="DonVi" />
                 <ScalarProperty Name="Requested" ColumnName="Requested" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -395,8 +407,11 @@
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_Phong" ColumnName="ID_Phong" />
                 <ScalarProperty Name="NgayGioLap" ColumnName="NgayGioLap" />
+                <ScalarProperty Name="SoGio" ColumnName="SoGio" />
                 <ScalarProperty Name="TenKH" ColumnName="TenKH" />
                 <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+                <ScalarProperty Name="TienPhong" ColumnName="TienPhong" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -406,6 +421,7 @@
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
                 <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -417,6 +433,7 @@
                 <ScalarProperty Name="GiaNgay" ColumnName="GiaNgay" />
                 <ScalarProperty Name="GiaDem" ColumnName="GiaDem" />
                 <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -428,6 +445,7 @@
                 <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
                 <ScalarProperty Name="TongTien" ColumnName="TongTien" />
                 <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -439,14 +457,7 @@
                 <ScalarProperty Name="StatusID" ColumnName="StatusID" />
                 <ScalarProperty Name="TGStart" ColumnName="TGStart" />
                 <ScalarProperty Name="IdLoaiPhong" ColumnName="IdLoaiPhong" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="STATUS">
-            <EntityTypeMapping TypeName="QLPhongKaraokeModel.STATUS">
-              <MappingFragment StoreEntitySet="STATUS">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -455,6 +466,7 @@
               <MappingFragment StoreEntitySet="THAMSO">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

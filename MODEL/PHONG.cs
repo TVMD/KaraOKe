@@ -19,5 +19,6 @@ namespace MODEL
         public Nullable<int> StatusID { get; set; }
         public Nullable<System.DateTime> TGStart { get; set; }
         public int IdLoaiPhong { get; set; }
+        public byte Deleted { get; set; }
     }
 }

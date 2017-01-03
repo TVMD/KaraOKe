@@ -17,7 +17,10 @@ namespace MODEL
         public int ID { get; set; }
         public int ID_Phong { get; set; }
         public System.DateTime NgayGioLap { get; set; }
+        public Nullable<double> SoGio { get; set; }
         public string TenKH { get; set; }
         public decimal TongTien { get; set; }
+        public Nullable<decimal> TienPhong { get; set; }
+        public byte Deleted { get; set; }
     }
 }

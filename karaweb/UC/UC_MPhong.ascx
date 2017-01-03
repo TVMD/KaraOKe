@@ -3,13 +3,6 @@
 <%@ Reference Page="~/Default2.aspx" %>
 
 <div id="superDiv" class="" runat="server">
-    <telerik:RadButton runat="server" ID="btn" Text="click" Width="200px" OnClick="btn_OnClick"></telerik:RadButton>
+    <telerik:RadButton runat="server" ID="m_btn" Text="click" Width="200px" OnClick="btn_OnClick" ClientIDMode="Static" CssClass="hidden"></telerik:RadButton>
+    <input id ="idphong" runat="server" type="hidden" clientidmode="Static"/>
 </div>
-
-
-<script>
-    $(document).ready(function () {
-
-    });
-
-</script>

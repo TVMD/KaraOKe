@@ -22,7 +22,7 @@ namespace MODEL
         {
             using (var db = new QLPhongKaraokeEntities())
             {
-                IEnumerable<HANG> query = from s in db.HANGs select s;
+                IEnumerable<HANG> query = from s in db.HANGs where s.Deleted==0 select s;
 
                 //Filter // neu de search=null thi kho search,
                
