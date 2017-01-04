@@ -57,9 +57,31 @@ namespace MODEL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetListBCDoanhThu_Result>("GetListBCDoanhThu", dateFromParameter, dateToParameter);
         }
     
+        public virtual ObjectResult<GetListBCTonKho_Result> GetListBCTonKho(Nullable<System.DateTime> month)
+        {
+            var monthParameter = month.HasValue ?
+                new ObjectParameter("month", month) :
+                new ObjectParameter("month", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetListBCTonKho_Result>("GetListBCTonKho", monthParameter);
+        }
+    
         public virtual ObjectResult<GetListNguoiDung_Result> GetListNguoiDung()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetListNguoiDung_Result>("GetListNguoiDung");
+        }
+    
+        public virtual ObjectResult<getRP_Result> getRP(Nullable<System.DateTime> dateFrom, Nullable<System.DateTime> dateTo)
+        {
+            var dateFromParameter = dateFrom.HasValue ?
+                new ObjectParameter("dateFrom", dateFrom) :
+                new ObjectParameter("dateFrom", typeof(System.DateTime));
+    
+            var dateToParameter = dateTo.HasValue ?
+                new ObjectParameter("dateTo", dateTo) :
+                new ObjectParameter("dateTo", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getRP_Result>("getRP", dateFromParameter, dateToParameter);
         }
     }
 }

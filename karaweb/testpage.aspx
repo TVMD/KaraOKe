@@ -215,7 +215,7 @@
                                     <div class="x_content">
                                         <div class="form-group">
                                             <div class="col-md-9 col-md-offset-3">
-                                                <button type="submit" class="btn btn-primary">Bắt đầu</button>
+                                                <div id = "full" type="submit" class="btn btn-primary">fullscreen</div>
                                                 <button  type="submit" class="btn btn-success">Tính tiền</button>
                                                 <asp:Button runat="server" Text="btnnek" OnClick="Btnnekonclick" CausesValidation="false"></asp:Button>
                                             </div>
@@ -270,6 +270,28 @@
         $("#btnbatdau").on("click", function () {
             $("#tenkh").val("100.");
         });
+
+        $("#full").on("click", toggleFullScreen);
+        function toggleFullScreen() {
+            if ((document.fullScreenElement && document.fullScreenElement !== null) ||
+             (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+                if (document.documentElement.requestFullScreen) {
+                    document.documentElement.requestFullScreen();
+                } else if (document.documentElement.mozRequestFullScreen) {
+                    document.documentElement.mozRequestFullScreen();
+                } else if (document.documentElement.webkitRequestFullScreen) {
+                    document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+                }
+            } else {
+                if (document.cancelFullScreen) {
+                    document.cancelFullScreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.webkitCancelFullScreen) {
+                    document.webkitCancelFullScreen();
+                }
+            }
+        }
     </script>
     <!-- /jquery.inputmask -->
 

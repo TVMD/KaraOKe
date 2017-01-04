@@ -61,23 +61,19 @@
     <Compile Include="CT_HOADONDV.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSet_BCDoanhThu.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet_BCDoanhThu.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DATPHONG.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="GetListBCDoanhThu_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="GetListBCTonKho_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="GetListNguoiDung_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getRP_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="HANG.cs">
@@ -92,6 +88,9 @@
     <Compile Include="LOAIPHONG.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="MCTHDNhap.cs" />
+    <Compile Include="MHDNhap.cs" />
+    <Compile Include="MLoaiPhong.cs" />
     <Compile Include="MKhoa.cs" />
     <Compile Include="MMCT_HoaDonDV.cs" />
     <Compile Include="MMDatPhong.cs" />
@@ -115,12 +114,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="MSinhVien.cs" />
-    <Compile Include="MThamSo.cs" />
     <Compile Include="MToBaoCaoDoanhThu.cs" />
     <Compile Include="MToBCTonKho.cs" />
     <Compile Include="MToNguoiDung.cs" />
     <Compile Include="MTo_DangNhap.cs" />
+    <Compile Include="M_Hang_Tien.cs" />
     <Compile Include="NGUOIDUNG.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -134,11 +132,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
     <Compile Include="THAMSO.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -149,28 +142,6 @@
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="App.Config" />
-    <None Include="DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet_BCDoanhThu.xsc">
-      <DependentUpon>DataSet_BCDoanhThu.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet_BCDoanhThu.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet_BCDoanhThu.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSet_BCDoanhThu.xss">
-      <DependentUpon>DataSet_BCDoanhThu.xsd</DependentUpon>
-    </None>
     <None Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -185,10 +156,6 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

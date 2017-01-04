@@ -193,11 +193,11 @@ public partial class UC_UC_MCT_Phong : System.Web.UI.UserControl , IMPhong, IMHo
 
     protected void RadGrid1_OnItemCreated(object sender, GridItemEventArgs e)
     {
-        //var item = e.Item as GridEditableItem;
-        //if (item != null && e.Item.IsInEditMode && e.Item.ItemIndex != -1)
-        //{
-        //    (item.EditManager.GetColumnEditor("MaSV").ContainerControl.Controls[0] as TextBox).Enabled = false;
-        //}
+        if (e.Item.IsInEditMode && e.Item is GridEditFormItem)
+        {
+            (e.Item as GridEditableItem)["ID_Hang"].Parent.Visible = false;
+            (e.Item as GridEditableItem)["SoLuongTon"].Visible = false;
+        }
     }
 
     protected void RadGrid1_OnItemDataBound(object sender, GridItemEventArgs e)
@@ -221,6 +221,13 @@ public partial class UC_UC_MCT_Phong : System.Web.UI.UserControl , IMPhong, IMHo
             {
                 combo.SelectedValue = DataBinder.Eval(item.DataItem, "ID_Hang").ToString();
             }
+        }
+
+        if (e.Item is GridDataItem)
+        {
+            GridDataItem item = e.Item as GridDataItem;
+
+            ID_Hang = Convert.ToInt32(item.GetDataKeyValue("ID_Hang").ToString());
         }
     }
 
@@ -272,8 +279,10 @@ public partial class UC_UC_MCT_Phong : System.Web.UI.UserControl , IMPhong, IMHo
         e.Item.OwnerTableView.ExtractValuesFromItem(newValue, editableItem);
 
         var presenter = new PMCT_HDDV(this);
-
-        ID_Hang = int.Parse(DataBinder.Eval(e.Item.DataItem, "ID_Hang").ToString());
+        
+        //ID_Hang = int.Parse(DataBinder.Eval(e.Item.DataItem, "ID_Hang").ToString());
+        GridDataItem item = (GridDataItem)e.Item;
+        ID_Hang = Convert.ToInt32(item.GetDataKeyValue("ID_Hang").ToString()); 
         Message = presenter.Delete() ? "Xóa xong" : "Không xóa được nè";
         if (Message == "Xóa xong")
         {

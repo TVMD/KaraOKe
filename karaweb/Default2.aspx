@@ -74,6 +74,7 @@
                                     <li><a><i class="fa fa-table"></i>Hóa đơn <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                             <li><a id="hoadondv" class="uc">Hóa đơn dịch vụ</a></li>
+                                            <li><a id="_nhaphang" class="uc">Nhập hàng</a></li>
                                         </ul>
                                     </li>
 
@@ -84,6 +85,7 @@
                                     <li><a><i class="fa fa-cog"></i>Cài đặt <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                             <li><a id="thamso" class="uc">Tham số</a></li>
+                                            <li><a id="_user" class="uc">Nguời dùng</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -132,47 +134,10 @@
                                 <li role="presentation" class="dropdown">
                                     <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                                         <i class="fa fa-envelope-o"></i>
-                                        <span class="badge bg-green">1024</span>
+                                        <span id="countwarning" class="badge bg-green"></span>
                                     </a>
-                                    <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                                         <li>
-                                            <a>
-                                                <span class="fa fa-play"></span>
-                                                <span>
-                                                    <span>John Smith</span>
-                                                </span>
-                                                <span class="message">Film festivalss used to be do-or-die moments for movie makers. They were where...
-                                                </span>
-                                            </a>
-                                        </li>
-                                         <li>
-                                            <a>
-                                                <span class="fa fa-play"></span>
-                                                <span>
-                                                    <span>John Smith</span>
-                                                </span>
-                                                <span class="message">Film festivalss used to be do-or-die moments for movie makers. They were where...
-                                                </span>
-                                            </a>
-                                        </li>
-                                         <li>
-                                            <a>
-                                                <span class="fa fa-play"></span>
-                                                <span>
-                                                    <span>John Smith</span>
-                                                </span>
-                                                <span class="message">Film festivalss used to be do-or-die moments for movie makers. They were where...
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <div class="text-center">
-                                                <a>
-                                                    <strong>See All Alerts</strong>
-                                                    <i class="fa fa-angle-right"></i>
-                                                </a>
-                                            </div>
-                                        </li>
+                                    <ul id="menuwarning" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                         <!-- warning in heree-->
                                     </ul>
                                 </li>
                             </ul>
@@ -231,6 +196,7 @@
         </div>
         <!-- jQuery -->
         <script src="vendors/jquery/dist/jquery.js"></script>
+        <script src="vendors/jquery/dist/jquery.min.js"></script>
         <!-- Bootstrap -->
         <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
         <!-- FastClick -->
@@ -245,7 +211,7 @@
         <script src="Scripts/jquery-ui-1.12.1/jquery-ui.js"></script>
         <script src="Scripts/moment.js"></script>
         <script src="vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
-        <script src="Scripts/supersaiyan.js?v=1s2"></script>
+        <script src="Scripts/supersaiyan.js?v=2.0"></script>
         <!-- Scripts cua imVutoan-->
         <script src="Scripts/toandeptrai.js"></script>
 

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Data;
 using System.Reflection;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MODEL;
+using PRESENTER;
 
 public partial class Default2 : Page
 {
@@ -27,6 +29,17 @@ public partial class Default2 : Page
         if(IsPostBack)
             SupportLoad();
         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "loadpage", "pageload();", true);
+
+        //warning
+        var x = (new PMHang()).List_Warning(null);
+        string s;
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "cleanwarning", "cleanWarning();", true);
+        foreach (DataRow item in x.Rows)
+        {
+            s = "Hết hàng - " + item["Ten"].ToString() ;
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "addWarning", "addWarning('"+s+"');", true);
+        }
+        //end warning
     }
 
 
@@ -57,6 +70,14 @@ public partial class Default2 : Page
         else if (control.Contains("thamso"))
         {
             LoadUserControl("UC\\UC_MThamSo.ascx");
+        }
+        else if (control.Contains("_nhaphang"))
+        {
+            LoadUserControl("UC\\UC_NhapHang.ascx");
+        }
+        else if (control.Contains("_user"))
+        {
+            LoadUserControl("UC\\UC_ToNguoiDung.ascx");
         }
     } 
     public void SetTitle(string newtitle)

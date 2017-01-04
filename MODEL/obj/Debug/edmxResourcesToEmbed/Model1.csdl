@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLPhongKaraokeModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="BCDOANHTHU">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NgayLap" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DoanhThu" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ChiPhi" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Thang" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="BCTONKHO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Thang" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="CT_BCTONKHO">
+    <Key>
+      <PropertyRef Name="ID_BCTonKho" />
+      <PropertyRef Name="ID_Hang" />
+    </Key>
+    <Property Name="ID_BCTonKho" Type="Int32" Nullable="false" />
+    <Property Name="ID_Hang" Type="Int32" Nullable="false" />
+    <Property Name="TonDau" Type="Int32" Nullable="false" />
+    <Property Name="SuDung" Type="Int32" Nullable="false" />
+    <Property Name="TonCuoi" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CT_HDNHAP">
+    <Key>
+      <PropertyRef Name="IDHang" />
+      <PropertyRef Name="IDHoaDon" />
+    </Key>
+    <Property Name="IDHang" Type="Int32" Nullable="false" />
+    <Property Name="IDHoaDon" Type="Int32" Nullable="false" />
+    <Property Name="SoLuong" Type="Int32" Nullable="false" />
+    <Property Name="DonGiaNhap" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ThanhTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Deleted" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CT_HOADONDV">
+    <Key>
+      <PropertyRef Name="ID_HoaDonDV" />
+      <PropertyRef Name="ID_Hang" />
+    </Key>
+    <Property Name="ID_HoaDonDV" Type="Int32" Nullable="false" />
+    <Property Name="ID_Hang" Type="Int32" Nullable="false" />
+    <Property Name="SoLuong" Type="Int32" Nullable="false" />
+    <Property Name="DonGia" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ThanhTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Deleted" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DATPHONG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="NgayGioDat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SDT" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Deleted" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HANG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ten" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DonGiaNhap" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="DonGiaBan" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="SLTon" Type="Int32" Nullable="false" />
+    <Property Name="DonVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Requested" Type="Int32" Nullable="false" />
+    <Property Name="Deleted" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HOADONDV">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Phong" Type="Int32" Nullable="false" />
+    <Property Name="NgayGioLap" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SoGio" Type="Double" />
+    <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="TienPhong" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Deleted" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HOADONNHAP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NgayNhap" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Deleted" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LOAIPHONG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GiaNgay" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="GiaDem" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="Deleted" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NGUOIDUNG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MaNhomQuyen" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NHOMQUYEN">
+    <Key>
+      <PropertyRef Name="MaNhomQuyen" />
+    </Key>
+    <Property Name="MaNhomQuyen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenNhomQuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PHIEUCHI">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NgayLap" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NoiDung" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="GhiChu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Deleted" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PHONG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ten" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="StatusID" Type="Int32" />
+    <Property Name="TGStart" Type="DateTime" Precision="3" />
+    <Property Name="IdLoaiPhong" Type="Int32" Nullable="false" />
+    <Property Name="Deleted" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="THAMSO">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Deleted" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="QLPhongKaraokeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BCDOANHTHUs" EntityType="Self.BCDOANHTHU" />
+    <EntitySet Name="BCTONKHOes" EntityType="Self.BCTONKHO" />
+    <EntitySet Name="CT_BCTONKHO" EntityType="Self.CT_BCTONKHO" />
+    <EntitySet Name="CT_HDNHAP" EntityType="Self.CT_HDNHAP" />
+    <EntitySet Name="CT_HOADONDV" EntityType="Self.CT_HOADONDV" />
+    <EntitySet Name="DATPHONGs" EntityType="Self.DATPHONG" />
+    <EntitySet Name="HANGs" EntityType="Self.HANG" />
+    <EntitySet Name="HOADONDVs" EntityType="Self.HOADONDV" />
+    <EntitySet Name="HOADONNHAPs" EntityType="Self.HOADONNHAP" />
+    <EntitySet Name="LOAIPHONGs" EntityType="Self.LOAIPHONG" />
+    <EntitySet Name="NGUOIDUNGs" EntityType="Self.NGUOIDUNG" />
+    <EntitySet Name="NHOMQUYENs" EntityType="Self.NHOMQUYEN" />
+    <EntitySet Name="PHIEUCHIs" EntityType="Self.PHIEUCHI" />
+    <EntitySet Name="PHONGs" EntityType="Self.PHONG" />
+    <EntitySet Name="THAMSOes" EntityType="Self.THAMSO" />
+    <FunctionImport Name="GetListBCDoanhThu" ReturnType="Collection(QLPhongKaraokeModel.GetListBCDoanhThu_Result)">
+      <Parameter Name="dateFrom" Mode="In" Type="DateTime" />
+      <Parameter Name="dateTo" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetListBCTonKho" ReturnType="Collection(QLPhongKaraokeModel.GetListBCTonKho_Result)">
+      <Parameter Name="month" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetListNguoiDung" ReturnType="Collection(QLPhongKaraokeModel.GetListNguoiDung_Result)" />
+    <FunctionImport Name="getRP" ReturnType="Collection(QLPhongKaraokeModel.getRP_Result)">
+      <Parameter Name="dateFrom" Mode="In" Type="DateTime" />
+      <Parameter Name="dateTo" Mode="In" Type="DateTime" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="GetListBCDoanhThu_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Ten" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="NgayGioLap" Nullable="false" Precision="23" />
+    <Property Type="Double" Name="SoGio" Nullable="true" />
+    <Property Type="String" Name="TenKH" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="TienPhong" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="TongTien" Nullable="false" Precision="19" />
+  </ComplexType>
+  <ComplexType Name="GetListBCTonKho_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Ten" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="tondau" Nullable="true" />
+    <Property Type="Int32" Name="soluongnhap" Nullable="true" />
+    <Property Type="Int32" Name="soluongban" Nullable="true" />
+    <Property Type="Int32" Name="toncuoi" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetListNguoiDung_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="MaDangNhap" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="MatKhau" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="HoTen" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SoDT" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="MaNhomQuyen" Nullable="false" />
+    <Property Type="String" Name="TenNhomQuyen" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="getRP_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Ten" Nullable="true" MaxLength="10" />
+    <Property Type="DateTime" Name="NgayGioLap" Nullable="false" Precision="23" />
+    <Property Type="Double" Name="SoGio" Nullable="true" />
+    <Property Type="String" Name="TenKH" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="TienPhong" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="TongTien" Nullable="false" Precision="19" />
+  </ComplexType>
+</Schema>

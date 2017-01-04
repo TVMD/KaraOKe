@@ -43,7 +43,10 @@ function pageload() {
         .find($(".dangxuat")).on("click", function() {
             //chua nghi ra.
         });
-    $("#fullscreen").on("click", togglefullscreen(document.body));
+    $("#fullscreen").on("click", toggleFullScreen);
+
+    //$("#menuwarning").children().on("click", loaduc("phong"));
+
 }
 
 function loaduc(name) {
@@ -57,17 +60,15 @@ function sethref(name) {
     document.getElementById("sapname").value = name;
 }
 
-function togglefullscreen(elem) {
-    // ## The below if statement seems to work better ## if ((document.fullScreenElement && document.fullScreenElement !== null) || (document.msfullscreenElement && document.msfullscreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
-    if ((document.fullScreenElement !== undefined && document.fullScreenElement === null) || (document.msFullscreenElement !== undefined && document.msFullscreenElement === null) || (document.mozFullScreen !== undefined && !document.mozFullScreen) || (document.webkitIsFullScreen !== undefined && !document.webkitIsFullScreen)) {
-        if (elem.requestFullScreen) {
-            elem.requestFullScreen();
-        } else if (elem.mozRequestFullScreen) {
-            elem.mozRequestFullScreen();
-        } else if (elem.webkitRequestFullScreen) {
-            elem.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-        } else if (elem.msRequestFullscreen) {
-            elem.msRequestFullscreen();
+function toggleFullScreen() {
+    if ((document.fullScreenElement && document.fullScreenElement !== null) ||
+     (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+        if (document.documentElement.requestFullScreen) {
+            document.documentElement.requestFullScreen();
+        } else if (document.documentElement.mozRequestFullScreen) {
+            document.documentElement.mozRequestFullScreen();
+        } else if (document.documentElement.webkitRequestFullScreen) {
+            document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
         }
     } else {
         if (document.cancelFullScreen) {
@@ -76,10 +77,30 @@ function togglefullscreen(elem) {
             document.mozCancelFullScreen();
         } else if (document.webkitCancelFullScreen) {
             document.webkitCancelFullScreen();
-        } else if (document.msExitFullscreen) {
-            document.msExitFullscreen();
         }
     }
+}
+
+function addWarning(warning) {
+    var x = $("<span></span>").text(warning);
+    var count = $("#countwarning");
+    var i = 0;
+    if (count.text() === "")
+        i = 1;
+    else
+        i = 1+ parseInt(count.text(), 10);
+    count.text(i);
+
+    $("#menuwarning")
+        .append($("<li onclick=loaduc('phong')></li>")
+        .append($("<a></a>")
+        .append("<span class='fa fa-play'></span>")
+        .append(x)));
+}
+
+function cleanWarning() {
+    $("#menuwarning").empty();
+    $("#countwarning").text("");
 }
 
 //Phong
@@ -136,6 +157,9 @@ function btnbatdauclick() {
 }
 
 function btntinhtienclick() {
+    //inhd
+    window.print();
+    //
     var tg = $("#tgbatdau").val();
     $("#tgbatdau").val(moment(tg, "DD/MM/YYYY HH:mm:ss").format("DD/MM/YYYY HH:mm:ss"));
     $("#btnbatdau").prop("disabled", false);

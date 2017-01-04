@@ -14,7 +14,7 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.LOAIPHONGs
-                            where s.ID == idloaiphong
+                            where s.ID == idloaiphong && s.Deleted==0
                             select s;
                     var sv = x.FirstOrDefault();
                     if (sv != null)
@@ -33,7 +33,7 @@ namespace MODEL
         {
             using (var db = new QLPhongKaraokeEntities())
             {
-                IEnumerable<PHONG> query = from s in db.PHONGs select s;
+                IEnumerable<PHONG> query = from s in db.PHONGs where s.Deleted==0 select s;
 
                 //Filter // neu de search=null thi kho search,
                 if (!string.IsNullOrEmpty(search))
@@ -83,12 +83,12 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.PHONGs
-                        where s.ID == ID
+                            where s.ID == ID && s.Deleted == 0
                         select s;
                     var sv = x.FirstOrDefault();
                     if (sv != null)
                     {
-                        db.PHONGs.Remove(sv);
+                        sv.Deleted = 1;
                         db.SaveChanges();
                     }
                 }
@@ -107,7 +107,7 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.PHONGs
-                        where s.ID == item.ID
+                            where s.ID == item.ID && s.Deleted == 0
                         select s;
                     var sv = x.FirstOrDefault();
                     if (sv != null)
@@ -132,7 +132,7 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.PHONGs
-                            where s.ID == Id
+                            where s.ID == Id && s.Deleted == 0
                             select s;
                     return  x.FirstOrDefault();
                 }
@@ -150,7 +150,7 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.PHONGs
-                            where s.ID == id
+                            where s.ID == id && s.Deleted == 0
                             select s;
                     var sv = x.FirstOrDefault();
                     if (sv != null)
@@ -188,14 +188,14 @@ namespace MODEL
                 using (var db = new QLPhongKaraokeEntities())
                 {
                     var x = from s in db.PHONGs
-                            where s.ID == idphong
+                            where s.ID == idphong && s.Deleted == 0
                             select s;
                     var sv = x.FirstOrDefault();
                     if (sv != null)
                     {
                         if (sv.StatusID != 3) return false;
-                        
 
+                        decimal tienphong = 0;
                          //Ket thuc thi tinh tien hoa don.
                         var hoadon = (from s in db.HOADONDVs where s.ID_Phong == idphong orderby s.ID descending select s ).FirstOrDefault();
                         var loaiphong = (from s in db.LOAIPHONGs where s.ID == sv.IdLoaiPhong select s).FirstOrDefault();
@@ -204,15 +204,22 @@ namespace MODEL
 
                         //tinh tong tien +=  tien phog. tien nuoc uong lien tuc duoc cap nha roi
                         DateTime t2 = DateTime.Parse("2012/12/12 "+sv.TGStart.GetValueOrDefault().ToString("HH:mm:ss"));
-                        if(giongaydem < t2 || t2 < DateTime.Parse("2012/12/12 06:00:00"))
-                            hoadon.TongTien += Convert.ToDecimal(hoadon.SoGio.GetValueOrDefault() * (double)loaiphong.GiaDem.GetValueOrDefault());
+                        if (giongaydem < t2 || t2 < DateTime.Parse("2012/12/12 06:00:00"))
+                        {
+                           
+                            tienphong = Convert.ToDecimal(hoadon.SoGio.GetValueOrDefault() * (double)loaiphong.GiaDem.GetValueOrDefault());
+                            hoadon.TongTien += tienphong;
+
+                        }
                         else
                         {
-                            hoadon.TongTien += Convert.ToDecimal(hoadon.SoGio.GetValueOrDefault() * (double)loaiphong.GiaNgay.GetValueOrDefault());
+                            tienphong = Convert.ToDecimal(hoadon.SoGio.GetValueOrDefault() * (double)loaiphong.GiaNgay.GetValueOrDefault());
+                            hoadon.TongTien += tienphong;
                         }
 
                         //sau do cap nhat tinh trnag phong, lam tron so
                         hoadon.TongTien = Math.Round(hoadon.TongTien, 0);
+                        hoadon.TienPhong = Math.Round(tienphong, 0);
                         sv.StatusID = 1; //free
                         sv.TGStart = null;
                         db.SaveChanges();

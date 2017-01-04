@@ -1,7 +1,11 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="UC_MDsHoaDon.ascx.cs" Inherits="UC_UC_MDsHoaDon" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <%@ Reference Page="~/Default2.aspx" %>
-
+<style>
+    .nonedisplay {
+        display: none;
+    }
+</style>
 <div>
     <div align="right">
         <telerik:RadTextBox ID="txtsearch" runat="server" Width="300px"
@@ -25,7 +29,8 @@
                         OnItemDataBound="RadGrid1_OnItemDataBound"
                         OnInsertCommand="RadGrid1_OnInsertCommand"
                         OnUpdateCommand="RadGrid1_OnUpdateCommand"
-                        OnDeleteCommand="RadGrid1_OnDeleteCommand">
+                        OnDeleteCommand="RadGrid1_OnDeleteCommand"
+                        OnSelectedIndexChanged="RadGrid1_OnSelectedIndexChanged">
                         <MasterTableView EditMode="EditForms" ShowFooter="false" CommandItemDisplay="None">
                             <CommandItemSettings AddNewRecordText="Thêm nước"
                                 RefreshText="Làm mới" />
@@ -36,9 +41,11 @@
                                         <%# Container.DataSetIndex + 1 %>
                                     </ItemTemplate>
                                 </telerik:GridTemplateColumn>
+                                
+                                <telerik:GridBoundColumn UniqueName="idhoadonne" DataField="ID" HeaderText="Mã hóa đơn" ReadOnly="True" Display="False">
+                                </telerik:GridBoundColumn>
 
-                                <telerik:GridTemplateColumn UniqueName="ID_HoaDon" HeaderText="Mã hóa đơn"
-                                    >
+                                <telerik:GridTemplateColumn UniqueName="ID_HoaDon" HeaderText="Mã hóa đơn">
                                     <ItemTemplate>
                                         <%#DataBinder.Eval(Container.DataItem, "ID") %>
                                     </ItemTemplate>
@@ -48,20 +55,20 @@
                                     </EditItemTemplate>
                                 </telerik:GridTemplateColumn>
 
-                                <telerik:GridTemplateColumn  UniqueName="ID_Phong" HeaderText="Phòng">
+                                <telerik:GridTemplateColumn UniqueName="ID_Phong" HeaderText="Phòng">
                                     <ItemTemplate>
                                         <%#DataBinder.Eval(Container.DataItem, "TenPhong") %>
                                     </ItemTemplate>
                                     <EditItemTemplate>
-                                        <telerik:RadComboBox runat="server" ID="cbboxphong" Width="300px" 
+                                        <telerik:RadComboBox runat="server" ID="cbboxphong" Width="300px"
                                             EmptyMessage="--- Chọn phòng ---">
                                         </telerik:RadComboBox>
                                         <asp:RequiredFieldValidator runat="server" ControlToValidate="cbboxphong" ErrorMessage="(*)" ForeColor="Red" Width="4px">
                                         </asp:RequiredFieldValidator>
                                     </EditItemTemplate>
                                 </telerik:GridTemplateColumn>
-                                
-                                <telerik:GridBoundColumn UniqueName="TenKH" DataField="TenKH" HeaderText="Tên khách" >
+
+                                <telerik:GridBoundColumn UniqueName="TenKH" DataField="TenKH" HeaderText="Tên khách">
                                     <ColumnValidationSettings EnableRequiredFieldValidation="true" EnableModelErrorMessageValidation="true">
                                         <RequiredFieldValidator ForeColor="Red" ErrorMessage="*"></RequiredFieldValidator>
                                     </ColumnValidationSettings>
@@ -84,10 +91,12 @@
                                 </EditColumn>
                             </EditFormSettings>
                         </MasterTableView>
+                        <ClientSettings Selecting-AllowRowSelect="true" EnablePostBackOnRowClick="true">
+                        </ClientSettings>
                     </telerik:RadGrid>
-                    </div>
                 </div>
             </div>
+        </div>
     </div>
 
     <div class="col-md-6 col-sm-12 col-xs-12">
@@ -107,7 +116,7 @@
                         OnInsertCommand="RadGrid2_OnInsertCommand"
                         OnUpdateCommand="RadGrid2_OnUpdateCommand"
                         OnDeleteCommand="RadGrid2_OnDeleteCommand">
-                        <MasterTableView EditMode="EditForms" ShowFooter="false" CommandItemDisplay="None">
+                        <MasterTableView EditMode="EditForms" ShowFooter="false" DataKeyNames="ID_Hang" CommandItemDisplay="None">
                             <CommandItemSettings AddNewRecordText="Thêm nước"
                                 RefreshText="Làm mới" />
                             <Columns>
@@ -117,6 +126,9 @@
                                         <%# Container.DataSetIndex + 1 %>
                                     </ItemTemplate>
                                 </telerik:GridTemplateColumn>
+
+                                <telerik:GridBoundColumn UniqueName="ID_Hang" DataField="ID_Hang" Visible="False">
+                                </telerik:GridBoundColumn>
 
                                 <telerik:GridTemplateColumn ColumnEditorID="hihi" UniqueName="TenHang" HeaderText="Tên">
                                     <ItemTemplate>

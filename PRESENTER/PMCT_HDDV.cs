@@ -33,6 +33,7 @@ namespace PRESENTER
             var tb = new DataTable();
             tb.Columns.Add("ID_HoaDonDV");
             tb.Columns.Add("ID_Hang");
+            tb.Columns.Add("SoLuongTon");
             tb.Columns.Add("TenHang");
             tb.Columns.Add("SoLuong");
             tb.Columns.Add("DonGia");
@@ -43,6 +44,7 @@ namespace PRESENTER
                 tb.Rows.Add(item.ID_HoaDonDV,
                     item.ID_Hang,
                     hang.Ten,
+                    hang.SLTon,
                     item.SoLuong,
                     item.DonGia,
                     item.ThanhTien);
@@ -107,6 +109,7 @@ namespace PRESENTER
             tb.Columns.Add("ID_HoaDonDV");
             tb.Columns.Add("ID_Hang");
             tb.Columns.Add("TenHang");
+            tb.Columns.Add("SoLuongTon");
             tb.Columns.Add("SoLuong");
             tb.Columns.Add("DonGia");
             tb.Columns.Add("ThanhTien");
@@ -116,6 +119,7 @@ namespace PRESENTER
                 tb.Rows.Add(item.ID_HoaDonDV,
                     item.ID_Hang,
                     hang.Ten,
+                    hang.SLTon,
                     item.SoLuong,
                     item.DonGia,
                     item.ThanhTien);
@@ -136,6 +140,7 @@ namespace PRESENTER
             tb.Columns.Add("ID_HoaDonDV");
             tb.Columns.Add("ID_Hang");
             tb.Columns.Add("TenHang");
+            tb.Columns.Add("SoLuongTon");
             tb.Columns.Add("SoLuong");
             tb.Columns.Add("DonGia");
             tb.Columns.Add("ThanhTien");
@@ -145,11 +150,17 @@ namespace PRESENTER
                 tb.Rows.Add(item.ID_HoaDonDV,
                     item.ID_Hang,
                     hang.Ten,
+                    hang.SLTon,
                     item.SoLuong,
                     item.DonGia,
                     item.ThanhTien);
             }
             return tb;
+        }
+
+        public int GetSLTon(int idhang)
+        {
+            return model.GetSLTon(idhang);
         }
     }
 }
