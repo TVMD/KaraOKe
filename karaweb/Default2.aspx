@@ -75,17 +75,21 @@
                                         <ul class="nav child_menu">
                                             <li><a id="hoadondv" class="uc">Hóa đơn dịch vụ</a></li>
                                             <li><a id="_nhaphang" class="uc">Nhập hàng</a></li>
+                                            <li><a id="_phieuchi" class="uc">Phiếu chi</a></li>
                                         </ul>
                                     </li>
 
                                     <li class="mbeauty"><a><i class="fa fa-bar-chart-o "></i>Báo cáo <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
+                                            <li><a id="_bttonkho" class="uc">Báo cáo tồn kho</a></li>
+                                            <li><a id="_bcdoanhthu" class="uc">Báo cáo doanh thu</a></li>
                                         </ul>
                                     </li>
                                     <li class="mbeauty"><a><i class="fa fa-cog "></i>Cài đặt <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                             <li class="menuadmin"><a id="thamso" class="uc">Tham số</a></li>
                                             <li class="menuadmin"><a id="_user" class="uc">Nguời dùng</a></li>
+                                            <li class="menuadmin"><a id="_hang" class="uc">Danh sách hàng</a></li>
                                         </ul>
                                     </li>
                                 </ul>

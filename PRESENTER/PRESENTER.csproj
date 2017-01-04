@@ -51,6 +51,8 @@
     <Compile Include="PToBaoCaoDoanhThu.cs" />
     <Compile Include="PToBCTonKho.cs" />
     <Compile Include="PToNguoiDung.cs" />
+    <Compile Include="PThHang.cs" />
+    <Compile Include="PThPhieuChi.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IVIEW\IVIEW.csproj">

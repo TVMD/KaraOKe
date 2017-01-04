@@ -119,6 +119,8 @@
     <Compile Include="MToNguoiDung.cs" />
     <Compile Include="MTo_DangNhap.cs" />
     <Compile Include="M_Hang_Tien.cs" />
+    <Compile Include="MThHang.cs" />
+    <Compile Include="MThPhieuChi.cs" />
     <Compile Include="NGUOIDUNG.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

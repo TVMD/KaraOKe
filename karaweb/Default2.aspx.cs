@@ -86,6 +86,22 @@ public partial class Default2 : Page
         {
             LoadUserControl("UC\\UC_ToNguoiDung.ascx");
         }
+        else if (control.Contains("_hang"))
+        {
+            LoadUserControl("UC\\UC_ThHang.ascx");
+        }
+        else if (control.Contains("_phieuchi"))
+        {
+            LoadUserControl("UC\\UC_ThPhieuChi.ascx");
+        }
+        else if (control.Contains("_bctonkho"))
+        {
+            LoadUserControl("UC\\UC_ToBaoCaoTonKho.ascx");
+        }
+        else if (control.Contains("_bcdoanhthu"))
+        {
+            LoadUserControl("UC\\UC_ToBaoCaoDoanhThu.ascx");
+        }
     } 
     public void SetTitle(string newtitle)
     {
