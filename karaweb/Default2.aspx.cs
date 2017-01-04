@@ -24,7 +24,7 @@ public partial class Default2 : Page
         }
         else
         {
-            LoadUserControl("UC\\UC_BCTonKho.ascx");
+            LoadUserControl("UC\\UC_MPhong.ascx");
         }
         if(IsPostBack)
             SupportLoad();
@@ -40,6 +40,13 @@ public partial class Default2 : Page
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "addWarning", "addWarning('"+s+"');", true);
         }
         //end warning
+
+        //user
+        if (user.MaNhomQuyen != 1)
+        {
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "deletenonesuperuser", "deletenonesuper();", true);
+        }
+        //
     }
 
 
@@ -78,6 +85,22 @@ public partial class Default2 : Page
         else if (control.Contains("_user"))
         {
             LoadUserControl("UC\\UC_ToNguoiDung.ascx");
+        }
+        else if (control.Contains("_hang"))
+        {
+            LoadUserControl("UC\\UC_ThHang.ascx");
+        }
+        else if (control.Contains("_phieuchi"))
+        {
+            LoadUserControl("UC\\UC_ThPhieuChi.ascx");
+        }
+        else if (control.Contains("_bctonkho"))
+        {
+            LoadUserControl("UC\\UC_ToBaoCaoTonKho.ascx");
+        }
+        else if (control.Contains("_bcdoanhthu"))
+        {
+            LoadUserControl("UC\\UC_ToBaoCaoDoanhThu.ascx");
         }
     } 
     public void SetTitle(string newtitle)
