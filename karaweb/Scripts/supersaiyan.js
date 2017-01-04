@@ -103,6 +103,11 @@ function cleanWarning() {
     $("#countwarning").text("");
 }
 
+function deletenonesuper() {
+    $(".menuadmin").remove();
+    $(".mbeauty").not(':has(li)').remove();
+};
+
 //Phong
 function phong_ready() {
     $(".hihi").on("click", function () {

@@ -64,28 +64,28 @@
                                 <ul class="nav side-menu">
                                     <li><a href="Default2.aspx"><i class="fa fa-home"></i>Trang chủ </a>
                                     </li>
-                                    <li><a><i class="fa fa-edit"></i>Quản lý phòng <span class="fa fa-chevron-down"></span></a>
+                                    <li class="mbeauty"><a><i class="fa fa-edit"></i>Quản lý phòng <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                             <li><a id="phong" class="uc">Đặt phòng cho khách </a></li>
-                                            <li><a id="dsphong" class="uc">Danh sách phòng </a></li>
-                                            <li><a id="loaiphong" class="uc">Danh sách loại phòng </a></li>
+                                            <li class="menuadmin" ><a id="dsphong" class="uc">Danh sách phòng </a></li>
+                                            <li class="menuadmin"><a id="loaiphong" class="uc">Danh sách loại phòng </a></li>
                                         </ul>
                                     </li>
-                                    <li><a><i class="fa fa-table"></i>Hóa đơn <span class="fa fa-chevron-down"></span></a>
+                                    <li class="mbeauty"><a><i class="fa fa-table "></i>Hóa đơn <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                             <li><a id="hoadondv" class="uc">Hóa đơn dịch vụ</a></li>
                                             <li><a id="_nhaphang" class="uc">Nhập hàng</a></li>
                                         </ul>
                                     </li>
 
-                                    <li><a><i class="fa fa-bar-chart-o"></i>Báo cáo <span class="fa fa-chevron-down"></span></a>
+                                    <li class="mbeauty"><a><i class="fa fa-bar-chart-o "></i>Báo cáo <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                         </ul>
                                     </li>
-                                    <li><a><i class="fa fa-cog"></i>Cài đặt <span class="fa fa-chevron-down"></span></a>
+                                    <li class="mbeauty"><a><i class="fa fa-cog "></i>Cài đặt <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li><a id="thamso" class="uc">Tham số</a></li>
-                                            <li><a id="_user" class="uc">Nguời dùng</a></li>
+                                            <li class="menuadmin"><a id="thamso" class="uc">Tham số</a></li>
+                                            <li class="menuadmin"><a id="_user" class="uc">Nguời dùng</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -211,7 +211,7 @@
         <script src="Scripts/jquery-ui-1.12.1/jquery-ui.js"></script>
         <script src="Scripts/moment.js"></script>
         <script src="vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
-        <script src="Scripts/supersaiyan.js?v=2.0"></script>
+        <script src="Scripts/supersaiyan.js?v=33"></script>
         <!-- Scripts cua imVutoan-->
         <script src="Scripts/toandeptrai.js"></script>
 

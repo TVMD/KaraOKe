@@ -24,7 +24,7 @@ public partial class Default2 : Page
         }
         else
         {
-            LoadUserControl("UC\\UC_ToBaoCaoDoanhThu.ascx");
+            LoadUserControl("UC\\UC_MPhong.ascx");
         }
         if(IsPostBack)
             SupportLoad();
@@ -40,6 +40,13 @@ public partial class Default2 : Page
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "addWarning", "addWarning('"+s+"');", true);
         }
         //end warning
+
+        //user
+        if (user.MaNhomQuyen != 1)
+        {
+            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "deletenonesuperuser", "deletenonesuper();", true);
+        }
+        //
     }
 
 
