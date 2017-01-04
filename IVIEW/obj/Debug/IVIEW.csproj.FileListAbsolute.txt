@@ -12,3 +12,4 @@ E:\Karaoke\IVIEW\bin\Debug\IVIEW.dll
 E:\Karaoke\IVIEW\bin\Debug\IVIEW.pdb
 E:\Karaoke\IVIEW\obj\Debug\IVIEW.dll
 E:\Karaoke\IVIEW\obj\Debug\IVIEW.pdb
+E:\Karaoke\IVIEW\obj\Debug\IVIEW.csprojResolveAssemblyReference.cache

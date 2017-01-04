@@ -21,3 +21,4 @@ E:\Karaoke\MODEL\bin\Debug\EntityFramework.dll
 E:\Karaoke\MODEL\bin\Debug\EntityFramework.xml
 E:\Karaoke\MODEL\obj\Debug\MODEL.dll
 E:\Karaoke\MODEL\obj\Debug\MODEL.pdb
+E:\Karaoke\MODEL\obj\Debug\MODEL.csprojResolveAssemblyReference.cache

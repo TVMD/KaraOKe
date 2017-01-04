@@ -24,7 +24,7 @@ public partial class Default2 : Page
         }
         else
         {
-            LoadUserControl("UC\\UC_ToBaoCaoDoanhThu.ascx");
+            LoadUserControl("UC\\UC_BCTonKho.ascx");
         }
         if(IsPostBack)
             SupportLoad();

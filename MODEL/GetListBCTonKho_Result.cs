@@ -10,15 +10,14 @@
 namespace MODEL
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class CT_BCTONKHO
+    public partial class GetListBCTonKho_Result
     {
-        public int ID_BCTonKho { get; set; }
-        public int ID_Hang { get; set; }
-        public int TonDau { get; set; }
-        public int SuDung { get; set; }
-        public int TonCuoi { get; set; }
-        public int SoLuongNhap { get; set; }
+        public int ID { get; set; }
+        public string Ten { get; set; }
+        public Nullable<int> tondau { get; set; }
+        public Nullable<int> soluongnhap { get; set; }
+        public Nullable<int> soluongban { get; set; }
+        public Nullable<int> toncuoi { get; set; }
     }
 }

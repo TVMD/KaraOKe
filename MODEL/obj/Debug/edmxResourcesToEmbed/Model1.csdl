@@ -27,6 +27,7 @@
     <Property Name="TonDau" Type="Int32" Nullable="false" />
     <Property Name="SuDung" Type="Int32" Nullable="false" />
     <Property Name="TonCuoi" Type="Int32" Nullable="false" />
+    <Property Name="SoLuongNhap" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="CT_HDNHAP">
     <Key>

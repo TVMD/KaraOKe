@@ -25,6 +25,7 @@
     <Property Name="ID_BCTonKho" Type="int" Nullable="false" />
     <Property Name="ID_Hang" Type="int" Nullable="false" />
     <Property Name="TonDau" Type="int" Nullable="false" />
+    <Property Name="SoLuongNhap" Type="int" Nullable="false" />
     <Property Name="SuDung" Type="int" Nullable="false" />
     <Property Name="TonCuoi" Type="int" Nullable="false" />
   </EntityType>

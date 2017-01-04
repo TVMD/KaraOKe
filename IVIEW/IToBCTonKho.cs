@@ -7,5 +7,6 @@ namespace IVIEW
 {
     public interface IToBCTonKho
     {
+        DateTime date { get; set; }
     }
 }

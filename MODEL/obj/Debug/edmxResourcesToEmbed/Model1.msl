@@ -23,6 +23,7 @@
     <EntitySetMapping Name="CT_BCTONKHO">
       <EntityTypeMapping TypeName="QLPhongKaraokeModel.CT_BCTONKHO">
         <MappingFragment StoreEntitySet="CT_BCTONKHO">
+          <ScalarProperty Name="SoLuongNhap" ColumnName="SoLuongNhap" />
           <ScalarProperty Name="ID_BCTonKho" ColumnName="ID_BCTonKho" />
           <ScalarProperty Name="ID_Hang" ColumnName="ID_Hang" />
           <ScalarProperty Name="TonDau" ColumnName="TonDau" />

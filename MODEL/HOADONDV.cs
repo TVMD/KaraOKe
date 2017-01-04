@@ -12,13 +12,15 @@ namespace MODEL
     using System;
     using System.Collections.Generic;
     
-    public partial class CT_BCTONKHO
+    public partial class HOADONDV
     {
-        public int ID_BCTonKho { get; set; }
-        public int ID_Hang { get; set; }
-        public int TonDau { get; set; }
-        public int SuDung { get; set; }
-        public int TonCuoi { get; set; }
-        public int SoLuongNhap { get; set; }
+        public int ID { get; set; }
+        public int ID_Phong { get; set; }
+        public System.DateTime NgayGioLap { get; set; }
+        public Nullable<double> SoGio { get; set; }
+        public string TenKH { get; set; }
+        public decimal TongTien { get; set; }
+        public Nullable<decimal> TienPhong { get; set; }
+        public byte Deleted { get; set; }
     }
 }
