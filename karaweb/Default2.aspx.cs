@@ -6,15 +6,23 @@ using MODEL;
 
 public partial class Default2 : Page
 {
+    public NGUOIDUNG user;
     protected void Page_Load(object sender, EventArgs e)
     {
+        //code login
+        user = Session.getCurrentUser();
+        if (user==null)
+        {
+            Response.Redirect("LoginPage.aspx");
+        }
+        //end
         if (LatestLoadedMainContent != null)
         {
             LoadUserControl(LatestLoadedMainContent);
         }
         else
         {
-            LoadUserControl("UC\\UC_MPhong.ascx");
+            LoadUserControl("UC\\UC_ToBaoCaoDoanhThu.ascx");
         }
         if(IsPostBack)
             SupportLoad();
@@ -108,4 +116,10 @@ public partial class Default2 : Page
 
     #endregion
 
+    protected void onClickLogout(object sender, EventArgs e)
+    {
+        Session.setCurrentUser(null);
+        Session.setRole(null);
+        Response.Redirect("LoginPage.aspx");
+    }
 }

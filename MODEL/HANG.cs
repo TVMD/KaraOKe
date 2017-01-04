@@ -21,5 +21,6 @@ namespace MODEL
         public int SLTon { get; set; }
         public string DonVi { get; set; }
         public int Requested { get; set; }
+        public byte Deleted { get; set; }
     }
 }

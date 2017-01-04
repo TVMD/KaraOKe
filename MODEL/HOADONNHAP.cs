@@ -17,5 +17,6 @@ namespace MODEL
         public int ID { get; set; }
         public System.DateTime NgayNhap { get; set; }
         public decimal TongTien { get; set; }
+        public byte Deleted { get; set; }
     }
 }

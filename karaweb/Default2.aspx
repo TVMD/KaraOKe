@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default2.aspx.cs" Inherits="Default2" %>
 
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI, Version=2016.2.607.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4" %>
 
 <!DOCTYPE html>
@@ -47,7 +49,8 @@
                             </div>
                             <div class="profile_info">
                                 <span>Xin chào</span>
-                                <h2>Assmin</h2>
+                                <asp:placeholder runat="server"><h2><%= user.MaDangNhap %></h2></asp:placeholder>
+                                
                             </div>
                         </div>
                         <!-- /menu profile quick info -->
@@ -100,9 +103,9 @@
                             <a  data-toggle="tooltip" data-placement="top" title="Toàn màn hình">
                                 <span id = "fullscreen" class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
                             </a>
-                            <a data-toggle="tooltip" data-placement="top" title="Đăng xuất" href="testpage2.aspx" class="uc dangxuat">
+                            <asp:LinkButton runat="server" OnClick="onClickLogout" data-toggle="tooltip" data-placement="top" title="Đăng xuất" class="uc dangxuat">
                                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-                            </a>
+                            </asp:LinkButton>
                         </div>
                         <!-- /menu footer buttons -->
                     </div>
@@ -119,10 +122,10 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="">
                                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                        <img src="Image/thegirl.jpg" alt="">Assmin <span class=" fa fa-angle-down"></span>
+                                        <img src="Image/thegirl.jpg" alt=""><asp:placeholder runat="server"><%= user.MaDangNhap %></asp:placeholder> <span class=" fa fa-angle-down"></span>
                                     </a>
                                     <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                        <li><a class="uc dangxuat"><i class="fa fa-sign-out pull-right"></i>Đăng xuất</a></li>
+                                        <li><asp:LinkButton runat="server" OnClick="onClickLogout" class="uc dangxuat"><i class="fa fa-sign-out pull-right"></i>Đăng xuất</asp:LinkButton></li>
                                     </ul>
                                 </li>
 
@@ -199,6 +202,7 @@
                                         <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
                                             <input type="text" name="sapname" id="sapname" style="display: none" />
                                             <input type="submit" value="Submit" id="sapbutton" style="display: none" />
+                                            
                                             <div style="margin-top: 4%">
                                                 <asp:Panel ID="Panel1" runat="server"></asp:Panel>
                                             </div>
@@ -222,6 +226,7 @@
                     <div class="clearfix"></div>
                 </footer>
                 <!-- /footer content -->
+                <telerik:RadWindowManager ID="RadWindowManager1" runat="server"></telerik:RadWindowManager>
             </div>
         </div>
         <!-- jQuery -->
@@ -241,6 +246,8 @@
         <script src="Scripts/moment.js"></script>
         <script src="vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
         <script src="Scripts/supersaiyan.js?v=1s2"></script>
+        <!-- Scripts cua imVutoan-->
+        <script src="Scripts/toandeptrai.js"></script>
 
     </form>
 </body>

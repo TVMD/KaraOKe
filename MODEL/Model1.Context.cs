@@ -12,6 +12,9 @@ namespace MODEL
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
     public partial class QLPhongKaraokeEntities : DbContext
     {
@@ -35,9 +38,28 @@ namespace MODEL
         public DbSet<HOADONDV> HOADONDVs { get; set; }
         public DbSet<HOADONNHAP> HOADONNHAPs { get; set; }
         public DbSet<LOAIPHONG> LOAIPHONGs { get; set; }
+        public DbSet<NGUOIDUNG> NGUOIDUNGs { get; set; }
+        public DbSet<NHOMQUYEN> NHOMQUYENs { get; set; }
         public DbSet<PHIEUCHI> PHIEUCHIs { get; set; }
         public DbSet<PHONG> PHONGs { get; set; }
-        public DbSet<STATUS> STATUS { get; set; }
         public DbSet<THAMSO> THAMSOes { get; set; }
+    
+        public virtual ObjectResult<GetListBCDoanhThu_Result> GetListBCDoanhThu(Nullable<System.DateTime> dateFrom, Nullable<System.DateTime> dateTo)
+        {
+            var dateFromParameter = dateFrom.HasValue ?
+                new ObjectParameter("dateFrom", dateFrom) :
+                new ObjectParameter("dateFrom", typeof(System.DateTime));
+    
+            var dateToParameter = dateTo.HasValue ?
+                new ObjectParameter("dateTo", dateTo) :
+                new ObjectParameter("dateTo", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetListBCDoanhThu_Result>("GetListBCDoanhThu", dateFromParameter, dateToParameter);
+        }
+    
+        public virtual ObjectResult<GetListNguoiDung_Result> GetListNguoiDung()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetListNguoiDung_Result>("GetListNguoiDung");
+        }
     }
 }

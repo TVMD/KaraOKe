@@ -18,7 +18,6 @@ public partial class UC_UC_MDsHoaDon : System.Web.UI.UserControl , IMHoaDonDV
     private GridEditableItem editableItem;
     private Hashtable newValue;
     #endregion
-
     protected void Page_Load(object sender, EventArgs e)
     {
         ((Default2)Page).SetTitle("Quản lý danh sách các hóa đơn dịch vụ");

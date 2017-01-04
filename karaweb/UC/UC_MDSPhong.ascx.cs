@@ -105,9 +105,9 @@ public partial class UC_UC_MDSPhong : System.Web.UI.UserControl,IMPhong
         var presenter = new PMPhong(this);
 
         var cbb = e.Item.FindControl("cbboxloaiphong") as RadComboBox;
-        var txtidphong = e.Item.FindControl("txtidphong") as RadTextBox;
+        //var txtidphong = e.Item.FindControl("txtidphong") as RadTextBox;
         IdLoaiPhong = Convert.ToInt32(cbb.SelectedValue);
-        ID = Convert.ToInt32(txtidphong.Text);
+        //ID = Convert.ToInt32(txtidphong.Text);
         Message = presenter.Update() ? "Đã cập nhật" : "Cập nhật bị lỗi";
         if (Message == "Đã cập nhật")
         {
@@ -129,7 +129,21 @@ public partial class UC_UC_MDSPhong : System.Web.UI.UserControl,IMPhong
 
     #region Implement View
     public string Message { get; set; }
-    public int ID { get; set; }
+    public int ID
+    {
+        get
+        {
+            try
+            {
+                return int.Parse(newValue["ID"].ToString());
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+        set { }
+    }
     public string Ten
     {
         get
