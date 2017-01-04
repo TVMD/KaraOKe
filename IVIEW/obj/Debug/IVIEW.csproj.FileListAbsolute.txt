@@ -8,3 +8,8 @@ C:\Users\Ta\Desktop\Karaoke\IVIEW\bin\Debug\IVIEW.pdb
 C:\Users\Ta\Desktop\Karaoke\IVIEW\obj\Debug\IVIEW.csprojResolveAssemblyReference.cache
 C:\Users\Ta\Desktop\Karaoke\IVIEW\obj\Debug\IVIEW.dll
 C:\Users\Ta\Desktop\Karaoke\IVIEW\obj\Debug\IVIEW.pdb
+C:\Users\PC\Documents\GitHub\KaraOKe\IVIEW\bin\Debug\IVIEW.dll
+C:\Users\PC\Documents\GitHub\KaraOKe\IVIEW\bin\Debug\IVIEW.pdb
+C:\Users\PC\Documents\GitHub\KaraOKe\IVIEW\obj\Debug\IVIEW.csprojResolveAssemblyReference.cache
+C:\Users\PC\Documents\GitHub\KaraOKe\IVIEW\obj\Debug\IVIEW.dll
+C:\Users\PC\Documents\GitHub\KaraOKe\IVIEW\obj\Debug\IVIEW.pdb

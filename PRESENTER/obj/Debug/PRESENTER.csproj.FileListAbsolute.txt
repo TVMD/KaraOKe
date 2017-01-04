@@ -20,3 +20,14 @@ C:\Users\Ta\Desktop\Karaoke\PRESENTER\bin\Debug\EntityFramework.xml
 C:\Users\Ta\Desktop\Karaoke\PRESENTER\obj\Debug\PRESENTER.csprojResolveAssemblyReference.cache
 C:\Users\Ta\Desktop\Karaoke\PRESENTER\obj\Debug\PRESENTER.dll
 C:\Users\Ta\Desktop\Karaoke\PRESENTER\obj\Debug\PRESENTER.pdb
+C:\Users\PC\Documents\GitHub\KaraOKe\PRESENTER\bin\Debug\PRESENTER.dll
+C:\Users\PC\Documents\GitHub\KaraOKe\PRESENTER\bin\Debug\PRESENTER.pdb
+C:\Users\PC\Documents\GitHub\KaraOKe\PRESENTER\bin\Debug\IVIEW.dll
+C:\Users\PC\Documents\GitHub\KaraOKe\PRESENTER\bin\Debug\MODEL.dll
+C:\Users\PC\Documents\GitHub\KaraOKe\PRESENTER\bin\Debug\EntityFramework.dll
+C:\Users\PC\Documents\GitHub\KaraOKe\PRESENTER\bin\Debug\IVIEW.pdb
+C:\Users\PC\Documents\GitHub\KaraOKe\PRESENTER\bin\Debug\MODEL.pdb
+C:\Users\PC\Documents\GitHub\KaraOKe\PRESENTER\bin\Debug\EntityFramework.xml
+C:\Users\PC\Documents\GitHub\KaraOKe\PRESENTER\obj\Debug\PRESENTER.csprojResolveAssemblyReference.cache
+C:\Users\PC\Documents\GitHub\KaraOKe\PRESENTER\obj\Debug\PRESENTER.dll
+C:\Users\PC\Documents\GitHub\KaraOKe\PRESENTER\obj\Debug\PRESENTER.pdb
