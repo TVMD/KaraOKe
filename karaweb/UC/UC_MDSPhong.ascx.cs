@@ -121,7 +121,10 @@ public partial class UC_UC_MDSPhong : System.Web.UI.UserControl,IMPhong
         e.Item.OwnerTableView.ExtractValuesFromItem(newValue, editableItem);
         var presenter = new PMPhong(this);
 
-        Message = presenter.Delete() ? "Xóa xong" : "Không xóa được nè";
+        GridDataItem item = (GridDataItem)e.Item;
+        int id = Convert.ToInt32(item.GetDataKeyValue("ID").ToString()); 
+
+        Message = presenter.Delete(id) ? "Xóa xong" : "Không xóa được nè";
         if (Message == "Xóa xong")
         {
         }

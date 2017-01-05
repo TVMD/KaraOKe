@@ -92,7 +92,7 @@ function addWarning(warning) {
     count.text(i);
 
     $("#menuwarning")
-        .append($("<li onclick=loaduc('phong')></li>")
+        .append($("<li onclick=loaduc('_nhaphang')></li>")
         .append($("<a></a>")
         .append("<span class='fa fa-play'></span>")
         .append(x)));

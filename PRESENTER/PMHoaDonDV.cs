@@ -40,6 +40,7 @@ namespace PRESENTER
             foreach (var item in dt)
             {
                 var phong = modelphong.GetOne(item.ID_Phong);
+                if(phong!=null)
                 tb.Rows.Add(item.ID,
                     item.ID_Phong,
                     phong.Ten,

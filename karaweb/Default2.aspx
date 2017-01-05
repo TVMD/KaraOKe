@@ -221,7 +221,7 @@
         <script src="Scripts/jquery-ui-1.12.1/jquery-ui.js"></script>
         <script src="Scripts/moment.js"></script>
         <script src="vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
-        <script src="Scripts/supersaiyan.js?v=33"></script>
+        <script src="Scripts/supersaiyan.js?v=3.3"></script>
         <!-- Scripts cua imVutoan-->
         <script src="Scripts/toandeptrai.js"></script>
 

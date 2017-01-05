@@ -16,10 +16,13 @@
         OnInsertCommand="RadGrid1_OnInsertCommand"
         OnUpdateCommand="RadGrid1_OnUpdateCommand"
         OnDeleteCommand="RadGrid1_OnDeleteCommand">
-        <MasterTableView EditMode="EditForms" ShowFooter="false" CommandItemDisplay="TopAndBottom">
+        <MasterTableView EditMode="EditForms" ShowFooter="false" CommandItemDisplay="TopAndBottom" DataKeyNames="ID"> 
             <CommandItemSettings AddNewRecordText="Thêm phòng"
                 RefreshText="Làm mới" />
             <Columns>
+                
+                <telerik:GridBoundColumn UniqueName="ID" DataField="ID" Visible="False" >
+                            </telerik:GridBoundColumn>
 
                 <telerik:GridTemplateColumn HeaderText="STT">
                     <ItemTemplate>
@@ -62,6 +65,9 @@
                 </telerik:GridTemplateColumn>
 
                 <telerik:GridEditCommandColumn CancelText="Hủy" EditText="Sửa" />
+                 <telerik:GridButtonColumn CommandName="Delete" Text="Xóa" UniqueName="DeleteColumn"
+                                    ConfirmText="Xóa dòng này?" ConfirmDialogType="RadWindow">
+                                </telerik:GridButtonColumn>
             </Columns>
             <EditFormSettings>
                 <EditColumn UniqueName="EditCommandColumn" CancelText="Hủy" UpdateText="Lưu "
