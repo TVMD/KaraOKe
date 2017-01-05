@@ -243,6 +243,7 @@ public partial class UC_UC_NhapHang : System.Web.UI.UserControl,IHDNhap
         Message = presenter.DeleteCT(int.Parse(Session["curID"].ToString()), id) ? "Xóa xong" : "Không xóa được nè";
         if (Message == "Xóa xong")
         {
+            loadHD();
         }
     }
     #region Implement View

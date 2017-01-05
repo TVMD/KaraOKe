@@ -64,8 +64,8 @@ namespace MODEL
                         sv.Ten=phong.Ten;
                         sv.Requested = phong.Requested;
                         sv.DonVi = phong.DonVi;
-                        sv.DonGiaBan = sv.DonGiaBan;
-                        sv.DonGiaNhap = sv.DonGiaNhap;
+                        sv.DonGiaBan = phong.DonGiaBan;
+                        sv.DonGiaNhap = phong.DonGiaNhap;
                         db.SaveChanges();
                     }
                 }

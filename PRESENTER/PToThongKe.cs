@@ -30,7 +30,11 @@ namespace PRESENTER
         public List<DTO_HangHoaChart> GetHangHoa()
         {
 
-            List<String> listMau = new List<string>() { "#ff8172", "#d38e20", "#e6ffef", "#0f5f14", "#debc97", "#3b5998", "#413d26", "#d9ffcb", "#ed6161", "#104f60", "#d9ffcb", "#7b3626", "#e6ffef", "#ffc0cb" };
+            List<String> listMau = new List<string>()
+            {
+                "#ff8172", "#d38e20", "#e6ffef", "#0f5f14", "#debc97", "#3b5998", "#413d26", "#d9ffcb", "#ed6161", "#104f60", "#d9ffcb", "#7b3626", "#e6ffef", "#ffc0cb", "#7fce97" 
+            ,"#32523c" ,"#99d7ac","#2048ba" ,"#f38181","#fce38a","#27a923","#95e1d3", "#b1ec0b", "#4e112d"
+            };
             MToThongKe mchart = new MToThongKe();
             List<DTO_HangHoaChart> list = mchart.GetTiLeHangHoa();
             if (list.Count != 0)

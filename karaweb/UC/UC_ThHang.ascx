@@ -81,7 +81,7 @@
                     </EditItemTemplate>
                 </telerik:GridTemplateColumn>
 
-                  <telerik:GridBoundColumn UniqueName="slton" DataField="SLTon" ReadOnly="True" >
+                  <telerik:GridBoundColumn UniqueName="slton" DataField="SLTon" ReadOnly="True" HeaderText="Số lượng tồn">
                             </telerik:GridBoundColumn>
 
                 <telerik:GridBoundColumn UniqueName="DonVi" DataField="DonVi" HeaderText="Đơn vị"
