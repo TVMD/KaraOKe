@@ -4,11 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-<<<<<<< HEAD
-      <Diagram DiagramId="efbb6e60406c40438ae6ba9a2f2eacca" Name="Diagram1">
-=======
-      <Diagram DiagramId="e8170ffbc85b42fabdb6527886e6f41f" Name="Diagram1">
->>>>>>> 14cc1e33789035a18f6f0778e26f2fec62da35f2
+      <Diagram DiagramId="26c35b8772dc490d9a673b2838d153af" Name="Diagram1">
         <EntityTypeShape EntityType="QLPhongKaraokeModel.BCDOANHTHU" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QLPhongKaraokeModel.BCTONKHO" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QLPhongKaraokeModel.CT_BCTONKHO" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />

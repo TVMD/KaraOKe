@@ -88,8 +88,9 @@
 
                                     <li class="mbeauty"><a><i class="fa fa-bar-chart-o "></i>Báo cáo <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li><a id="_bctonkho" class="uc">Báo cáo tồn kho</a></li>
-                                            <li><a id="_bcdoanhthu" class="uc">Báo cáo doanh thu</a></li>
+                                            <li  class="menuadmin"><a id="_bctonkho" class="uc">Báo cáo tồn kho</a></li>
+                                            <li  class="menuadmin"><a id="_bcdoanhthu" class="uc">Báo cáo doanh thu</a></li>
+                                             <li  class="menuadmin"><a id="_thongke" class="uc">Thống kê</a></li>
                                         </ul>
                                     </li>
                                     <li class="mbeauty"><a><i class="fa fa-cog "></i>Cài đặt <span class="fa fa-chevron-down"></span></a>

@@ -10,15 +10,13 @@
 namespace MODEL
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class CT_BCTONKHO
+    public partial class sp_helpdiagrams_Result
     {
-        public int ID_BCTonKho { get; set; }
-        public int ID_Hang { get; set; }
-        public int TonDau { get; set; }
-        public int SuDung { get; set; }
-        public int TonCuoi { get; set; }
-        public int SoLuongNhap { get; set; }
+        public string Database { get; set; }
+        public string Name { get; set; }
+        public int ID { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }

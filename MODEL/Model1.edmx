@@ -267,9 +267,9 @@
           <Property Name="ID_BCTonKho" Type="Int32" Nullable="false" />
           <Property Name="ID_Hang" Type="Int32" Nullable="false" />
           <Property Name="TonDau" Type="Int32" Nullable="false" />
-          <Property Name="SoLuongNhap" Type="Int32" Nullable="false" />
           <Property Name="SuDung" Type="Int32" Nullable="false" />
           <Property Name="TonCuoi" Type="Int32" Nullable="false" />
+          <Property Name="SoLuongNhap" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="CT_HDNHAP">
           <Key>
@@ -434,16 +434,14 @@
           <FunctionImport Name="GetListBCTonKho" ReturnType="Collection(QLPhongKaraokeModel.GetListBCTonKho_Result)">
             <Parameter Name="month" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <FunctionImport Name="GetListHangHoaChart" ReturnType="Collection(QLPhongKaraokeModel.GetListHangHoaChart_Result)">
+            <Parameter Name="dateFrom" Mode="In" Type="DateTime" />
+          </FunctionImport>
           <FunctionImport Name="GetListNguoiDung" ReturnType="Collection(QLPhongKaraokeModel.GetListNguoiDung_Result)" />
           <FunctionImport Name="getRP" ReturnType="Collection(QLPhongKaraokeModel.getRP_Result)">
             <Parameter Name="dateFrom" Mode="In" Type="DateTime" />
             <Parameter Name="dateTo" Mode="In" Type="DateTime" />
           </FunctionImport>
-<<<<<<< HEAD
-          <FunctionImport Name="GetListHangHoaChart" ReturnType="Collection(QLPhongKaraokeModel.GetListHangHoaChart_Result)">
-            <Parameter Name="dateFrom" Mode="In" Type="DateTime" />
-          </FunctionImport>
-=======
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -474,7 +472,6 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
->>>>>>> 14cc1e33789035a18f6f0778e26f2fec62da35f2
         </EntityContainer>
         <ComplexType Name="GetListBCDoanhThu_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -492,6 +489,10 @@
           <Property Type="Int32" Name="soluongnhap" Nullable="true" />
           <Property Type="Int32" Name="soluongban" Nullable="true" />
           <Property Type="Int32" Name="toncuoi" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetListHangHoaChart_Result">
+          <Property Type="String" Name="Ten" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="soluong" Nullable="true" />
         </ComplexType>
         <ComplexType Name="GetListNguoiDung_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -512,11 +513,6 @@
           <Property Type="Decimal" Name="TienPhong" Nullable="true" Precision="19" />
           <Property Type="Decimal" Name="TongTien" Nullable="false" Precision="19" />
         </ComplexType>
-<<<<<<< HEAD
-        <ComplexType Name="GetListHangHoaChart_Result">
-          <Property Type="String" Name="Ten" Nullable="false" MaxLength="200" />
-          <Property Type="Int32" Name="soluong" Nullable="true" />
-=======
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
           <Property Type="Binary" Name="definition" Nullable="true" />
@@ -527,7 +523,6 @@
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
->>>>>>> 14cc1e33789035a18f6f0778e26f2fec62da35f2
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -560,7 +555,6 @@
                 <ScalarProperty Name="ID_BCTonKho" ColumnName="ID_BCTonKho" />
                 <ScalarProperty Name="ID_Hang" ColumnName="ID_Hang" />
                 <ScalarProperty Name="TonDau" ColumnName="TonDau" />
-                <ScalarProperty Name="SoLuongNhap" ColumnName="SoLuongNhap" />
                 <ScalarProperty Name="SuDung" ColumnName="SuDung" />
                 <ScalarProperty Name="TonCuoi" ColumnName="TonCuoi" />
                 <ScalarProperty Name="SoLuongNhap" ColumnName="SoLuongNhap" />
@@ -742,6 +736,14 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetListHangHoaChart" FunctionName="QLPhongKaraokeModel.Store.GetListHangHoaChart">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLPhongKaraokeModel.GetListHangHoaChart_Result">
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="soluong" ColumnName="soluong" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="GetListNguoiDung" FunctionName="QLPhongKaraokeModel.Store.GetListNguoiDung">
             <ResultMapping>
               <ComplexTypeMapping TypeName="QLPhongKaraokeModel.GetListNguoiDung_Result">
@@ -769,16 +771,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-<<<<<<< HEAD
-          <FunctionImportMapping FunctionImportName="GetListHangHoaChart" FunctionName="QLPhongKaraokeModel.Store.GetListHangHoaChart">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="QLPhongKaraokeModel.GetListHangHoaChart_Result">
-                <ScalarProperty Name="Ten" ColumnName="Ten" />
-                <ScalarProperty Name="soluong" ColumnName="soluong" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-=======
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="QLPhongKaraokeModel.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="QLPhongKaraokeModel.Store.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="QLPhongKaraokeModel.Store.sp_dropdiagram" />
@@ -803,7 +795,6 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="QLPhongKaraokeModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="QLPhongKaraokeModel.Store.sp_upgraddiagrams" />
->>>>>>> 14cc1e33789035a18f6f0778e26f2fec62da35f2
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

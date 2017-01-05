@@ -24,7 +24,7 @@ public partial class Default2 : Page
         }
         else
         {
-            LoadUserControl("UC\\UC_ToThongKe.ascx");
+            LoadUserControl("UC\\UC_MPhong.ascx");
         }
         if(IsPostBack)
             SupportLoad();
@@ -101,6 +101,10 @@ public partial class Default2 : Page
         else if (control.Contains("_bcdoanhthu"))
         {
             LoadUserControl("UC\\UC_ToBaoCaoDoanhThu.ascx");
+        }
+        else if (control.Contains("_thongke"))
+        {
+            LoadUserControl("UC\\UC_ToThongKe.ascx");
         }
     } 
     public void SetTitle(string newtitle)
