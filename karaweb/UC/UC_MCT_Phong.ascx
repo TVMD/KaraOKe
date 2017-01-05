@@ -66,7 +66,7 @@
 <div class="col-md-6 col-sm-12 col-xs-12">
     <div class="x_panel">
         <div class="x_title">
-            <h2>Thức uống</h2>
+            <h2>Thức uống- Thức ăn</h2>
             <ul class="nav navbar-right panel_toolbox"></ul>
             <div class="clearfix"></div>
         </div>
@@ -81,7 +81,7 @@
                     OnUpdateCommand="RadGrid1_OnUpdateCommand"
                     OnDeleteCommand="RadGrid1_OnDeleteCommand">
                     <MasterTableView EditMode="EditForms" ShowFooter="false"  DataKeyNames="ID_Hang" CommandItemDisplay="Bottom">
-                        <CommandItemSettings AddNewRecordText="Thêm nước"
+                        <CommandItemSettings AddNewRecordText="Thêm"
                             RefreshText="Làm mới" />
                         <Columns>
 
@@ -100,7 +100,7 @@
                                 </ItemTemplate>
                                 <EditItemTemplate>
                                     <telerik:RadComboBox runat="server" ID="cbboxHang" Width="300px" ClientIDMode="Static" 
-                                        EmptyMessage="--- Chọn nước ---">
+                                        EmptyMessage="--- Chọn ---">
                                     </telerik:RadComboBox>
                                     <asp:RequiredFieldValidator runat="server" ControlToValidate="cbboxHang" ErrorMessage="(*)" ForeColor="Red" Width="4px">
                                     </asp:RequiredFieldValidator>
@@ -153,7 +153,7 @@
                 </telerik:RadGrid>
                 <div class="ln_solid"></div>
                 <div class="form-group" id="divtongtienhang">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-3">Tiền đồ uống</label>
+                    <label class="control-label col-md-3 col-sm-3 col-xs-3">Tiền đồ uống, đồ ăn</label>
                     <div class="col-md-9 col-sm-9 col-xs-9">
                         <input type="text" class="form-control" id="tongtienhang" runat="server" clientidmode="Static" />
                     </div>

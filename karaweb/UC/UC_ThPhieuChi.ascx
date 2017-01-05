@@ -84,10 +84,7 @@
                     </EditItemTemplate>
                 </telerik:GridTemplateColumn>
                 <telerik:GridBoundColumn UniqueName="GhiChu" DataField="GhiChu" HeaderText="Ghi chú"
-                    HeaderStyle-Width="600px">
-                    <ColumnValidationSettings EnableRequiredFieldValidation="true" EnableModelErrorMessageValidation="true">
-                        <RequiredFieldValidator ForeColor="Red" ErrorMessage="*"></RequiredFieldValidator>
-                    </ColumnValidationSettings>
+                    >
                 </telerik:GridBoundColumn>
                 
              

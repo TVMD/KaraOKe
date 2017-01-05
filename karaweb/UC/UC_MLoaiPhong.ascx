@@ -22,7 +22,7 @@
                 RefreshText="Làm mới" />
             <Columns>
                 
-                <telerik:GridBoundColumn UniqueName="ID" DataField="ID" Visible="False" >
+                <telerik:GridBoundColumn UniqueName="ID" DataField="ID" Visible="False" ReadOnly="true" >
                             </telerik:GridBoundColumn>
 
                 <telerik:GridTemplateColumn HeaderText="STT">
