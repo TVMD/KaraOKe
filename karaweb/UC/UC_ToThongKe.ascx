@@ -10,7 +10,7 @@
     </ChartTitle>
     <PlotArea>
         <Series>
-            <telerik:ColumnSeries DataFieldY="DoanhThu" Name="DoanhThu">
+            <telerik:ColumnSeries DataFieldY="DoanhThu" Name="Doanh Thu (Nghìn đồng)">
                 <TooltipsAppearance Visible="false"></TooltipsAppearance>
             </telerik:ColumnSeries>
         </Series>
@@ -19,7 +19,7 @@
             <MajorGridLines Visible="false"></MajorGridLines>
         </XAxis>
         <YAxis>
-            <TitleAppearance Text="Doanh thu"></TitleAppearance>
+            <TitleAppearance Text="Doanh thu (Nghìn đồng)"></TitleAppearance>
             <MinorGridLines Visible="false"></MinorGridLines>
         </YAxis>
     </PlotArea>
