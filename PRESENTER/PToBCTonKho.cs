@@ -40,5 +40,11 @@ namespace PRESENTER
             model.Insert(bc);
         }
 
+        public bool checkMonth(DateTime date)
+        {
+            MToBCTonKho svModel = new MToBCTonKho();
+            return svModel.checkMonth(date);
+        }
+
     }
 }

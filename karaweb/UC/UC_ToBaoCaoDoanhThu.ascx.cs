@@ -24,7 +24,8 @@ public partial class UC_ToBaoCaoDoanhThu : System.Web.UI.UserControl,IToBCDoanhT
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        ((Default2)Page).SetTitle("Thống kê - Báo cáo doanh thu");
+        ((Default2)Page).SetTitle("BÁO CÁO DOANH THU");
+        TextArea2.Visible = false;
     }
 
     protected void txtsearch_OnTextChanged(object sender, EventArgs e)
@@ -38,8 +39,8 @@ public partial class UC_ToBaoCaoDoanhThu : System.Web.UI.UserControl,IToBCDoanhT
 
     protected void RadGrid1_OnNeedDataSource(object sender, GridNeedDataSourceEventArgs e)
     {        
-        var presenter = new PToBaoCaoDoanhThu(this);
-        RadGrid1.DataSource = presenter.GetListBCDoanhThu();
+        //var presenter = new PToBaoCaoDoanhThu(this);
+        //RadGrid1.DataSource = presenter.GetListBCPhieuChi();
     }
 
     protected void RadGrid1_OnItemCreated(object sender, GridItemEventArgs e)
@@ -145,22 +146,34 @@ public partial class UC_ToBaoCaoDoanhThu : System.Web.UI.UserControl,IToBCDoanhT
     {
         dateFrom = (DateTime) RadDatePickerFrom.SelectedDate;
         dateTo = (DateTime) RadDatePickerTo.SelectedDate;
-        var presenter = new PToBaoCaoDoanhThu(this);
-        RadGrid1.DataSource = presenter.GetListBCDoanhThu();
-        RadGrid1.DataBind();
+        if (dateFrom > dateTo)
+        {
+            TextArea2.Visible = true;
+            TextArea2.Value = "Sai. Ngày bắt đầu không được sau ngày kết thúc!";
+        }
+        else
+        {
+            TextArea2.Visible = false;
+            var presenter = new PToBaoCaoDoanhThu(this);
+            RadGrid1.DataSource = presenter.GetListBCDoanhThu();
+            RadGrid1.DataBind();
+            TextBox1.Text = presenter.getTongTien();
+            //chi
+            RadGrid2.DataSource = presenter.GetListBCPhieuChi();
+            RadGrid2.DataBind();
+            TextBox2.Text = presenter.getTongChi();
+        }
+        
     }
-    protected void OnClick_XuatBaoCao(object sender, EventArgs e)
+
+
+    protected void RadGrid2_OnNeedDataSource(object sender, GridNeedDataSourceEventArgs e)
     {
-        //Response.Redirect("Report\\RP_BCDoanhThu.aspx");
-        String dateFrom = RadDatePickerFrom.SelectedDate.ToString();
-        String dateTo = RadDatePickerTo.SelectedDate.ToString();
-        String send = "?from=" + dateFrom + "&to=" + dateTo;
-        ScriptManager.RegisterStartupScript(Page, typeof(Page), "OpenWindow", "window.open('../Report/RP_BCDoanhThu.aspx" + send + "','_blank');", true);
-        //
-        //ReportDocument cryRpt = new ReportDocument();
-        //cryRpt.Load(Server.MapPath("Report\\Report_BCDoanhThu.rpt"));
-        //CrystalReportViewer1.ReportSource = cryRpt;
-        //Report_BCDoanhThu rp = new Report_BCDoanhThu();
-        //CrystalReportViewer1.ReportSource = rp;
+        
+    }
+
+    protected void RadGrid2_OnItemDataBound(object sender, GridItemEventArgs e)
+    {
+        
     }
 }

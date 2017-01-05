@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common.CommandTrees;
 using System.Linq;
 using System.Text;
 
@@ -100,6 +101,16 @@ namespace MODEL
             }
         }
 
-        
+        public bool checkMonth(DateTime date)
+        {
+            using (var db = new QLPhongKaraokeEntities())
+            {
+                var id = (from s in db.BCTONKHOes where s.Thang.Year == date.Year && s.Thang.Month == date.Month select s);
+                if (id.ToList().Count >0) //ton tai
+                    return false;
+                
+            }
+            return true;
+        }
     }
 }

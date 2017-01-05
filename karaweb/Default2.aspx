@@ -81,7 +81,7 @@
 
                                     <li class="mbeauty"><a><i class="fa fa-bar-chart-o "></i>Báo cáo <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li><a id="_bttonkho" class="uc">Báo cáo tồn kho</a></li>
+                                            <li><a id="_bctonkho" class="uc">Báo cáo tồn kho</a></li>
                                             <li><a id="_bcdoanhthu" class="uc">Báo cáo doanh thu</a></li>
                                         </ul>
                                     </li>
@@ -216,8 +216,6 @@
         <script src="Scripts/moment.js"></script>
         <script src="vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
         <script src="Scripts/supersaiyan.js?v=33"></script>
-        <!-- Scripts cua imVutoan-->
-        <script src="Scripts/toandeptrai.js"></script>
 
     </form>
 </body>

@@ -17,8 +17,8 @@ namespace MODEL
         public int ID_BCTonKho { get; set; }
         public int ID_Hang { get; set; }
         public int TonDau { get; set; }
+        public int SoLuongNhap { get; set; }
         public int SuDung { get; set; }
         public int TonCuoi { get; set; }
-        public int SoLuongNhap { get; set; }
     }
 }

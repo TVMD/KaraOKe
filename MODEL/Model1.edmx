@@ -170,6 +170,9 @@
         <Function Name="GetListBCTonKho" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="month" Type="datetime" Mode="In" />
         </Function>
+        <Function Name="GetListHangHoaChart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dateFrom" Type="datetime" Mode="In" />
+        </Function>
         <Function Name="GetListNguoiDung" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="getRP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="dateFrom" Type="datetime" Mode="In" />
@@ -221,9 +224,9 @@
           <Property Name="ID_BCTonKho" Type="Int32" Nullable="false" />
           <Property Name="ID_Hang" Type="Int32" Nullable="false" />
           <Property Name="TonDau" Type="Int32" Nullable="false" />
+          <Property Name="SoLuongNhap" Type="Int32" Nullable="false" />
           <Property Name="SuDung" Type="Int32" Nullable="false" />
           <Property Name="TonCuoi" Type="Int32" Nullable="false" />
-          <Property Name="SoLuongNhap" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="CT_HDNHAP">
           <Key>
@@ -382,6 +385,9 @@
             <Parameter Name="dateFrom" Mode="In" Type="DateTime" />
             <Parameter Name="dateTo" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <FunctionImport Name="GetListHangHoaChart" ReturnType="Collection(QLPhongKaraokeModel.GetListHangHoaChart_Result)">
+            <Parameter Name="dateFrom" Mode="In" Type="DateTime" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetListBCDoanhThu_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -419,6 +425,10 @@
           <Property Type="Decimal" Name="TienPhong" Nullable="true" Precision="19" />
           <Property Type="Decimal" Name="TongTien" Nullable="false" Precision="19" />
         </ComplexType>
+        <ComplexType Name="GetListHangHoaChart_Result">
+          <Property Type="String" Name="Ten" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="soluong" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -447,10 +457,10 @@
           <EntitySetMapping Name="CT_BCTONKHO">
             <EntityTypeMapping TypeName="QLPhongKaraokeModel.CT_BCTONKHO">
               <MappingFragment StoreEntitySet="CT_BCTONKHO">
-                <ScalarProperty Name="SoLuongNhap" ColumnName="SoLuongNhap" />
                 <ScalarProperty Name="ID_BCTonKho" ColumnName="ID_BCTonKho" />
                 <ScalarProperty Name="ID_Hang" ColumnName="ID_Hang" />
                 <ScalarProperty Name="TonDau" ColumnName="TonDau" />
+                <ScalarProperty Name="SoLuongNhap" ColumnName="SoLuongNhap" />
                 <ScalarProperty Name="SuDung" ColumnName="SuDung" />
                 <ScalarProperty Name="TonCuoi" ColumnName="TonCuoi" />
               </MappingFragment>
@@ -644,6 +654,14 @@
                 <ScalarProperty Name="TenKH" ColumnName="TenKH" />
                 <ScalarProperty Name="TienPhong" ColumnName="TienPhong" />
                 <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetListHangHoaChart" FunctionName="QLPhongKaraokeModel.Store.GetListHangHoaChart">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLPhongKaraokeModel.GetListHangHoaChart_Result">
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="soluong" ColumnName="soluong" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

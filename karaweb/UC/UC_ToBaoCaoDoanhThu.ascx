@@ -4,18 +4,15 @@
 <%@ Reference Page="~/Default2.aspx" %>
 
 <div>
-    <div align="right">
-        <telerik:RadTextBox ID="txtsearch" runat="server" Width="300px"
-            OnTextChanged="txtsearch_OnTextChanged" AutoPostBack="True">
-        </telerik:RadTextBox>
-    </div>   
-    
+    <label for="RadDatePickerFrom">Từ ngày : </label>
     <telerik:RadDatePicker ID="RadDatePickerFrom" runat="server" OnSelectedDateChanged="RadDatePickerFrom_SelectedDateChanged"></telerik:RadDatePicker>
-
+    <label for="RadDatePickerTo">Đến ngày : </label>
     <telerik:RadDatePicker ID="RadDatePickerTo" runat="server" OnSelectedDateChanged="RadDatePickerTo_SelectedDateChanged"></telerik:RadDatePicker>
     <asp:Button ID="Button1" runat="server" Text="Lập" OnClick="OnClick_Baocao"/>
-    <asp:Button ID="Button2" runat="server" Text="Xuất báo cáo" OnClick="OnClick_XuatBaoCao"/>
-
+    <textarea ID="TextArea2" runat="server" BorderStyle="None" readonly="true" Visible="false"></textarea>
+    <br/>
+    <br/>
+    <b >Danh sách hóa đơn dịch vụ</b>
     <telerik:RadGrid ID="RadGrid1" runat="server" ShowStatusBar="True" AllowPaging="True" PageSize="10" AutoGenerateColumns="False"
         OnNeedDataSource="RadGrid1_OnNeedDataSource"
         OnItemCreated="RadGrid1_OnItemCreated"
@@ -64,6 +61,42 @@
             
         </MasterTableView>
     </telerik:RadGrid>
+    <br/>
+    <center><label>Tổng doanh thu : </label> <asp:TextBox ID="TextBox1" ReadOnly="true" runat="server" CssClass="AlgRgh">0</asp:TextBox><label> đồng</label></center>
+    <br/>
+    <b >Danh sách phiếu chi</b>
+        <telerik:RadGrid ID="RadGrid2" runat="server" ShowStatusBar="True" AllowPaging="True" PageSize="10" 
+            AutoGenerateColumns="False"
+            OnNeedDataSource="RadGrid2_OnNeedDataSource"
+            OnItemDataBound="RadGrid2_OnItemDataBound">
+            <MasterTableView EditMode="EditForms" ShowFooter="false" CommandItemDisplay="None" Width="100%" 
+                ItemStyle-HorizontalAlign="Left" AlternatingItemStyle-HorizontalAlign="Left" CommandItemStyle-HorizontalAlign="Left">
+                <Columns>
+                    <telerik:GridTemplateColumn HeaderText="STT">
+                        <ItemTemplate>
+                            <%# Container.DataSetIndex + 1 %>
+                        </ItemTemplate>
+                    </telerik:GridTemplateColumn>
+                    <telerik:GridBoundColumn UniqueName="ID" DataField="ID" HeaderText="ID" Visible="false">
+                    </telerik:GridBoundColumn>
+                    <telerik:GridDateTimeColumn DataField="NgayLap" DataType="System.DateTime"
+                        DataFormatString="{0:dd/MM/yyyy}" EditDataFormatString="dd/MM/yyyy"
+                        HeaderText="Ngày lập" SortExpression="ShippedDate"
+                        UniqueName="Ngaylap">
+                    </telerik:GridDateTimeColumn>
+                    <telerik:GridBoundColumn UniqueName="NoiDung" DataField="NoiDung" HeaderText="Nội dung" ReadOnly="true">
+                            </telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="TongTien" DataField="TongTien" HeaderText="Tổng tiền" ReadOnly="true">
+                            </telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn UniqueName="GhiChu" DataField="GhiChu" HeaderText="Ghi chú" ReadOnly="true">
+                            </telerik:GridBoundColumn>
+                </Columns>
+            </MasterTableView>
+            
+        </telerik:RadGrid>
+    <br/>
+    <center><label>Tổng tiền chi : </label> <asp:TextBox ID="TextBox2" ReadOnly="true" runat="server" CssClass="AlgRgh">0</asp:TextBox><label> đồng</label></center>
+    <br/>
 </div>
 
 

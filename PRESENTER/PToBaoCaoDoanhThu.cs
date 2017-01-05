@@ -18,5 +18,21 @@ namespace PRESENTER
             MToBaoCaoDoanhThu svModel = new MToBaoCaoDoanhThu();
             return svModel.GetListHoaDon(iView.dateFrom, iView.dateTo);
         }
+        public List<PHIEUCHI> GetListBCPhieuChi()
+        {
+            MToBaoCaoDoanhThu svModel = new MToBaoCaoDoanhThu();
+            return svModel.GetListPhieuChi(iView.dateFrom, iView.dateTo);
+        }
+
+        public string getTongTien()
+        {
+            MToBaoCaoDoanhThu svModel = new MToBaoCaoDoanhThu();
+            return svModel.getTongTien(iView.dateFrom, iView.dateTo);
+        }
+        public string getTongChi()
+        {
+            MToBaoCaoDoanhThu svModel = new MToBaoCaoDoanhThu();
+            return svModel.getTongTienChi(iView.dateFrom, iView.dateTo);
+        }
     }
 }

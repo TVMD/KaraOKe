@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common.CommandTrees;
 using System.Linq;
 using System.Text;
 
@@ -17,6 +18,41 @@ namespace MODEL
                     }                    
                 }       
                 catch{   return null;        }
+        }
+        public List<PHIEUCHI> GetListPhieuChi(DateTime dateFrom, DateTime dateTo)
+        {
+            try
+            {
+                using (var db = new QLPhongKaraokeEntities())
+                {
+                    IEnumerable<PHIEUCHI> query = from s in db.PHIEUCHIs
+                                                    where s.NgayLap >= dateFrom && s.NgayLap <= dateTo
+                                                    select s;
+                    return query.ToList();
+                }
+            }
+            catch { return null; }
+        }
+
+        public string getTongTien(DateTime dateFrom, DateTime dateTo)
+        {
+            var kq = GetListHoaDon(dateFrom, dateTo);
+            Decimal tong = 0;
+            for (int i = 0; i < kq.Count; i++)
+            {
+                tong += kq[i].TongTien;
+            }
+            return tong.ToString();
+        }
+        public string getTongTienChi(DateTime dateFrom, DateTime dateTo)
+        {
+            var kq = GetListPhieuChi(dateFrom, dateTo);
+            Decimal tong = 0;
+            for (int i = 0; i < kq.Count; i++)
+            {
+                tong += kq[i].TongTien;
+            }
+            return tong.ToString();
         }
 
         public bool Insert(PHONG item)

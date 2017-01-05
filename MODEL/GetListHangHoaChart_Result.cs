@@ -11,9 +11,9 @@ namespace MODEL
 {
     using System;
     
-    public partial class sp_helpdiagramdefinition_Result
+    public partial class GetListHangHoaChart_Result
     {
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public string Ten { get; set; }
+        public Nullable<int> soluong { get; set; }
     }
 }

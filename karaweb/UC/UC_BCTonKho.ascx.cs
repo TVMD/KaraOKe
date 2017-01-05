@@ -24,7 +24,7 @@ public partial class UC_UC_BCTonKho : System.Web.UI.UserControl, IToBCTonKho
     #endregion
     protected void Page_Load(object sender, EventArgs e)
     {
-        ((Default2)Page).SetTitle("BÁO CÁO DOANH THU");
+        ((Default2)Page).SetTitle("BÁO CÁO TỒN KHO");
     }
 
     protected void RadGrid1_OnNeedDataSource(object sender, GridNeedDataSourceEventArgs e)
@@ -69,16 +69,15 @@ public partial class UC_UC_BCTonKho : System.Web.UI.UserControl, IToBCTonKho
 
     protected void RadGrid1_OnItemDataBound(object sender, GridItemEventArgs e)
     {
-        //if (e.Item is GridEditFormItem && e.Item.IsInEditMode)
-        //{
-        //    GridEditFormItem dataItem = e.Item as GridEditFormItem;
-        //    TableCell cell = dataItem["NgayNhap"];
-        //    RadDatePicker rdp = cell.Controls[0] as RadDatePicker;
-        //    rdp.SharedCalendar.UseColumnHeadersAsSelectors = false;
-        //    rdp.SharedCalendar.UseRowHeadersAsSelectors = false;
-        //    rdp.SharedCalendar.RangeMaxDate = DateTime.Now;
-        //    rdp.SharedCalendar.RangeMinDate = System.DateTime.Now.AddDays(-30);
-        //}
+        if (e.Item is GridEditFormItem && e.Item.IsInEditMode)
+        {
+            GridEditFormItem dataItem = e.Item as GridEditFormItem;
+            TableCell cell = dataItem["Thang"];
+            RadDatePicker rdp = cell.Controls[0] as RadDatePicker;
+            rdp.SharedCalendar.UseColumnHeadersAsSelectors = false;
+            rdp.SharedCalendar.UseRowHeadersAsSelectors = false;
+            rdp.SharedCalendar.RangeMaxDate = DateTime.Now;
+        }
     }
     protected void RadGrid2_OnItemDataBound(object sender, GridItemEventArgs e)
     {
@@ -134,9 +133,13 @@ public partial class UC_UC_BCTonKho : System.Web.UI.UserControl, IToBCTonKho
         var presenter = new PToBCTonKho(this);
         date =DateTime.Parse(newValue["Thang"].ToString());
 
-        //var cbb = e.Item.FindControl("k") as RadComboBox;
-        //IdLoaiPhong = Convert.ToInt32(cbb.SelectedValue);
-        presenter.Insert();
+        if (presenter.checkMonth(date))
+            presenter.Insert();
+        else
+        {
+            string scriptstring = "radalert('Job issue.Please try again later.', 250, 80,'Information');";
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "radalert", scriptstring, true);
+        }
 
     }
 

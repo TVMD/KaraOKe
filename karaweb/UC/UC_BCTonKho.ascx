@@ -14,7 +14,7 @@
             OnInsertCommand="RadGrid1_OnInsertCommand"
             OnSelectedIndexChanged="RadGrid1_SelectedIndexChanged1">
             <MasterTableView EditMode="EditForms" ShowFooter="false" CommandItemDisplay="Top" ItemStyle-HorizontalAlign="Left">
-                <CommandItemSettings AddNewRecordText="Thêm phiếu nhập"
+                <CommandItemSettings AddNewRecordText="Thêm báo cáo tồn kho"
                     RefreshText="Làm mới" />
                 <Columns>
 
@@ -23,7 +23,7 @@
                             <%# Container.DataSetIndex + 1 %>
                         </ItemTemplate>
                     </telerik:GridTemplateColumn>
-                    <telerik:GridBoundColumn UniqueName="ID" DataField="ID" HeaderText="ID" ReadOnly="true">                        
+                    <telerik:GridBoundColumn UniqueName="ID" DataField="ID" HeaderText="ID" ReadOnly="true" >                        
                     </telerik:GridBoundColumn>
                     <telerik:GridDateTimeColumn UniqueName="Thang" DataField="Thang" DataType="System.DateTime" ColumnEditorID="dtNgayNhap" 
                                             DataFormatString="{0:MM/yyyy}" EditDataFormatString="MM/yyyy"
@@ -32,6 +32,7 @@
                         <RequiredFieldValidator ForeColor="Red" ErrorMessage="*"></RequiredFieldValidator>
                     </ColumnValidationSettings>
                 </telerik:GridDateTimeColumn>
+
 
                 </Columns>
                 <EditFormSettings>
@@ -43,6 +44,7 @@
             <ClientSettings Selecting-AllowRowSelect="true" EnablePostBackOnRowClick="true">
 </ClientSettings>
         </telerik:RadGrid>
+        <p style="color: salmon; size: 5dp"><label>Tips chọn Tháng : chọn 1 ngày bất kì trong tháng</label></p>
     </div>
 
    <div style="float:left;margin-left:20px;text-align:center;margin-top:10px" >

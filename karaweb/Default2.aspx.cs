@@ -24,7 +24,7 @@ public partial class Default2 : Page
         }
         else
         {
-            LoadUserControl("UC\\UC_MPhong.ascx");
+            LoadUserControl("UC\\UC_ToThongKe.ascx");
         }
         if(IsPostBack)
             SupportLoad();
@@ -96,7 +96,7 @@ public partial class Default2 : Page
         }
         else if (control.Contains("_bctonkho"))
         {
-            LoadUserControl("UC\\UC_ToBaoCaoTonKho.ascx");
+            LoadUserControl("UC\\UC_BCTonKho.ascx");
         }
         else if (control.Contains("_bcdoanhthu"))
         {
