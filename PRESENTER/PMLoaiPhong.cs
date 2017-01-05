@@ -56,9 +56,9 @@ namespace PRESENTER
             return model.Insert(loaiphong);
         }
 
-        public bool Delete()
+        public bool Delete(int id)
         {
-            return model.Delete(view.ID);
+            return model.Delete(id);
         }
 
         public bool Update()

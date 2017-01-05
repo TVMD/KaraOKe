@@ -71,10 +71,17 @@
                                             <li class="menuadmin"><a id="loaiphong" class="uc">Danh sách loại phòng </a></li>
                                         </ul>
                                     </li>
+                                    
+                                    <li class="mbeauty"><a><i class="fa fa-beer "></i>Quản lý hàng <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a id="_nhaphang" class="uc">Nhập hàng</a></li>
+                                            <li class="menuadmin"><a id="_hang" class="uc">Danh sách hàng</a></li>
+                                        </ul>
+                                    </li>
+
                                     <li class="mbeauty"><a><i class="fa fa-table "></i>Hóa đơn <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
                                             <li><a id="hoadondv" class="uc">Hóa đơn dịch vụ</a></li>
-                                            <li><a id="_nhaphang" class="uc">Nhập hàng</a></li>
                                             <li><a id="_phieuchi" class="uc">Phiếu chi</a></li>
                                         </ul>
                                     </li>
@@ -89,7 +96,6 @@
                                         <ul class="nav child_menu">
                                             <li class="menuadmin"><a id="thamso" class="uc">Tham số</a></li>
                                             <li class="menuadmin"><a id="_user" class="uc">Nguời dùng</a></li>
-                                            <li class="menuadmin"><a id="_hang" class="uc">Danh sách hàng</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -215,7 +221,7 @@
         <script src="Scripts/jquery-ui-1.12.1/jquery-ui.js"></script>
         <script src="Scripts/moment.js"></script>
         <script src="vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
-        <script src="Scripts/supersaiyan.js?v=33"></script>
+        <script src="Scripts/supersaiyan.js?v=3.3"></script>
 
     </form>
 </body>
