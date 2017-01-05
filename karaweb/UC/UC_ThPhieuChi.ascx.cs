@@ -87,6 +87,17 @@ public partial class UC_UC_ThPhieuChi : System.Web.UI.UserControl, IThPhieuChi
             RadDateTimePicker rpk = (RadDateTimePicker)e.Item.FindControl("txtngaylap");
             rpk.SelectedDate = DateTime.Now;
         }
+
+        if (e.Item is GridEditFormItem && e.Item.IsInEditMode)
+        {
+            GridEditFormItem dataItem = e.Item as GridEditFormItem;
+            TableCell cell = dataItem["ShippedDate"];
+            RadDatePicker rdp = cell.Controls[0] as RadDatePicker;
+            rdp.SharedCalendar.UseColumnHeadersAsSelectors = false;
+            rdp.SharedCalendar.UseRowHeadersAsSelectors = false;
+            rdp.SharedCalendar.RangeMaxDate = DateTime.Now;
+            //rdp.SharedCalendar.RangeMinDate = System.DateTime.Now.AddDays(-30);
+        }
     }
 
     protected void RadGrid1_OnInsertCommand(object sender, GridCommandEventArgs e)

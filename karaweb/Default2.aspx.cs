@@ -9,6 +9,7 @@ using PRESENTER;
 public partial class Default2 : Page
 {
     public NGUOIDUNG user;
+    private static string titleuc = "";
     protected void Page_Load(object sender, EventArgs e)
     {
         //code login
@@ -16,6 +17,7 @@ public partial class Default2 : Page
         if (user==null)
         {
             Response.Redirect("LoginPage.aspx");
+            return;
         }
         //end
         if (LatestLoadedMainContent != null)
@@ -106,10 +108,15 @@ public partial class Default2 : Page
         {
             LoadUserControl("UC\\UC_ToThongKe.ascx");
         }
+
+        //set title
+        ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "set", "settitle('" + titleuc + "');", true);
+        //end
     } 
     public void SetTitle(string newtitle)
     {
         UC_Title.InnerHtml = newtitle ?? "null";
+        titleuc = newtitle;
     }
 
     public void ShowDialog(string name,string title,int width,int height)

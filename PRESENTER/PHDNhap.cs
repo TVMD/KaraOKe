@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using IVIEW;
@@ -38,7 +39,6 @@ namespace PRESENTER
 
             foreach (var item in dt)
             {
-
                 tb.Rows.Add(item.ID, item.NgayNhap.ToShortDateString(), item.TongTien);
             }
 

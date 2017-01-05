@@ -4,6 +4,7 @@
 
 <div>
     <div align="right">
+         <label>Tìm kiếm</label>
         <telerik:RadTextBox ID="txtsearch" runat="server" Width="300px"
             OnTextChanged="txtsearch_OnTextChanged" AutoPostBack="True">
         </telerik:RadTextBox>
@@ -28,7 +29,7 @@
                 </telerik:GridTemplateColumn>
 
                 <telerik:GridTemplateColumn UniqueName="IDHang" HeaderText="Mã hàng"
-                    HeaderStyle-Width="600px">
+                    >
                     <ItemTemplate>
                         <asp:Label ID="LayoutTypeIDLabel" runat="server"
                         Text='<%#DataBinder.Eval(Container.DataItem, "ID") %>'></asp:Label>
@@ -49,7 +50,7 @@
 
                
                 <telerik:GridBoundColumn UniqueName="Ten" DataField="Ten" HeaderText="Tên hàng"
-                    HeaderStyle-Width="600px">
+                  >
                     <ColumnValidationSettings EnableRequiredFieldValidation="true" EnableModelErrorMessageValidation="true">
                         <RequiredFieldValidator ForeColor="Red" ErrorMessage="*"></RequiredFieldValidator>
                     </ColumnValidationSettings>
@@ -79,8 +80,12 @@
                         </asp:RequiredFieldValidator>
                     </EditItemTemplate>
                 </telerik:GridTemplateColumn>
+
+                  <telerik:GridBoundColumn UniqueName="slton" DataField="SLTon" ReadOnly="True" >
+                            </telerik:GridBoundColumn>
+
                 <telerik:GridBoundColumn UniqueName="DonVi" DataField="DonVi" HeaderText="Đơn vị"
-                    HeaderStyle-Width="600px">
+                   >
                     <ColumnValidationSettings EnableRequiredFieldValidation="true" EnableModelErrorMessageValidation="true">
                         <RequiredFieldValidator ForeColor="Red" ErrorMessage="*"></RequiredFieldValidator>
                     </ColumnValidationSettings>

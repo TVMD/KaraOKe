@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>KARAOKE MANAGEMENT</title>
+    <title>KARAOKE iSing MANAGEMENT</title>
 
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +37,7 @@
                 <div class="col-md-3 left_col">
                     <div class="left_col scroll-view">
                         <div class="navbar nav_title" style="border: 0;">
-                            <a href="Default2.aspx" class="site_title"><i class="fa fa-glass"></i><span>KaraOke</span></a>
+                            <a href="Default2.aspx" class="site_title"><i class="fa fa-glass"></i><span>KaraOke iSing</span></a>
                         </div>
 
                         <div class="clearfix"></div>
@@ -165,7 +165,7 @@
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="x_panel">
                                     <div class="x_title">
-                                        <h2 runat="server" id="UC_Title">User Control title</h2>
+                                        <h2 runat="server" id="UC_Title" clientidmode="Static">User Control title</h2>
                                         <ul class="nav navbar-right panel_toolbox">
                                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                             </li>

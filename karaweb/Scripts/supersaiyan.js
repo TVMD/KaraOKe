@@ -5,6 +5,9 @@ $(function () {
 
 });
 
+function settitle(a) {
+    $("#UC_Title").html(a);
+}
 function ShowDialog(name,xtitle,width,height) {
     $('#dialog').load(name, function() {
         $(this).dialog({
@@ -162,9 +165,7 @@ function btnbatdauclick() {
 }
 
 function btntinhtienclick() {
-    //inhd
-    window.print();
-    //
+   
     var tg = $("#tgbatdau").val();
     $("#tgbatdau").val(moment(tg, "DD/MM/YYYY HH:mm:ss").format("DD/MM/YYYY HH:mm:ss"));
     $("#btnbatdau").prop("disabled", false);

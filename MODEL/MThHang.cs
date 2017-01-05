@@ -127,14 +127,15 @@ namespace MODEL
                 return null;
             }
         }
-        public List<int> GetSLTon()
+        public int GetSLTon(int idhang)
         {
-            var db = new QLPhongKaraokeEntities();            
-                var x = from h in db.HANGs
-                        join t in db.CT_BCTONKHO
-                        on h.ID equals t.ID_Hang
-                        select t.TonCuoi;
-                return x.ToList();
+            //var db = new QLPhongKaraokeEntities();            
+            //    var x = from h in db.HANGs
+            //            join t in db.CT_BCTONKHO
+            //            on h.ID equals t.ID_Hang
+            //            select t.TonCuoi;
+            //    return x.ToList();
+            return 0;
 
         }
 

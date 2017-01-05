@@ -10,7 +10,7 @@ namespace MODEL
         {
             using (var db = new QLPhongKaraokeEntities())
             {
-                IEnumerable<HOADONDV> query = from s in db.HOADONDVs where s.Deleted == 0 select s;
+                IEnumerable<HOADONDV> query = from s in db.HOADONDVs where s.Deleted == 0 orderby s.NgayGioLap descending select s;
 
                 //Filter // neu de search=null thi kho search,
                 if (!string.IsNullOrEmpty(search))

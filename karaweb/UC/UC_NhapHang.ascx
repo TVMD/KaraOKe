@@ -5,6 +5,7 @@
 
 <div>
     <div align="right">
+         <label>Tìm kiếm</label>
         <telerik:RadTextBox ID="txtsearch" runat="server" Width="300px"
             OnTextChanged="txtsearch_OnTextChanged" AutoPostBack="True">
         </telerik:RadTextBox>

@@ -8,6 +8,7 @@
 </style>
 <div>
     <div align="right">
+        <label>Tìm kiếm</label>
         <telerik:RadTextBox ID="txtsearch" runat="server" Width="300px"
             OnTextChanged="txtsearch_OnTextChanged" AutoPostBack="True">
         </telerik:RadTextBox>
@@ -67,6 +68,9 @@
                                         </asp:RequiredFieldValidator>
                                     </EditItemTemplate>
                                 </telerik:GridTemplateColumn>
+                                
+                                <telerik:GridBoundColumn UniqueName="ngaygiolap" DataField="NgayGioLap" HeaderText="Thời gian lập" ReadOnly="True" >
+                                </telerik:GridBoundColumn>
 
                                 <telerik:GridBoundColumn UniqueName="TenKH" DataField="TenKH" HeaderText="Tên khách">
                                     <ColumnValidationSettings EnableRequiredFieldValidation="true" EnableModelErrorMessageValidation="true">

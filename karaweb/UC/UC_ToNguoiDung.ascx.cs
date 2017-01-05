@@ -21,7 +21,7 @@ public partial class UC_UC_ToNguoiDung : System.Web.UI.UserControl, IToNguoiDung
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        ((Default2)Page).SetTitle("Quản lý danh sách các phòng");
+        ((Default2)Page).SetTitle("Quản lý người dùng");
     }
 
     protected void txtsearch_OnTextChanged(object sender, EventArgs e)

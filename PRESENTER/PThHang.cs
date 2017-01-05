@@ -43,9 +43,8 @@ namespace PRESENTER
                     item.Ten,
                     item.DonGiaNhap,
                     item.DonGiaBan,
-                    model.GetSLTon(),
+                    item.SLTon,
                     item.DonVi
-         //           item.Requested
                     );
             }
             return tb;

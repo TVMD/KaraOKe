@@ -24,6 +24,7 @@ public partial class UC_UC_NhapHang : System.Web.UI.UserControl,IHDNhap
     {
         //if(Session["curID"] ==null)
         //    Session["curID"] = 2;
+        ((Default2)Page).SetTitle("Nhập hàng");
     }
     protected void txtsearch_OnTextChanged(object sender, EventArgs e)
     {

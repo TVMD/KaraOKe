@@ -4,6 +4,7 @@
 
 <div>
     <div align="right">
+         <label>Tìm kiếm</label>
         <telerik:RadTextBox ID="txtsearch" runat="server" Width="300px"
             OnTextChanged="txtsearch_OnTextChanged" AutoPostBack="True">
         </telerik:RadTextBox>
@@ -57,7 +58,7 @@
                     </EditItemTemplate>
                 </telerik:GridTemplateColumn>
 
-                <telerik:GridBoundColumn UniqueName="Hoten" DataField="HoTen" HeaderText="Họ Tên"
+              <%--  <telerik:GridBoundColumn UniqueName="Hoten" DataField="HoTen" HeaderText="Họ Tên"
                     HeaderStyle-Width="600px">                    
                 </telerik:GridBoundColumn>
 
@@ -67,7 +68,7 @@
 
                 <telerik:GridBoundColumn UniqueName="SoDT" DataField="SoDT" HeaderText="Số điện thoại"
                     HeaderStyle-Width="600px">                    
-                </telerik:GridBoundColumn>
+                </telerik:GridBoundColumn>--%>
 
                <telerik:GridTemplateColumn UniqueName="MaNhomQuyen" HeaderText="Tên quyền"
                     HeaderStyle-Width="600px">
